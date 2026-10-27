@@ -1,0 +1,5 @@
+---
+import { mark } from '../lib/content.mjs';
+const { app } = Astro.props;
+---
+<Fragment set:html={mark(app)} />

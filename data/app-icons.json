@@ -1,0 +1,137 @@
+{
+  "clash-verge-rev": {
+    "path": "/assets/apps/clash-verge-rev.png",
+    "source": "https://raw.githubusercontent.com/clash-verge-rev/clash-verge-rev/main/src-tauri/icons/icon.png",
+    "evidence": "https://github.com/clash-verge-rev/clash-verge-rev#readme",
+    "attribution": "Clash Verge Rev contributors",
+    "width": 512,
+    "height": 512,
+    "note": "原始项目标识，仅用于软件识别；版权及商标属于各项目原权利人。"
+  },
+  "flclash": {
+    "path": "/assets/apps/flclash.png",
+    "source": "https://raw.githubusercontent.com/chen08209/FlClash/main/assets/images/icon.png",
+    "evidence": "https://github.com/chen08209/FlClash#readme",
+    "attribution": "chen08209 / FlClash contributors",
+    "width": 550,
+    "height": 550,
+    "note": "原始项目标识，仅用于软件识别；版权及商标属于各项目原权利人。"
+  },
+  "clash-nyanpasu": {
+    "path": "/assets/apps/clash-nyanpasu.png",
+    "source": "https://nyanpasu.org/images/logo.png",
+    "evidence": "https://nyanpasu.org/",
+    "attribution": "Clash Nyanpasu contributors",
+    "width": 1280,
+    "height": 1280,
+    "note": "原始项目标识，仅用于软件识别；版权及商标属于各项目原权利人。"
+  },
+  "clash-party": {
+    "path": "/assets/apps/clash-party.png",
+    "source": "https://raw.githubusercontent.com/mihomo-party-org/clash-party/main/resources/icon.png",
+    "evidence": "https://github.com/mihomo-party-org/clash-party/tree/main/resources",
+    "attribution": "Clash Party contributors",
+    "width": 512,
+    "height": 512,
+    "note": "原始项目标识，仅用于软件识别；版权及商标属于各项目原权利人。"
+  },
+  "clash-mi": {
+    "path": "/assets/apps/clash-mi.png",
+    "source": "https://raw.githubusercontent.com/KaringX/clashmi/main/assets/demo/icon_256.png",
+    "evidence": "https://github.com/KaringX/clashmi#readme",
+    "attribution": "KaringX / Clash Mi contributors",
+    "width": 256,
+    "height": 256,
+    "note": "原始项目标识，仅用于软件识别；版权及商标属于各项目原权利人。"
+  },
+  "clash-meta-android": {
+    "path": "/assets/apps/clash-meta-android.png",
+    "source": "https://raw.githubusercontent.com/MetaCubeX/ClashMetaForAndroid/main/app/src/main/ic_launcher-web.png",
+    "evidence": "https://github.com/MetaCubeX/ClashMetaForAndroid/tree/main/app/src/main",
+    "attribution": "MetaCubeX / ClashMetaForAndroid contributors",
+    "width": 512,
+    "height": 512,
+    "note": "原始项目标识，仅用于软件识别；版权及商标属于各项目原权利人。"
+  },
+  "clashx-meta": {
+    "path": "/assets/apps/clashx-meta.png",
+    "source": "https://raw.githubusercontent.com/MetaCubeX/ClashX.Meta/master/ClashX/Images.xcassets/AppIcon.appiconset/icon_256x256.png",
+    "evidence": "https://github.com/MetaCubeX/ClashX.Meta/blob/master/ClashX/Images.xcassets/AppIcon.appiconset/Contents.json",
+    "attribution": "ClashX / MetaCubeX contributors",
+    "width": 256,
+    "height": 256,
+    "note": "原始项目标识，仅用于软件识别；版权及商标属于各项目原权利人。"
+  },
+  "flclashx": {
+    "path": "/assets/apps/flclashx.png",
+    "source": "https://raw.githubusercontent.com/pluralplay/FlClashX/main/assets/images/icon.png",
+    "evidence": "https://github.com/pluralplay/FlClashX/blob/main/pubspec.yaml",
+    "attribution": "pluralplay / FlClashX contributors",
+    "width": 1707,
+    "height": 1707,
+    "note": "原始项目标识，仅用于软件识别；版权及商标属于各项目原权利人。"
+  },
+  "mihomo": {
+    "path": "/assets/apps/mihomo.png",
+    "source": "https://raw.githubusercontent.com/MetaCubeX/mihomo/Meta/Meta.png",
+    "evidence": "https://github.com/MetaCubeX/mihomo/tree/Meta#readme",
+    "attribution": "MetaCubeX / Mihomo contributors",
+    "width": 512,
+    "height": 512,
+    "note": "原始项目标识，仅用于软件识别；版权及商标属于各项目原权利人。"
+  },
+  "openclash": {
+    "path": "/assets/apps/openclash.png",
+    "source": "https://raw.githubusercontent.com/vernesong/OpenClash/dev/img/logo.png",
+    "evidence": "https://github.com/vernesong/OpenClash#readme",
+    "attribution": "vernesong / OpenClash contributors",
+    "width": 512,
+    "height": 512,
+    "note": "原始项目标识，仅用于软件识别；版权及商标属于各项目原权利人。"
+  },
+  "zashboard": {
+    "path": "/assets/apps/zashboard.png",
+    "source": "https://raw.githubusercontent.com/Zephyruso/zashboard/main/public/pwa-192x192.png",
+    "evidence": "https://github.com/Zephyruso/zashboard/blob/main/index.html",
+    "attribution": "Zephyruso / Zashboard contributors",
+    "width": 192,
+    "height": 192,
+    "note": "原始项目标识，仅用于软件识别；版权及商标属于各项目原权利人。"
+  },
+  "gui-for-clash": {
+    "path": "/assets/apps/gui-for-clash.png",
+    "source": "https://raw.githubusercontent.com/GUI-for-Cores/GUI.for.Clash/main/build/appicon.png",
+    "evidence": "https://github.com/GUI-for-Cores/GUI.for.Clash/blob/main/build/README.md",
+    "attribution": "GUI-for-Cores contributors",
+    "width": 256,
+    "height": 256,
+    "note": "原始项目标识，仅用于软件识别；版权及商标属于各项目原权利人。"
+  },
+  "clash-verge": {
+    "path": "/assets/apps/clash-verge.png",
+    "source": "https://raw.githubusercontent.com/zzzgydi/clash-verge/main/src/assets/image/logo.png",
+    "evidence": "https://github.com/zzzgydi/clash-verge#readme",
+    "attribution": "zzzgydi / Clash Verge contributors",
+    "width": 1280,
+    "height": 1280,
+    "note": "原始项目标识，仅用于软件识别；版权及商标属于各项目原权利人。"
+  },
+  "clash-rs": {
+    "path": "/assets/apps/clash-rs.png",
+    "source": "https://github.com/ibigbug/clash-rs/assets/543405/76122ef1-eac8-478a-8ba4-ca5e54f8e272",
+    "evidence": "https://github.com/ibigbug/clash-rs#readme",
+    "attribution": "ClashRS contributors",
+    "width": 1024,
+    "height": 1024,
+    "note": "原始项目标识，仅用于软件识别；版权及商标属于各项目原权利人。"
+  },
+  "metacubexd": {
+    "path": "/assets/apps/metacubexd.png",
+    "source": "https://d.metacubex.one/pwa-192x192.png",
+    "evidence": "https://d.metacubex.one/",
+    "attribution": "MetaCubeX / MetaCubeXD contributors",
+    "width": 192,
+    "height": 192,
+    "note": "原始项目标识，仅用于软件识别；版权及商标属于各项目原权利人。"
+  }
+}
