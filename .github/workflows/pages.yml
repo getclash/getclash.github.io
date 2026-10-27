@@ -1,18 +1,18 @@
-name: Publish GitHub Pages
+name: Validate GitHub Pages source
 
 on:
   push:
+    branches: [main]
+  pull_request:
     branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  group: validate-pages-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -27,17 +27,5 @@ jobs:
         run: npm run build
       - name: Verify content and internal links
         run: npm run check
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v4
-        with:
-          path: dist
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Verify committed root files match the build
+        run: node scripts/export-pages.mjs --check

@@ -19,7 +19,7 @@ npm run build
 npm run check
 ```
 
-构建产物位于 `dist/`，不要直接编辑该目录。校验涵盖页面标题与描述唯一性、自引用 canonical、中文语言标记、单一 H1、JSON-LD、站内链接和片段、网站地图、数据引用，以及下载来源和加速前缀。不逐一请求外部链接，也不验证二进制文件安全性。
+构建产物位于 `dist/`，不要直接编辑该目录。校验涵盖页面标题与描述唯一性、自引用 canonical、中文语言标记、单一 H1、JSON-LD、站内链接和片段、网站地图、数据引用，以及下载来源和加速前缀。不逐一请求外部链接，也不验证二进制文件安全性。正式发布前还需运行下方的 `npm run export:pages`，同步仓库根目录的发布文件。
 
 需要为其他独立域名生成页面时，可设置 `SITE_URL`；默认值仍为 `https://getclash.github.io`。这是根站部署配置，迁移到带子目录的项目站点时还需调整站内资源路径。
 
@@ -54,16 +54,27 @@ https://github.com/OWNER/REPOSITORY/releases/download/TAG/FILE
 
 ## GitHub Pages 发布
 
-仓库名应为 `getclash.github.io`，并归 `getclash` 用户或组织所有。在 GitHub 仓库的 **Settings → Pages → Build and deployment** 中，将 **Source** 设为 **GitHub Actions**。
+当前网站使用 GitHub Pages 的 **Deploy from a branch → `main` → `/(root)`** 模式。GitHub 直接发布仓库根目录，因此仅构建 `dist/` 不会更新线上页面，也不需要切换至 GitHub Actions 发布。
 
-仓库内的 Pages 工作流应依次执行：
+每次修改内容、样式或配置后运行：
 
-1. 检出源代码并设置 Node.js 20 或更新版本。
-2. 运行 `npm run build` 和 `npm run check`。
-3. 使用 Pages artifact 上传 `dist/`。
-4. 通过 Pages 部署任务发布，并启用 `pages: write`、`id-token: write` 权限和 `github-pages` 环境。
+```sh
+npm run export:pages
+```
 
-部署后核对首页、软件详情页、教程、`404.html`、`robots.txt` 和 `sitemap.xml`。GitHub Pages 配置参考 [使用自定义工作流部署](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)。
+该命令会先构建和校验，再将生成页面、资源、网站地图及 `.nojekyll` 复制到仓库根目录。`.pages-manifest.json` 记录本批生成文件，后续仅按该清单清理旧产物，不覆盖 `data/`、`scripts/`、`public/`、`.github/`、`package.json` 或 README 等源码。请勿手工编辑根目录的生成文件；新增顶层页面目录时，应先更新导出脚本的目录白名单。
+
+检查变更后，将源码、根目录生成文件和 `.pages-manifest.json` 一并提交并推送到 `main`。GitHub 自带的 **pages build and deployment** 流程会发布这些根文件。
+
+仓库的 `.github/workflows/pages.yml` 仅负责重新构建、内容校验和以下一致性检查，不另外运行部署任务，避免与分支发布竞争：
+
+```sh
+node scripts/export-pages.mjs --check
+```
+
+如果 CI 提示根产物不同，请本地重新运行 `npm run export:pages` 并提交生成差异。只提交源码而忘记导出，线上页面会保留旧内容。
+
+部署后核对首页、软件详情页、教程、`404.html`、`robots.txt` 和 `sitemap.xml`。分支发布配置参考 [配置 GitHub Pages 发布源](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)。
 
 ## Bing 验证与提交
 
@@ -73,6 +84,6 @@ https://github.com/OWNER/REPOSITORY/releases/download/TAG/FILE
 "bingVerification": "Bing 提供的验证码"
 ```
 
-默认留空时不会生成验证标签。也可以通过构建环境变量 `BING_VERIFICATION` 设置实际值。重新部署后查看首页源代码，确认验证码正确，再回 Bing 完成验证。
+默认留空时不会生成验证标签。也可以通过构建环境变量 `BING_VERIFICATION` 设置实际值。设置后运行 `npm run export:pages`，提交并推送更新；重新部署后查看首页源代码，确认验证码正确，再回 Bing 完成验证。
 
 验证后提交网站地图 **[https://getclash.github.io/sitemap.xml](https://getclash.github.io/sitemap.xml)**，并使用 URL Inspection 检查首页和重要的软件、教程页面。`robots.txt` 已声明网站地图；404 页面设为 `noindex`，不会进入地图。提交只帮助发现页面，不保证收录或排名。相关说明见 [Bing 网站验证帮助](https://www.bing.com/webmasters/help/add-and-verify-site-12184f8b) 和 [URL Inspection](https://www.bing.com/webmasters/help/URL-Inspection-55a30305)。
