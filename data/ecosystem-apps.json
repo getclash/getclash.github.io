@@ -1,0 +1,980 @@
+[
+  {
+    "slug": "clash-meta-android",
+    "name": "Clash Meta for Android",
+    "tagline": "熟悉的 Android 界面，持续演进的 Meta 内核。",
+    "description": "Clash Meta for Android（CMFA）沿用 Clash for Android 的原生界面，以 Mihomo / Clash.Meta 处理网络连接。适合希望保留传统配置、代理组和日志操作习惯的 Android 用户。安装包按处理器架构区分，也提供通用包。",
+    "status": "active",
+    "statusNote": "公开仓库未归档；2026-10-21 发布 v2.11.36。",
+    "category": "client",
+    "platforms": [
+      "Android"
+    ],
+    "core": "Mihomo / Clash.Meta",
+    "repo": "https://github.com/MetaCubeX/ClashMetaForAndroid",
+    "website": null,
+    "featured": true,
+    "features": [
+      "原生 Android 界面",
+      "订阅与 YAML 配置",
+      "VPN 服务模式",
+      "ARM 与 x86 架构"
+    ],
+    "notes": "项目说明最低支持 Android 5.0，推荐 Android 7.0 及以上。大多数近年的手机可选择 arm64-v8a；无法确认架构时再考虑体积更大的 universal 包。",
+    "sources": [
+      {
+        "label": "项目说明",
+        "url": "https://github.com/MetaCubeX/ClashMetaForAndroid"
+      },
+      {
+        "label": "官方发布记录",
+        "url": "https://github.com/MetaCubeX/ClashMetaForAndroid/releases/tag/v2.11.36"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "Android ARM64 APK",
+        "platform": "Android",
+        "arch": "arm64-v8a",
+        "url": "https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/v2.11.36/cmfa-2.11.36-meta-arm64-v8a-release.apk",
+        "kind": "github"
+      },
+      {
+        "label": "Android ARMv7 APK",
+        "platform": "Android",
+        "arch": "armeabi-v7a",
+        "url": "https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/v2.11.36/cmfa-2.11.36-meta-armeabi-v7a-release.apk",
+        "kind": "github"
+      },
+      {
+        "label": "Android 通用 APK",
+        "platform": "Android",
+        "arch": "universal",
+        "url": "https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/v2.11.36/cmfa-2.11.36-meta-universal-release.apk",
+        "kind": "github"
+      },
+      {
+        "label": "Android x86-64 APK",
+        "platform": "Android",
+        "arch": "x86_64",
+        "url": "https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/v2.11.36/cmfa-2.11.36-meta-x86_64-release.apk",
+        "kind": "github"
+      }
+    ],
+    "version": "v2.11.36",
+    "releaseDate": "2026-10-21",
+    "verifiedAt": "2026-10-27"
+  },
+  {
+    "slug": "clash-for-android",
+    "name": "Clash for Android",
+    "tagline": "Android 上经典 Clash 客户端的历史原点。",
+    "description": "Clash for Android（CFA）是 Clash 生态早期重要的 Android 图形客户端。今天搜索这个名字，常会同时遇到原版、历史备份和不同维护者的 fork；这些发行来源需要分别辨认。本站保留这一条目用于版本识别与迁移参考。",
+    "status": "discontinued",
+    "statusNote": "原 Kr328/ClashForAndroid 上游目前不可访问，原版按停更历史项目整理。",
+    "category": "client",
+    "platforms": [
+      "Android"
+    ],
+    "core": "Clash / Clash Premium（历史）",
+    "repo": null,
+    "website": null,
+    "featured": false,
+    "features": [
+      "传统配置管理",
+      "规则分流",
+      "代理组选择",
+      "Android VPN 接口"
+    ],
+    "notes": "Clash Meta for Android 是独立维护分支，不等于原 CFA 作者恢复更新。未找到可直接从原上游核验的官方安装包，因此不提供同名镜像下载。",
+    "sources": [
+      {
+        "label": "原始上游地址（目前不可访问）",
+        "url": "https://github.com/Kr328/ClashForAndroid"
+      },
+      {
+        "label": "早期源代码项目",
+        "url": "https://github.com/xuhaoyang/ClashForAndroid"
+      },
+      {
+        "label": "现行 Meta 分支说明",
+        "url": "https://github.com/MetaCubeX/ClashMetaForAndroid"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "原上游安装包暂不可核验",
+        "platform": "Android",
+        "arch": "—",
+        "url": null,
+        "kind": "unavailable"
+      }
+    ],
+    "version": null,
+    "releaseDate": null,
+    "verifiedAt": "2026-10-27"
+  },
+  {
+    "slug": "clash-mi",
+    "name": "Clash Mi",
+    "tagline": "从手机到桌面，用同一套配置习惯。",
+    "description": "Clash Mi 是使用 Flutter 构建的 Mihomo 图形客户端，覆盖 Windows、macOS、Linux、Android，以及通过 App Store 发行的 iPhone 和 iPad 版本。它围绕 YAML 配置、覆写与内置 Zashboard 面板组织功能，适合在多个平台间保持相近的操作方式。",
+    "status": "active",
+    "statusNote": "公开仓库持续更新；GitHub 稳定版为 v1.0.31.1703。",
+    "category": "client",
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Android",
+      "iOS",
+      "iPadOS"
+    ],
+    "core": "Mihomo",
+    "repo": "https://github.com/KaringX/clashmi",
+    "website": "https://clashmi.app/",
+    "featured": true,
+    "features": [
+      "跨平台界面",
+      "内置 Mihomo",
+      "配置覆写",
+      "内置 Zashboard"
+    ],
+    "notes": "官方唯一网站为 clashmi.app。iOS / iPadOS 从 App Store 安装，不能把 GitHub APK 当作 iPhone 安装包；商店可用性由账号地区决定。GitHub 与 App Store 的上架日期可能不同。",
+    "sources": [
+      {
+        "label": "项目说明与发行入口",
+        "url": "https://github.com/KaringX/clashmi"
+      },
+      {
+        "label": "官方用户手册",
+        "url": "https://clashmi.app/"
+      },
+      {
+        "label": "iPhone 与 iPad 商店页面",
+        "url": "https://apps.apple.com/us/app/clash-mi/id6744321968"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "Windows x64 安装程序",
+        "platform": "Windows",
+        "arch": "x64",
+        "url": "https://github.com/KaringX/clashmi/releases/download/v1.0.31.1703/clashmi_1.0.31.1703_windows_x64.exe",
+        "kind": "github"
+      },
+      {
+        "label": "Windows x64 便携包",
+        "platform": "Windows",
+        "arch": "x64",
+        "url": "https://github.com/KaringX/clashmi/releases/download/v1.0.31.1703/clashmi_1.0.31.1703_windows_x64.zip",
+        "kind": "github"
+      },
+      {
+        "label": "macOS 通用 DMG",
+        "platform": "macOS",
+        "arch": "universal",
+        "url": "https://github.com/KaringX/clashmi/releases/download/v1.0.31.1703/clashmi_1.0.31.1703_macos_universal.dmg",
+        "kind": "github"
+      },
+      {
+        "label": "Linux x64 AppImage",
+        "platform": "Linux",
+        "arch": "x64",
+        "url": "https://github.com/KaringX/clashmi/releases/download/v1.0.31.1703/clashmi_1.0.31.1703_linux_amd64.AppImage",
+        "kind": "github"
+      },
+      {
+        "label": "Linux x64 DEB",
+        "platform": "Linux",
+        "arch": "x64",
+        "url": "https://github.com/KaringX/clashmi/releases/download/v1.0.31.1703/clashmi_1.0.31.1703_linux_amd64.deb",
+        "kind": "github"
+      },
+      {
+        "label": "Android ARM64 APK",
+        "platform": "Android",
+        "arch": "arm64-v8a",
+        "url": "https://github.com/KaringX/clashmi/releases/download/v1.0.31.1703/clashmi_1.0.31.1703_android_arm64-v8a.apk",
+        "kind": "github"
+      },
+      {
+        "label": "Android ARMv7 APK",
+        "platform": "Android",
+        "arch": "armeabi-v7a",
+        "url": "https://github.com/KaringX/clashmi/releases/download/v1.0.31.1703/clashmi_1.0.31.1703_android_armeabi-v7a.apk",
+        "kind": "github"
+      },
+      {
+        "label": "iPhone / iPad App Store",
+        "platform": "iOS",
+        "arch": "iPhone / iPad",
+        "url": "https://apps.apple.com/us/app/clash-mi/id6744321968",
+        "kind": "store"
+      }
+    ],
+    "version": "v1.0.31.1703",
+    "releaseDate": "2026-10-09",
+    "verifiedAt": "2026-10-27"
+  },
+  {
+    "slug": "mihomo",
+    "name": "Mihomo / Clash.Meta",
+    "tagline": "驱动众多新一代客户端的规则代理内核。",
+    "description": "Mihomo 是原 Clash.Meta 内核项目，提供规则路由、DNS、代理集合、TUN 和控制 API 等基础能力。Clash Verge Rev、Clash Meta for Android 等图形客户端会在内核之上提供操作界面；直接下载这里的文件，更适合自行配置服务或管理现有部署。",
+    "status": "active",
+    "statusNote": "官方发布页提供 v1.19.33，发布于 2026-10-21。",
+    "category": "core",
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Android"
+    ],
+    "core": "Mihomo",
+    "repo": "https://github.com/MetaCubeX/mihomo",
+    "website": "https://wiki.metacubex.one/",
+    "featured": true,
+    "features": [
+      "规则与代理集合",
+      "TUN 与透明代理",
+      "DoH / DoT 与 Fake-IP",
+      "HTTP 控制 API"
+    ],
+    "notes": "内核文件不是完整图形客户端。Clash.Meta 是项目的旧称，不需要再额外寻找一个“Clash Meta 内核”。运行权限、配置字段和最低系统要求应以对应版本文档为准。",
+    "sources": [
+      {
+        "label": "官方发布页",
+        "url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.33"
+      },
+      {
+        "label": "Meta 分支项目说明",
+        "url": "https://github.com/MetaCubeX/mihomo/tree/Meta"
+      },
+      {
+        "label": "官方配置文档",
+        "url": "https://wiki.metacubex.one/"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "Windows x64 内核",
+        "platform": "Windows",
+        "arch": "x64",
+        "url": "https://github.com/MetaCubeX/mihomo/releases/download/v1.19.33/mihomo-windows-amd64-v1.19.33.zip",
+        "kind": "github"
+      },
+      {
+        "label": "Windows ARM64 内核",
+        "platform": "Windows",
+        "arch": "arm64",
+        "url": "https://github.com/MetaCubeX/mihomo/releases/download/v1.19.33/mihomo-windows-arm64-v1.19.33.zip",
+        "kind": "github"
+      },
+      {
+        "label": "macOS Apple Silicon 内核",
+        "platform": "macOS",
+        "arch": "arm64",
+        "url": "https://github.com/MetaCubeX/mihomo/releases/download/v1.19.33/mihomo-darwin-arm64-v1.19.33.gz",
+        "kind": "github"
+      },
+      {
+        "label": "macOS Intel 内核",
+        "platform": "macOS",
+        "arch": "x64",
+        "url": "https://github.com/MetaCubeX/mihomo/releases/download/v1.19.33/mihomo-darwin-amd64-v1.19.33.gz",
+        "kind": "github"
+      },
+      {
+        "label": "Linux x64 内核",
+        "platform": "Linux",
+        "arch": "x64",
+        "url": "https://github.com/MetaCubeX/mihomo/releases/download/v1.19.33/mihomo-linux-amd64-v1.19.33.gz",
+        "kind": "github"
+      },
+      {
+        "label": "Linux ARM64 内核",
+        "platform": "Linux",
+        "arch": "arm64",
+        "url": "https://github.com/MetaCubeX/mihomo/releases/download/v1.19.33/mihomo-linux-arm64-v1.19.33.gz",
+        "kind": "github"
+      }
+    ],
+    "version": "v1.19.33",
+    "releaseDate": "2026-10-21",
+    "verifiedAt": "2026-10-27"
+  },
+  {
+    "slug": "clash-core",
+    "name": "Clash（原版内核）",
+    "tagline": "理解整个生态，需要先认识这颗历史内核。",
+    "description": "Dreamacro 的原版 Clash 是规则代理生态的重要起点，以 YAML 配置、策略组和控制接口连接起了多种桌面、手机与路由器工具。本站将它与后续独立维护的 Mihomo、ClashRS 分开记录，便于识别旧教程中的名称和能力差异。",
+    "status": "discontinued",
+    "statusNote": "Dreamacro/clash 原始仓库目前不可访问，作为停止原版发行的历史项目保留。",
+    "category": "core",
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+    ],
+    "core": "Clash",
+    "repo": null,
+    "website": null,
+    "featured": false,
+    "features": [
+      "YAML 配置",
+      "规则路由",
+      "代理策略组",
+      "External Controller"
+    ],
+    "notes": "同名新仓库、fork 和重新打包的文件不自动继承原作者身份。未验证原上游附件时不提供“官方历史版”下载；新配置包含的协议或字段也未必能在旧内核上运行。",
+    "sources": [
+      {
+        "label": "原始上游地址（目前不可访问）",
+        "url": "https://github.com/Dreamacro/clash"
+      },
+      {
+        "label": "Mihomo 的上游致谢",
+        "url": "https://github.com/MetaCubeX/mihomo/tree/Meta"
+      },
+      {
+        "label": "ClashRS 的项目来源说明",
+        "url": "https://github.com/ibigbug/clash-rs"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "原上游历史安装包暂不可核验",
+        "platform": "Linux",
+        "arch": "—",
+        "url": null,
+        "kind": "unavailable"
+      }
+    ],
+    "version": null,
+    "releaseDate": null,
+    "verifiedAt": "2026-10-27"
+  },
+  {
+    "slug": "clash-premium",
+    "name": "Clash Premium",
+    "tagline": "旧教程中的增强内核，和 Mihomo 是不同项目。",
+    "description": "Clash Premium 是 Dreamacro 曾发行的增强版 Clash 内核，部分旧客户端和路由器教程会使用这一名称。它与开源原版 Clash、后续 Mihomo 具有不同的功能和发行背景，不能仅凭文件名相近就互相替换。",
+    "status": "discontinued",
+    "statusNote": "原 Premium 发布入口目前不可访问，本站按停更历史内核整理。",
+    "category": "core",
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+    ],
+    "core": "Clash Premium",
+    "repo": null,
+    "website": null,
+    "featured": false,
+    "features": [
+      "历史增强内核",
+      "旧客户端集成",
+      "旧配置兼容参考"
+    ],
+    "notes": "Premium 当年的官方源代码并未完整公开。网上标为“Premium 源码”的社区快照不能直接等同于官方最终构建；本站不提供未经核实的备份二进制。迁移前应检查脚本规则、TUN 和 DNS 配置差异。",
+    "sources": [
+      {
+        "label": "原 Premium 发行入口（目前不可访问）",
+        "url": "https://github.com/Dreamacro/clash/releases/tag/premium"
+      },
+      {
+        "label": "官方后继生态文档",
+        "url": "https://wiki.metacubex.one/"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "原上游历史安装包暂不可核验",
+        "platform": "Linux",
+        "arch": "—",
+        "url": null,
+        "kind": "unavailable"
+      }
+    ],
+    "version": null,
+    "releaseDate": null,
+    "verifiedAt": "2026-10-27"
+  },
+  {
+    "slug": "clash-rs",
+    "name": "ClashRS",
+    "tagline": "Rust 实现，走另一条内核演进路线。",
+    "description": "ClashRS 是使用 Rust 开发的规则代理内核，提供域名与地址分流、DNS、TUN 和多种协议支持。它受 Clash 生态启发，但有自己的实现与配置参考；更适合愿意阅读文档、测试兼容性和自行管理内核的用户。",
+    "status": "active",
+    "statusNote": "当前主仓库 ibigbug/clash-rs 持续更新；最新稳定发布为 v0.10.10。",
+    "category": "core",
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+    ],
+    "core": "ClashRS",
+    "repo": "https://github.com/ibigbug/clash-rs",
+    "website": "https://watfaq.gitbook.io/clashrs-user-manual/",
+    "featured": false,
+    "features": [
+      "Rust 内核",
+      "规则路由与 DNS",
+      "TUN 支持",
+      "跨平台二进制"
+    ],
+    "notes": "旧的 Watfaq/clash-rs 地址会转到历史 fork，下载以当前主仓库为准。ClashRS 不是 Mihomo 的直接改名，现有 YAML 配置应先按其文档测试。iOS 开发框架构建能力也不等于提供可直接安装的 iPhone App。",
+    "sources": [
+      {
+        "label": "当前主仓库",
+        "url": "https://github.com/ibigbug/clash-rs"
+      },
+      {
+        "label": "官方发布记录",
+        "url": "https://github.com/ibigbug/clash-rs/releases/tag/v0.10.10"
+      },
+      {
+        "label": "用户手册",
+        "url": "https://watfaq.gitbook.io/clashrs-user-manual/"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "Windows x64 内核",
+        "platform": "Windows",
+        "arch": "x64",
+        "url": "https://github.com/ibigbug/clash-rs/releases/download/v0.10.10/clash-rs-x86_64-pc-windows-msvc.exe",
+        "kind": "github"
+      },
+      {
+        "label": "Windows ARM64 内核",
+        "platform": "Windows",
+        "arch": "arm64",
+        "url": "https://github.com/ibigbug/clash-rs/releases/download/v0.10.10/clash-rs-aarch64-pc-windows-msvc.exe",
+        "kind": "github"
+      },
+      {
+        "label": "macOS Apple Silicon 内核",
+        "platform": "macOS",
+        "arch": "arm64",
+        "url": "https://github.com/ibigbug/clash-rs/releases/download/v0.10.10/clash-rs-aarch64-apple-darwin",
+        "kind": "github"
+      },
+      {
+        "label": "macOS Intel 内核",
+        "platform": "macOS",
+        "arch": "x64",
+        "url": "https://github.com/ibigbug/clash-rs/releases/download/v0.10.10/clash-rs-x86_64-apple-darwin",
+        "kind": "github"
+      },
+      {
+        "label": "Linux x64 musl 内核",
+        "platform": "Linux",
+        "arch": "x64",
+        "url": "https://github.com/ibigbug/clash-rs/releases/download/v0.10.10/clash-rs-x86_64-unknown-linux-musl",
+        "kind": "github"
+      },
+      {
+        "label": "Linux ARM64 musl 内核",
+        "platform": "Linux",
+        "arch": "arm64",
+        "url": "https://github.com/ibigbug/clash-rs/releases/download/v0.10.10/clash-rs-aarch64-unknown-linux-musl",
+        "kind": "github"
+      }
+    ],
+    "version": "v0.10.10",
+    "releaseDate": "2026-10-05",
+    "verifiedAt": "2026-10-27"
+  },
+  {
+    "slug": "openclash",
+    "name": "OpenClash",
+    "tagline": "在 OpenWrt 管理全家的网络规则。",
+    "description": "OpenClash 为 OpenWrt 提供 LuCI 图形界面，将内核、配置订阅、运行模式和策略管理集中在路由器中。适合已经熟悉路由器后台、希望由网关统一管理设备连接的用户；它需要适配固件、依赖与内核，并不是手机安装应用。",
+    "status": "active",
+    "statusNote": "官方仓库未归档；v0.48.002 发布于 2026-10-12。",
+    "category": "router",
+    "platforms": [
+      "OpenWrt"
+    ],
+    "core": "Mihomo / Clash 兼容内核",
+    "repo": "https://github.com/vernesong/OpenClash",
+    "website": null,
+    "featured": false,
+    "features": [
+      "LuCI 管理界面",
+      "订阅与配置覆写",
+      "多种透明代理模式",
+      "内核与面板管理"
+    ],
+    "notes": "下载前先分清路由器使用 opkg / IPK 还是 apk 包管理。这里的 OpenWrt .apk 软件包不是 Android 安装包；安装插件后仍需检查依赖和适合设备架构的内核。",
+    "sources": [
+      {
+        "label": "项目仓库",
+        "url": "https://github.com/vernesong/OpenClash"
+      },
+      {
+        "label": "官方安装说明与更新记录",
+        "url": "https://github.com/vernesong/OpenClash/releases/tag/v0.48.002"
+      },
+      {
+        "label": "官方使用 Wiki",
+        "url": "https://github.com/vernesong/OpenClash/wiki"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "OpenWrt IPK 插件包",
+        "platform": "OpenWrt",
+        "arch": "all",
+        "url": "https://github.com/vernesong/OpenClash/releases/download/v0.48.002/luci-app-openclash_0.48.002_all.ipk",
+        "kind": "github"
+      },
+      {
+        "label": "OpenWrt APK 插件包（非安卓）",
+        "platform": "OpenWrt",
+        "arch": "all",
+        "url": "https://github.com/vernesong/OpenClash/releases/download/v0.48.002/luci-app-openclash-0.48.002.apk",
+        "kind": "github"
+      }
+    ],
+    "version": "v0.48.002",
+    "releaseDate": "2026-10-12",
+    "verifiedAt": "2026-10-27"
+  },
+  {
+    "slug": "shellcrash",
+    "name": "ShellCrash",
+    "tagline": "用菜单脚本管理路由器与 Linux 内核。",
+    "description": "ShellCrash 原名 ShellClash，是在 Shell 环境中部署和管理 Mihomo、sing-box 等内核的工具。它通过终端菜单组织运行模式、订阅、定时任务和面板设置，覆盖多种路由器与标准 Linux 设备，适合能够使用 SSH 的用户。",
+    "status": "active",
+    "statusNote": "官方开发分支持续更新；稳定版发布页为 1.9.4。",
+    "category": "router",
+    "platforms": [
+      "Linux",
+      "OpenWrt"
+    ],
+    "core": "Mihomo / sing-box",
+    "repo": "https://github.com/juewuy/ShellCrash",
+    "website": null,
+    "featured": false,
+    "features": [
+      "Shell 菜单管理",
+      "支持多种内核",
+      "配置与定时任务",
+      "路由器与 Linux 适配"
+    ],
+    "notes": "ShellCrash 是管理脚本，不是新的 Clash 内核。不同固件的权限、启动服务和防火墙能力不同，先按项目说明确认设备兼容性。页面下载为官方脚本压缩包。",
+    "sources": [
+      {
+        "label": "项目与兼容性说明",
+        "url": "https://github.com/juewuy/ShellCrash"
+      },
+      {
+        "label": "官方稳定版发布",
+        "url": "https://github.com/juewuy/ShellCrash/releases/tag/1.9.4"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "ShellCrash 脚本压缩包",
+        "platform": "Linux",
+        "arch": "Shell",
+        "url": "https://github.com/juewuy/ShellCrash/releases/download/1.9.4/ShellCrash.tar.gz",
+        "kind": "github"
+      }
+    ],
+    "version": "1.9.4",
+    "releaseDate": "2026-02-15",
+    "verifiedAt": "2026-10-27"
+  },
+  {
+    "slug": "nikki",
+    "name": "Nikki / MihomoTProxy",
+    "tagline": "面向现代 OpenWrt 的 Mihomo 透明代理。",
+    "description": "Nikki 是原 MihomoTProxy 项目的现行名称，将 Mihomo 集成进 OpenWrt，并提供访问控制、配置混入、编辑器与计划任务等功能。它面向采用 firewall4 的现代固件，支持 Redirect、TPROXY 和 TUN 等运行方式。",
+    "status": "active",
+    "statusNote": "当前官方仓库为 nikkinikki-org/OpenWrt-nikki；v1.26.2 发布于 2026-10-10。",
+    "category": "router",
+    "platforms": [
+      "OpenWrt"
+    ],
+    "core": "Mihomo",
+    "repo": "https://github.com/nikkinikki-org/OpenWrt-nikki",
+    "website": "https://nikkinikki.pages.dev/",
+    "featured": false,
+    "features": [
+      "firewall4 集成",
+      "IPv4 / IPv6 透明代理",
+      "配置混入与编辑",
+      "访问控制"
+    ],
+    "notes": "项目当前要求 OpenWrt 24.10 及以上、Linux 内核 5.13 及以上与 firewall4。官方推荐从 Feed 安装；下列离线归档必须与固件版本及 CPU 子架构匹配，不能只看“ARM64”字样。",
+    "sources": [
+      {
+        "label": "官方仓库与安装要求",
+        "url": "https://github.com/nikkinikki-org/OpenWrt-nikki"
+      },
+      {
+        "label": "官方发布包",
+        "url": "https://github.com/nikkinikki-org/OpenWrt-nikki/releases/tag/v1.26.2"
+      },
+      {
+        "label": "使用文档",
+        "url": "https://nikkinikki.pages.dev/"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "OpenWrt 24.10 x86-64 离线归档",
+        "platform": "OpenWrt",
+        "arch": "x86_64 / 24.10",
+        "url": "https://github.com/nikkinikki-org/OpenWrt-nikki/releases/download/v1.26.2/nikki_x86_64-openwrt-24.10.tar.gz",
+        "kind": "github"
+      },
+      {
+        "label": "OpenWrt 24.10 Cortex-A53 离线归档",
+        "platform": "OpenWrt",
+        "arch": "aarch64_cortex-a53 / 24.10",
+        "url": "https://github.com/nikkinikki-org/OpenWrt-nikki/releases/download/v1.26.2/nikki_aarch64_cortex-a53-openwrt-24.10.tar.gz",
+        "kind": "github"
+      },
+      {
+        "label": "OpenWrt 24.10 AArch64 Generic 离线归档",
+        "platform": "OpenWrt",
+        "arch": "aarch64_generic / 24.10",
+        "url": "https://github.com/nikkinikki-org/OpenWrt-nikki/releases/download/v1.26.2/nikki_aarch64_generic-openwrt-24.10.tar.gz",
+        "kind": "github"
+      }
+    ],
+    "version": "v1.26.2",
+    "releaseDate": "2026-10-10",
+    "verifiedAt": "2026-10-27"
+  },
+  {
+    "slug": "clash-dash",
+    "name": "Clash Dash",
+    "tagline": "把 iPhone 变成路由器代理的遥控器。",
+    "description": "Clash Dash 是用 SwiftUI 开发的 iOS 管理工具，可连接 OpenClash、Nikki 等已有服务，查看流量、切换策略和编辑配置。它解决的是远程控制与查看状态的问题，使用前需要一台已经运行代理内核的设备。",
+    "status": "unknown",
+    "statusNote": "公开仓库仍可访问且未归档；最近核验的发布包为 v1.4.3，未见明确停更公告。",
+    "category": "dashboard",
+    "platforms": [
+      "iOS"
+    ],
+    "core": "远程 Clash / Mihomo / sing-box 控制 API",
+    "repo": "https://github.com/nowubh/Clash-Dash",
+    "website": null,
+    "featured": false,
+    "features": [
+      "多服务管理",
+      "实时流量与延迟测试",
+      "配置与订阅编辑",
+      "iCloud 同步"
+    ],
+    "notes": "它是控制器，不会自动为 iPhone 建立代理隧道。官方 GitHub 发布 IPA，安装仍需要满足 Apple 的签名与分发条件；下载 IPA 不等于可直接点开安装。",
+    "sources": [
+      {
+        "label": "官方项目说明",
+        "url": "https://github.com/nowubh/Clash-Dash"
+      },
+      {
+        "label": "官方使用说明",
+        "url": "https://github.com/nowubh/Clash-Dash/blob/main/HOWTOUSE.md"
+      },
+      {
+        "label": "官方 IPA 发布",
+        "url": "https://github.com/nowubh/Clash-Dash/releases/tag/v1.4.3"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "iOS IPA（需有效签名）",
+        "platform": "iOS",
+        "arch": "arm64",
+        "url": "https://github.com/nowubh/Clash-Dash/releases/download/v1.4.3/Clash.Dash.ipa",
+        "kind": "github"
+      }
+    ],
+    "version": "v1.4.3",
+    "releaseDate": "2025-12-23",
+    "verifiedAt": "2026-10-27"
+  },
+  {
+    "slug": "yacd-meta",
+    "name": "Yacd-meta",
+    "tagline": "经典布局，补上 Meta 生态的管理能力。",
+    "description": "Yacd-meta 在 Yacd 的界面基础上面向 Clash.Meta / Mihomo 调整，提供策略组、流量、连接和日志管理。它本身是 Web 控制面板，需要连接已经运行的内核 API，适合喜欢传统仪表盘布局的用户。",
+    "status": "active",
+    "statusNote": "公开仓库持续更新；v0.6.0 发布于 2026-09-30。",
+    "category": "dashboard",
+    "platforms": [
+      "Web"
+    ],
+    "core": "Clash / Mihomo 控制 API",
+    "repo": "https://github.com/MetaCubeX/Yacd-meta",
+    "website": "http://yacd.metacubex.one",
+    "featured": false,
+    "features": [
+      "代理组与延迟",
+      "连接与流量视图",
+      "实时日志",
+      "多后端设置"
+    ],
+    "notes": "当前发布标签没有单独附加的构建包；可从项目说明使用在线面板或自行部署 gh-pages 静态文件。浏览器面板需要能够访问内核的控制地址，不承担代理流量转发。",
+    "sources": [
+      {
+        "label": "官方项目说明",
+        "url": "https://github.com/MetaCubeX/Yacd-meta"
+      },
+      {
+        "label": "官方发布记录",
+        "url": "https://github.com/MetaCubeX/Yacd-meta/releases/tag/v0.6.0"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "本标签未提供独立发布附件",
+        "platform": "Web",
+        "arch": "—",
+        "url": null,
+        "kind": "unavailable"
+      }
+    ],
+    "version": "v0.6.0",
+    "releaseDate": "2026-09-30",
+    "verifiedAt": "2026-10-27"
+  },
+  {
+    "slug": "zashboard",
+    "name": "Zashboard",
+    "tagline": "更适合手机，也便于看清每一条连接。",
+    "description": "Zashboard 是面向 Mihomo 的 Web 面板，提供代理组操作、连接表格与流量信息，并支持通过 PWA 添加到主屏幕。它既可连接已有内核，也可以作为客户端和路由器内置的本地仪表盘使用。",
+    "status": "active",
+    "statusNote": "官方仓库持续更新；稳定版发布页为 v3.29.1。",
+    "category": "dashboard",
+    "platforms": [
+      "Web"
+    ],
+    "core": "Mihomo 控制 API",
+    "repo": "https://github.com/Zephyruso/zashboard",
+    "website": "https://board.zash.run.place/",
+    "featured": false,
+    "features": [
+      "移动端与 PWA",
+      "代理组延迟测试",
+      "连接表格交互",
+      "多种字体构建包"
+    ],
+    "notes": "当前项目已移除 sing-box 支持。dist.zip 包含字体，dist-no-fonts.zip 使用系统字体；两者都是可自行部署的面板文件，不是独立代理客户端。",
+    "sources": [
+      {
+        "label": "官方项目与浏览器要求",
+        "url": "https://github.com/Zephyruso/zashboard"
+      },
+      {
+        "label": "官方发布包",
+        "url": "https://github.com/Zephyruso/zashboard/releases/tag/v3.29.1"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "Web 面板完整构建包",
+        "platform": "Web",
+        "arch": "静态文件",
+        "url": "https://github.com/Zephyruso/zashboard/releases/download/v3.29.1/dist.zip",
+        "kind": "github"
+      },
+      {
+        "label": "Web 面板无字体构建包",
+        "platform": "Web",
+        "arch": "静态文件",
+        "url": "https://github.com/Zephyruso/zashboard/releases/download/v3.29.1/dist-no-fonts.zip",
+        "kind": "github"
+      }
+    ],
+    "version": "v3.29.1",
+    "releaseDate": "2026-09-23",
+    "verifiedAt": "2026-10-27"
+  },
+  {
+    "slug": "metacubexd",
+    "name": "MetaCubeXD",
+    "tagline": "从 Web 面板，延伸到可管理内核的桌面工具。",
+    "description": "MetaCubeXD 是 MetaCubeX 的 Mihomo 管理界面，涵盖流量、策略组、连接、规则和日志。当前项目既提供连接已有内核的纯 Web 面板，也提供内置内核的桌面发行与服务器部署形式，选择时应先确认自己需要哪一种。",
+    "status": "active",
+    "statusNote": "官方仓库持续更新；稳定版为 v1.273.1。",
+    "category": "dashboard",
+    "platforms": [
+      "Web",
+      "Windows",
+      "macOS",
+      "Linux"
+    ],
+    "core": "Mihomo",
+    "repo": "https://github.com/MetaCubeX/metacubexd",
+    "website": "https://d.metacubex.one/",
+    "featured": false,
+    "features": [
+      "流量与连接监控",
+      "多主题与多语言",
+      "Web 与桌面发行",
+      "内核管理与服务部署"
+    ],
+    "notes": "compressed-dist.tgz 是纯面板静态文件，需要连接已有内核；Windows、macOS 与 Linux 桌面安装包来自同一官方仓库。远程使用控制 API 时，应设置 secret 并限定访问范围。",
+    "sources": [
+      {
+        "label": "官方项目与发行形式说明",
+        "url": "https://github.com/MetaCubeX/metacubexd"
+      },
+      {
+        "label": "官方稳定版附件",
+        "url": "https://github.com/MetaCubeX/metacubexd/releases/tag/v1.273.1"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "Web 面板静态构建包",
+        "platform": "Web",
+        "arch": "静态文件",
+        "url": "https://github.com/MetaCubeX/metacubexd/releases/download/v1.273.1/compressed-dist.tgz",
+        "kind": "github"
+      },
+      {
+        "label": "Windows x64 桌面版",
+        "platform": "Windows",
+        "arch": "x64",
+        "url": "https://github.com/MetaCubeX/metacubexd/releases/download/v1.273.1/MetaCubeXD-1.273.1-win-x64.exe",
+        "kind": "github"
+      },
+      {
+        "label": "Windows ARM64 桌面版",
+        "platform": "Windows",
+        "arch": "arm64",
+        "url": "https://github.com/MetaCubeX/metacubexd/releases/download/v1.273.1/MetaCubeXD-1.273.1-win-arm64.exe",
+        "kind": "github"
+      },
+      {
+        "label": "macOS Apple Silicon 桌面版",
+        "platform": "macOS",
+        "arch": "arm64",
+        "url": "https://github.com/MetaCubeX/metacubexd/releases/download/v1.273.1/MetaCubeXD-1.273.1-mac-arm64.dmg",
+        "kind": "github"
+      },
+      {
+        "label": "macOS Intel 桌面版",
+        "platform": "macOS",
+        "arch": "x64",
+        "url": "https://github.com/MetaCubeX/metacubexd/releases/download/v1.273.1/MetaCubeXD-1.273.1-mac-x64.dmg",
+        "kind": "github"
+      },
+      {
+        "label": "Linux x64 DEB 桌面版",
+        "platform": "Linux",
+        "arch": "x64",
+        "url": "https://github.com/MetaCubeX/metacubexd/releases/download/v1.273.1/MetaCubeXD-1.273.1-linux-amd64.deb",
+        "kind": "github"
+      },
+      {
+        "label": "Linux x64 AppImage 桌面版",
+        "platform": "Linux",
+        "arch": "x64",
+        "url": "https://github.com/MetaCubeX/metacubexd/releases/download/v1.273.1/MetaCubeXD-1.273.1-linux-x86_64.AppImage",
+        "kind": "github"
+      }
+    ],
+    "version": "v1.273.1",
+    "releaseDate": "2026-09-10",
+    "verifiedAt": "2026-10-27"
+  },
+  {
+    "slug": "yacd",
+    "name": "Yacd",
+    "tagline": "许多人第一次接触 Clash 的经典仪表盘。",
+    "description": "Yacd 的全名是 Yet Another Clash Dashboard，是围绕 Clash External Controller 构建的经典 Web 面板。它以简单的流量、策略组、连接与日志界面被众多旧客户端集成，也是 Yacd-meta 等后续项目的基础。",
+    "status": "unknown",
+    "statusNote": "原仓库可访问且未归档；稳定发布仍为 2022 年的 v0.3.8，不能仅凭发布间隔断言停更。",
+    "category": "dashboard",
+    "platforms": [
+      "Web"
+    ],
+    "core": "Clash 控制 API",
+    "repo": "https://github.com/haishanh/yacd",
+    "website": "http://yacd.haishan.me",
+    "featured": false,
+    "features": [
+      "经典仪表盘",
+      "代理组选择",
+      "连接与日志查看",
+      "可自行部署"
+    ],
+    "notes": "经典版本对后来新增的 Mihomo 字段与管理能力可能不完整。继续使用旧面板前，先确认自己的内核版本和所需功能；使用新功能时可比较 Yacd-meta、Zashboard 或 MetaCubeXD。",
+    "sources": [
+      {
+        "label": "原作者仓库",
+        "url": "https://github.com/haishanh/yacd"
+      },
+      {
+        "label": "官方 v0.3.8 发布",
+        "url": "https://github.com/haishanh/yacd/releases/tag/v0.3.8"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "Web 面板 v0.3.8 历史构建包",
+        "platform": "Web",
+        "arch": "静态文件",
+        "url": "https://github.com/haishanh/yacd/releases/download/v0.3.8/yacd.tar.xz",
+        "kind": "github"
+      }
+    ],
+    "version": "v0.3.8",
+    "releaseDate": "2022-11-11",
+    "verifiedAt": "2026-10-27"
+  },
+  {
+    "slug": "clash-dashboard",
+    "name": "Clash Dashboard（原版）",
+    "tagline": "原版 Clash 控制面板的历史记录。",
+    "description": "Clash Dashboard 曾是 Dreamacro 名下的 Clash Web 控制面板。旧截图和教程里出现的“Dashboard”未必指今天仍在维护的某一个项目；这条历史记录帮助区分原版面板、Yacd，以及当前面向 Mihomo 的新面板。",
+    "status": "discontinued",
+    "statusNote": "Dreamacro/clash-dashboard 原始仓库目前不可访问，按历史项目保留。",
+    "category": "dashboard",
+    "platforms": [
+      "Web"
+    ],
+    "core": "Clash 控制 API",
+    "repo": null,
+    "website": null,
+    "featured": false,
+    "features": [
+      "早期 Web 控制面板",
+      "策略组操作",
+      "内核 API 连接"
+    ],
+    "notes": "没有可直接从原作者发布页核验的构建附件，因此不提供同名备份下载。需要为当前内核添加管理界面时，可比较现行的 Zashboard、MetaCubeXD 和 Yacd-meta。",
+    "sources": [
+      {
+        "label": "原作者仓库地址（目前不可访问）",
+        "url": "https://github.com/Dreamacro/clash-dashboard"
+      },
+      {
+        "label": "Yacd 对原版 Dashboard 的引用",
+        "url": "https://github.com/haishanh/yacd"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "原上游面板构建包暂不可核验",
+        "platform": "Web",
+        "arch": "—",
+        "url": null,
+        "kind": "unavailable"
+      }
+    ],
+    "version": null,
+    "releaseDate": null,
+    "verifiedAt": "2026-10-27"
+  }
+]
