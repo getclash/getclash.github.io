@@ -1,0 +1,126 @@
+---
+import '../styles/global.css';
+import Icon from '../components/Icon.astro';
+import { site, apps, guides, absolute, json } from '../lib/content.mjs';
+
+const { page } = Astro.props;
+const route = page.route;
+const canonical = absolute(route);
+const isHome = route === '/';
+const isArticle = route.startsWith('/guides/') && route !== '/guides/';
+const title = isHome ? page.title : `${page.title} - ${site.name}`;
+const structured = [
+  { '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${site.url}/#website`, name: site.name, alternateName: site.englishName, url: `${site.url}/`, inLanguage: 'zh-CN' },
+  ...(!isHome ? [{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: '首页', item: absolute('/') },
+    { '@type': 'ListItem', position: 2, name: page.title, item: canonical },
+  ] }] : []),
+  ...(page.schema || []).map(schema => ({ '@context': 'https://schema.org', ...schema })),
+];
+const links = [
+  { href: '/apps/', label: '软件目录', key: 'apps' },
+  { href: '/guides/', label: '使用教程', key: 'guides' },
+  { href: '/archive/', label: '历史档案', key: 'archive' },
+  { href: '/compare/', label: '软件对比', key: 'compare' },
+];
+const guideNavigation = [
+  { title: '从这里开始', items: [['clients-choice', '选择适合你的客户端'], ['import-profile', '导入订阅与配置']] },
+  { title: '按平台上手', items: [['windows-start', 'Windows 入门'], ['macos-start', 'macOS 入门'], ['android-start', 'Android 入门']] },
+  { title: '进阶与排错', items: [['system-proxy-vs-tun', '系统代理与 TUN'], ['dns-troubleshooting', 'DNS 排查'], ['migrate-from-legacy', '迁移旧客户端'], ['verify-download', '安装包校验']] },
+];
+const searchIndex = [
+  ...apps.map(app => ({ title: app.name, description: app.tagline, url: `/apps/${app.slug}/`, type: '软件', keywords: `${app.core} ${app.platforms.join(' ')}` })),
+  ...guides.map(guide => ({ title: guide.title, description: guide.description, url: `/guides/${guide.slug}/`, type: '教程', keywords: guide.category })),
+];
+---
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={page.description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content={page.noindex ? 'noindex,follow' : 'index,follow,max-image-preview:large'} />
+    {site.bingVerification && <meta name="msvalidate.01" content={site.bingVerification} />}
+    <meta name="download-proxy" content={site.downloadProxy} />
+    <meta name="theme-color" content="#2563eb" />
+    <meta property="og:type" content={isArticle ? 'article' : 'website'} />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={page.title} />
+    <meta property="og:description" content={page.description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={absolute('/assets/og.png')} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <script is:inline>
+      try {
+        const saved = localStorage.getItem('clash-atlas-theme');
+        const theme = saved === 'dark' || saved === 'light' ? saved : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      } catch {}
+    </script>
+    <script type="application/ld+json" is:inline set:html={json(structured)} />
+    <script src="/assets/site.js" is:inline defer></script>
+  </head>
+  <body class:list={[isHome && 'is-home', isArticle && 'is-article']}>
+    <a class="skip-link" href="#main">跳到正文</a>
+    <header class="header">
+      <div class="wrap header-inner">
+        <a class="brand" href="/" aria-label="Clash 图鉴首页">
+          <img src="/assets/favicon.svg" width="35" height="35" alt="" />
+          <span>Clash<span class="brand-zh">图鉴</span><small>ATLAS</small></span>
+        </a>
+        <nav id="main-nav" class="main-nav" aria-label="主导航">
+          {links.map(link => <a href={link.href} aria-current={page.nav === link.key ? 'page' : undefined}>{link.label}</a>)}
+        </nav>
+        <div class="header-tools">
+          <button class="header-search" type="button" data-open-search aria-label="搜索软件和教程" aria-haspopup="dialog" aria-controls="site-search-dialog">
+            <Icon name="search" /><span>搜索软件、教程…</span><kbd>⌘ K</kbd>
+          </button>
+          <a class="icon-button github-link" href={site.repository} target="_blank" rel="noopener noreferrer" aria-label="GitHub 仓库"><Icon name="github" /></a>
+          <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="切换主题">
+            <svg class="icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5" /></svg>
+            <svg class="icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 14.5A8.8 8.8 0 0 1 9.5 4 9 9 0 1 0 20 14.5Z" /></svg>
+          </button>
+          <button class="menu-toggle icon-button" type="button" aria-label="展开导航" aria-controls="main-nav" aria-expanded="false"><Icon name="menu" /></button>
+        </div>
+      </div>
+    </header>
+
+    {isArticle ? (
+      <div class="wrap docs-frame">
+        <aside class="docs-navigation" aria-label="教程导航">
+          <a class="docs-back" href="/guides/">← 全部教程</a>
+          {guideNavigation.map(group => <div class="docs-nav-group"><strong>{group.title}</strong>{group.items.map(([slug, label]) => <a href={`/guides/${slug}/`} aria-current={route === `/guides/${slug}/` ? 'page' : undefined}>{label}</a>)}</div>)}
+          <a class="sidebar-callout" href="/apps/"><Icon name="layers" /><strong>还没选好客户端？</strong><span>浏览全部 {apps.length} 个项目 <span aria-hidden="true">↗</span></span></a>
+        </aside>
+        <main id="main" class="docs-content"><slot /></main>
+      </div>
+    ) : <main id="main"><slot /></main>}
+
+    <footer class="footer">
+      <div class="wrap footer-main">
+        <div class="footer-about"><a class="brand" href="/"><img src="/assets/favicon.svg" width="32" height="32" alt="" /><span>Clash<span class="brand-zh">图鉴</span></span></a><p>读懂生态，找到适合你的工具。<br />独立整理的 Clash / Mihomo 软件与教程。</p></div>
+        <div><strong>发现软件</strong><a href="/apps/">软件目录</a><a href="/archive/">停更与历史项目</a><a href="/compare/">软件对比</a></div>
+        <div><strong>学习与使用</strong><a href="/guides/">上手教程</a><a href="/downloads/">下载与加速说明</a><a href="/guides/verify-download/">安装包校验</a></div>
+        <div><strong>关于图鉴</strong><a href="/about/">收录与编辑规范</a><a href={`${site.repository}/issues/new`} target="_blank" rel="noopener noreferrer">反馈与补充 ↗</a><a href="/privacy/">隐私说明</a></div>
+      </div>
+      <div class="wrap footer-bottom"><span>© 2026 Clash 图鉴 · 独立维护，与所列项目无隶属关系。</span><span>资料核验 {site.checkedAt} <span aria-hidden="true">·</span> 不提供代理节点或订阅</span></div>
+    </footer>
+
+    <dialog id="site-search-dialog" class="search-dialog" data-search-dialog aria-labelledby="site-search-title">
+      <div class="search-dialog-head"><Icon name="search" /><label id="site-search-title" class="sr-only" for="global-search-input">搜索软件和教程</label><input id="global-search-input" type="search" placeholder="搜索软件、平台或教程…" autocomplete="off" /><button class="search-close" type="button" data-close-search aria-label="关闭搜索">Esc</button></div>
+      <div class="search-results-meta" aria-live="polite" data-global-result-count>常用入口</div>
+      <div class="global-search-results" data-global-results></div>
+      <div class="search-dialog-foot"><span>在 {apps.length} 款软件和 {guides.length} 篇教程中搜索</span><span><kbd>↵</kbd> 打开 <kbd>esc</kbd> 关闭</span></div>
+    </dialog>
+    <script type="application/json" id="site-search-index" is:inline set:html={json(searchIndex)} />
+    <div class="toast" role="status" aria-live="polite"></div>
+    <div class="compare-tray" hidden><span>已选 <b data-compare-count>0</b> 款软件</span><a href="/compare/" data-compare-link>开始对比 <Icon name="right" /></a><button type="button" data-compare-clear aria-label="清空对比">清空</button></div>
+  </body>
+</html>

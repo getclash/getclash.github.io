@@ -8,6 +8,72 @@
     set(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch { return false; } },
     remove(key) { try { localStorage.removeItem(key); } catch {} },
   };
+
+  const applyTheme = theme => {
+    const value = theme === 'dark' ? 'dark' : 'light';
+    document.documentElement.dataset.theme = value;
+    document.documentElement.style.colorScheme = value;
+    all('[data-theme-toggle]').forEach(button => {
+      button.setAttribute('aria-label', value === 'dark' ? '切换至浅色主题' : '切换至深色主题');
+      button.title = value === 'dark' ? '浅色模式' : '深色模式';
+    });
+  };
+  applyTheme(document.documentElement.dataset.theme);
+  all('[data-theme-toggle]').forEach(button => button.addEventListener('click', () => {
+    const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    applyTheme(theme);
+    try { localStorage.setItem('clash-atlas-theme', theme); } catch {}
+  }));
+  const systemTheme = matchMedia('(prefers-color-scheme: dark)');
+  systemTheme.addEventListener('change', event => {
+    try { if (!localStorage.getItem('clash-atlas-theme')) applyTheme(event.matches ? 'dark' : 'light'); } catch {}
+  });
+
+  const searchDialog = one('[data-search-dialog]');
+  const globalSearch = one('#global-search-input');
+  const globalResults = one('[data-global-results]');
+  let searchIndex = [];
+  try { searchIndex = JSON.parse(one('#site-search-index')?.textContent || '[]'); } catch {}
+  const normalize = value => String(value).normalize('NFKC').toLocaleLowerCase();
+  const renderSearch = () => {
+    if (!globalSearch || !globalResults) return;
+    const query = normalize(globalSearch.value.trim());
+    const matches = query ? searchIndex.filter(item => {
+      const corpus = normalize(`${item.title} ${item.description} ${item.keywords}`);
+      return query.split(/\s+/).every(part => corpus.includes(part));
+    }) : [...searchIndex.filter(item => item.type === '软件').slice(0, 5), ...searchIndex.filter(item => item.type === '教程').slice(0, 3)];
+    one('[data-global-result-count]').textContent = query ? `找到 ${matches.length} 项结果${matches.length > 12 ? '，显示前 12 项' : ''}` : '常用入口';
+    globalResults.innerHTML = matches.length ? matches.slice(0, 12).map(item => `<a href="${escape(item.url)}"><span class="search-result-kind">${escape(item.type)}</span><div><strong>${escape(item.title)}</strong><p>${escape(item.description)}</p></div></a>`).join('') : '<p class="search-no-results">暂时没有匹配结果，试试软件名称或其他关键词。</p>';
+  };
+  const openSearch = () => {
+    if (!searchDialog) return;
+    renderSearch();
+    if (!searchDialog.open) searchDialog.showModal();
+    globalSearch.focus();
+  };
+  all('[data-open-search]').forEach(button => button.addEventListener('click', openSearch));
+  one('[data-close-search]')?.addEventListener('click', () => searchDialog.close());
+  searchDialog?.addEventListener('click', event => {
+    const bounds = searchDialog.getBoundingClientRect();
+    if (event.target === searchDialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) searchDialog.close();
+  });
+  globalSearch?.addEventListener('input', renderSearch);
+  globalSearch?.addEventListener('keydown', event => {
+    if (event.isComposing || event.keyCode === 229) return;
+    if (event.key === 'Enter') {
+      const first = one('a', globalResults);
+      if (first) { event.preventDefault(); first.click(); }
+    } else if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      one('a', globalResults)?.focus();
+    }
+  });
+  document.addEventListener('keydown', event => {
+    if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+      event.preventDefault();
+      if (searchDialog?.open) searchDialog.close(); else openSearch();
+    }
+  });
   let toastTimer;
   const toast = message => {
     const box = one('.toast');
@@ -182,6 +248,10 @@
   // A cached page is restored without running this script again. Read current
   // preferences so Back/Forward does not resurrect an old proxy or comparison.
   const restorePreferences = () => {
+    try {
+      const savedTheme = localStorage.getItem('clash-atlas-theme');
+      applyTheme(savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : (systemTheme.matches ? 'dark' : 'light'));
+    } catch {}
     const saved = storage.get('clash-atlas-compare', []);
     selection = Array.isArray(saved) ? [...new Set(saved.filter(slug => typeof slug === 'string' && /^[a-z0-9-]+$/.test(slug)))].slice(0, 3) : [];
     if (comparisonData) selection = selection.filter(slug => knownApps.some(app => app.slug === slug));
@@ -194,5 +264,6 @@
   window.addEventListener('pageshow', event => { if (event.persisted) restorePreferences(); });
   window.addEventListener('storage', event => {
     if (event.key === null || ['clash-atlas-compare', 'clash-atlas-proxy'].includes(event.key)) restorePreferences();
+    if (event.key === 'clash-atlas-theme') applyTheme(event.newValue || (systemTheme.matches ? 'dark' : 'light'));
   });
 })();

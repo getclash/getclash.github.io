@@ -1,0 +1,7 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { pages } from '../lib/content.mjs';
+
+const page = pages.find(page => page.route === '/404.html');
+---
+<BaseLayout page={page}><Fragment set:html={page.body} /></BaseLayout>

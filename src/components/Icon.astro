@@ -1,0 +1,6 @@
+---
+import { icon } from '../lib/content.mjs';
+interface Props { name: string; class?: string }
+const { name, class: className = '' } = Astro.props;
+---
+<Fragment set:html={icon(name, className)} />

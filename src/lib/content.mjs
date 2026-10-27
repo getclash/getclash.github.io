@@ -1,15 +1,14 @@
-import { readFile, writeFile, mkdir, rm, cp } from 'node:fs/promises';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import appIcons from '../../data/app-icons.json' with { type: 'json' };
+import siteConfig from '../../data/site.json' with { type: 'json' };
+import desktopApps from '../../data/desktop-apps.json' with { type: 'json' };
+import ecosystemApps from '../../data/ecosystem-apps.json' with { type: 'json' };
+import guideContent from '../../data/guides.json' with { type: 'json' };
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const out = path.join(root, 'dist');
-const readJSON = async name => JSON.parse(await readFile(path.join(root, 'data', name), 'utf8'));
-const site = await readJSON('site.json');
+const site = { ...siteConfig };
 site.url = (process.env.SITE_URL || site.url).replace(/\/$/, '');
 site.bingVerification = process.env.BING_VERIFICATION || site.bingVerification;
-const apps = [...await readJSON('desktop-apps.json'), ...await readJSON('ecosystem-apps.json')];
-const guides = await readJSON('guides.json');
+const apps = [...desktopApps, ...ecosystemApps];
+const guides = guideContent;
 const states = { active: '持续维护', archived: '已归档', discontinued: '已停更', unknown: '状态待确认' };
 const categories = { client: '图形客户端', core: '代理内核', router: '路由器工具', dashboard: '控制面板', related: '相关工具' };
 const platforms = [
@@ -51,28 +50,15 @@ const icons = {
 const icon = (name, cls = '') => `<svg class="icon ${cls}" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icons[name] || icons.layers}</svg>`;
 const external = (url, label, cls = '') => `<a class="${cls}" href="${h(url)}" target="_blank" rel="noopener noreferrer">${label}${icon('arrow')}</a>`;
 const badge = app => `<span class="status status-${h(app.status)}"><i></i>${states[app.status]}</span>`;
-const mark = app => `<span class="app-mark mark-${app.category}" aria-hidden="true">${h(app.name.replace(/^Clash\s*/i, '').replace(/[^a-zA-Z]/g, '').slice(0, 2).toUpperCase() || 'CL')}</span>`;
+const mark = app => appIcons[app.slug] ? `<span class="app-mark has-icon mark-${app.category}" aria-hidden="true"><img src="${h(appIcons[app.slug].path)}" alt="" width="48" height="48" loading="lazy" decoding="async"></span>` : `<span class="app-mark mark-${app.category}" aria-hidden="true">${h(app.name.replace(/^Clash\s*/i, '').replace(/[^a-zA-Z]/g, '').slice(0, 2).toUpperCase() || 'CL')}</span>`;
 const pages = [];
 
-await rm(out, { recursive: true, force: true });
-await mkdir(out, { recursive: true });
-await cp(path.join(root, 'public'), out, { recursive: true });
 
 function breadcrumbs(items) {
   return `<nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a>${items.map(([name, route]) => `<span aria-hidden="true">/</span>${route ? `<a href="${route}">${h(name)}</a>` : `<span aria-current="page">${h(name)}</span>`}`).join('')}</nav>`;
 }
-function footer() {
-  return `<footer class="footer"><div class="wrap footer-main"><div><a class="brand footer-brand" href="/"><img src="/assets/favicon.svg" width="36" height="36" alt=""><span>clash<span class="brand-serif">atlas</span><small>CLASH 图鉴</small></span></a><p>看懂生态，选对客户端。<br>独立维护的 Clash 与 Mihomo 软件资料库。</p></div><div><strong>探索图鉴</strong><a href="/apps/">全部软件</a><a href="/archive/">历史与停更项目</a><a href="/compare/">软件对比</a></div><div><strong>从容上手</strong><a href="/guides/">原创教程</a><a href="/downloads/">下载与加速说明</a><a href="/about/">关于与收录规范</a></div><div><strong>参与维护</strong><a href="${site.repository}" target="_blank" rel="noopener noreferrer">GitHub 仓库 ↗</a><a href="${site.repository}/issues/new?title=${encodeURIComponent('软件信息补充：')}" target="_blank" rel="noopener noreferrer">补充或纠错 ↗</a><a href="/privacy/">隐私说明</a></div></div><div class="wrap footer-bottom"><span>© 2026 Clash 图鉴 · 独立资料站，与各项目无隶属关系。</span><span>资料核验 ${date} <span class="tiny-dot"></span> 不提供代理节点或订阅</span></div></footer>`;
-}
 async function page(route, { title, description, body, nav = '', schema = [], noindex = false }) {
-  const canonical = absolute(route);
-  const crumbs = route === '/' ? [] : [{ '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: '首页', item: absolute('/') }, { '@type': 'ListItem', position: 2, name: title, item: canonical }] }];
-  const structured = [{ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${site.url}/#website`, name: site.name, alternateName: site.englishName, url: `${site.url}/`, inLanguage: 'zh-CN' }, ...crumbs, ...schema.map(s => ({ '@context': 'https://schema.org', ...s }))];
-  const html = `<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${h(title)}${route === '/' ? '' : ` - ${site.name}`}</title><meta name="description" content="${h(description)}"><link rel="canonical" href="${h(canonical)}"><meta name="robots" content="${noindex ? 'noindex,follow' : 'index,follow,max-image-preview:large'}">${site.bingVerification ? `<meta name="msvalidate.01" content="${h(site.bingVerification)}">` : ''}<meta name="download-proxy" content="${h(site.downloadProxy)}"><meta name="theme-color" content="#173b32"><meta property="og:type" content="website"><meta property="og:locale" content="zh_CN"><meta property="og:site_name" content="${site.name}"><meta property="og:title" content="${h(title)}"><meta property="og:description" content="${h(description)}"><meta property="og:url" content="${h(canonical)}"><meta property="og:image" content="${absolute('/assets/og.png')}"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/style.css"><script type="application/ld+json">${json(structured)}</script><script src="/assets/site.js" defer></script></head><body><a class="skip-link" href="#main">跳到正文</a><div class="utility"><div class="wrap"><span><i class="live-dot"></i> 一个持续整理的 Clash 生态资料库</span><span>独立 · 非官方 <span class="utility-divider">/</span> 核验于 ${date}</span></div></div><header class="header"><div class="wrap header-inner"><a class="brand" href="/" aria-label="Clash 图鉴首页"><img src="/assets/favicon.svg" width="40" height="40" alt=""><span>clash<span class="brand-serif">atlas</span><small>CLASH 图鉴</small></span></a><button class="menu-toggle" type="button" aria-label="展开导航" aria-controls="main-nav" aria-expanded="false">${icon('menu')}</button><nav id="main-nav" class="main-nav" aria-label="主导航">${[['/apps/', '软件目录', 'apps'], ['/guides/', '上手教程', 'guides'], ['/archive/', '历史档案', 'archive'], ['/compare/', '软件对比', 'compare']].map(([url, label, key]) => `<a href="${url}" ${nav === key ? 'aria-current="page"' : ''}>${label}</a>`).join('')}</nav><a class="header-cta" href="/apps/">找到我的客户端 ${icon('right')}</a></div></header><main id="main">${body}</main>${footer()}<div class="toast" role="status" aria-live="polite"></div><div class="compare-tray" hidden><span>已选择 <b data-compare-count>0</b> 款软件</span><a href="/compare/" data-compare-link>开始对比 ${icon('right')}</a><button type="button" data-compare-clear aria-label="清空对比">清空</button></div></body></html>`;
-  const file = route.endsWith('/') ? path.join(out, route, 'index.html') : path.join(out, route);
-  await mkdir(path.dirname(file), { recursive: true });
-  await writeFile(file, html);
-  pages.push({ route, title, description, noindex });
+  pages.push({ route, title, description, body, nav, schema, noindex });
 }
 
 function appCard(app, { compare = false } = {}) {
@@ -142,15 +128,17 @@ await page('/compare/', { title: 'Clash 客户端对比 - 平台、内核与维�
 
 await page('/downloads/', { title: 'Clash GitHub 加速下载说明与安装包校验', description: '了解 Clash 图鉴的 GitHub 加速下载方式、安装包来源、架构选择、历史版本收录及 SHA256 校验。', body: `${intro('DOWNLOAD WITH CONTEXT', '下载快一点，来源清楚一点。', '软件详情页按平台与架构列出安装选项。GitHub 发布资产统一使用加速前缀，项目来源保持可追溯。', [['下载说明']])}<div class="wrap narrow-content"><section class="content-section"><h2>GitHub 加速如何工作？</h2><p>下载按钮把项目 GitHub Release 安装包原地址交给第三方加速服务转发。默认线路为 <strong>${h(site.downloadProxy)}</strong>，本站不存储或修改二进制安装包，也不对第三方线路作速度承诺。</p><div class="proxy-settings"><label for="proxy-prefix">GitHub 加速前缀</label><div><input id="proxy-prefix" type="url" value="${h(site.downloadProxy)}" placeholder="https://your-proxy.example/" spellcheck="false"><button class="button primary" type="button" data-save-proxy>保存线路 ${icon('check')}</button><button class="button secondary" type="button" data-reset-proxy>恢复默认</button></div><p>只保存在当前浏览器；接受 HTTPS 前缀，网站其他访问者不受影响。</p><p class="proxy-feedback" role="status" aria-live="polite"></p></div><p>加速服务使用方式：${external('https://gh-proxy.com/docs/quick-start', 'GH-Proxy 使用文档')}。</p></section><section class="content-section"><h2>找到正确的安装文件</h2><ul><li>Windows：核对 x64 或 ARM64，再选安装程序或便携格式。</li><li>macOS：Apple Silicon 通常对应 arm64 / aarch64，Intel 对应 x64 / x86_64；Universal 为通用包。</li><li>Android：按设备架构选择 APK，常见现代手机为 arm64-v8a；无法确认时先查设备信息。</li><li>Linux / OpenWrt：同时核对发行版、包管理格式、CPU 架构及内核要求。</li></ul></section><section class="content-section"><h2>历史版本如何收录？</h2><p>归档项目仍保留可核验的官方安装资产时，详情页会注明版本和来源。原始仓库删除或未找到可信文件时，保留项目资料与迁移教程，下载区标注“暂无已核验安装包”。商店分发项目使用项目公布的官方分发入口。</p></section><section class="content-section"><h2>下载后做一次校验</h2><p>若项目提供 SHA256、签名或校验清单，可在安装前对照。校验值应来自项目维护者公布的渠道。哈希一致表示文件与该校验值对应，不能单独证明软件安全。</p><a class="text-link" href="/guides/verify-download/">查看安装包校验教程 ${icon('right')}</a></section><section class="content-section"><h2>下载中断怎么办？</h2><ol><li>先确认安装包所属平台、架构与版本。</li><li>检查项目来源页是否仍保留该资产。</li><li>在本页修改为你信任的 GitHub 加速前缀，再返回软件页重试。</li><li>若项目已经撤回资产，通过 GitHub 反馈，便于核对并更新条目。</li></ol></section><a class="button primary" href="/apps/">返回软件目录 ${icon('right')}</a></div>` });
 
-await page('/about/', { title: '关于 Clash 图鉴与软件收录规范', description: 'Clash 图鉴是独立的 Clash 与 Mihomo 生态资料站，说明软件收录范围、维护状态判定、来源核验与内容编辑原则。', body: `${intro('ABOUT THE ATLAS', '一张看得懂，也查得到出处的地图。', 'Clash 图鉴独立整理生态软件与教程，与原版 Clash、Mihomo 及所列客户端项目无隶属关系。', [['关于图鉴']])}<div class="wrap narrow-content"><section class="content-section"><h2>为什么做这份图鉴？</h2><p>Clash 生态有客户端、内核、控制面板和路由器工具，也有已经停止维护的经典项目。只看名字，很难知道它适合什么设备、是否仍在维护、安装包来自哪里。本站把这些信息放到统一的条目中，并通过原创教程补上使用背景。</p></section><section class="content-section"><h2>收录范围</h2><p>主要收录可核验的 Clash / Mihomo 生态项目，以及具有历史意义的原版客户端。原版 Clash 系列、兼容分支、第三方客户端和周边工具分别说明身份，不把使用其他代理内核的软件混称为 Clash 官方客户端。</p><p>开源生态持续变化，这份目录不能承诺覆盖每一个临时分支。欢迎提交有项目来源、功能说明和维护证据的新条目。</p></section><section class="content-section"><h2>维护状态如何判定？</h2><dl class="definition-list"><div><dt>持续维护</dt><dd>项目仍接受维护、存在可核验的开发或发布活动。该标签不承诺更新频率。</dd></div><div><dt>已归档</dt><dd>仓库明确设为只读归档。是否提供历史包取决于原始资产是否仍可核验。</dd></div><div><dt>已停更</dt><dd>根据维护者公告或可核验的项目停止信息说明，不仅依靠最后提交时间判断。</dd></div><div><dt>状态待确认</dt><dd>存在迁移、删除或缺少明确维护信息等情况，条目说明已确认的事实。</dd></div></dl></section><section class="content-section"><h2>来源与原创内容</h2><p>维护状态与下载资料优先引用项目仓库、官方发布页和项目文档。本站教程为独立编写；参考网站仅用于了解信息需求，不复制页面内容、视觉素材或评测数据。未做实际测试的功能不标为“实测”。</p><p>本批条目核验于 ${date}。每个软件与教程页面均列出相关来源。若上游发生变化，请以维护者最新说明为准并协助反馈。</p></section><section class="content-section"><h2>纠错与补充</h2><p>欢迎提交项目遗漏、维护状态变化、资产失效或教程步骤差异。请附项目地址、相关公告或发布信息，便于复核。</p>${external(`${site.repository}/issues/new`, '前往 GitHub 提交资料更正', 'button primary')}</section></div>` });
+await page('/about/', { title: '关于 Clash 图鉴与软件收录规范', description: 'Clash 图鉴是独立的 Clash 与 Mihomo 生态资料站，说明软件收录范围、维护状态判定、来源核验与内容编辑原则。', body: `${intro('ABOUT THE ATLAS', '一张看得懂，也查得到出处的地图。', 'Clash 图鉴独立整理生态软件与教程，与原版 Clash、Mihomo 及所列客户端项目无隶属关系。', [['关于图鉴']])}<div class="wrap narrow-content"><section class="content-section"><h2>为什么做这份图鉴？</h2><p>Clash 生态有客户端、内核、控制面板和路由器工具，也有已经停止维护的经典项目。只看名字，很难知道它适合什么设备、是否仍在维护、安装包来自哪里。本站把这些信息放到统一的条目中，并通过原创教程补上使用背景。</p></section><section class="content-section"><h2>收录范围</h2><p>主要收录可核验的 Clash / Mihomo 生态项目，以及具有历史意义的原版客户端。原版 Clash 系列、兼容分支、第三方客户端和周边工具分别说明身份，不把使用其他代理内核的软件混称为 Clash 官方客户端。</p><p>开源生态持续变化，这份目录不能承诺覆盖每一个临时分支。欢迎提交有项目来源、功能说明和维护证据的新条目。</p></section><section class="content-section"><h2>维护状态如何判定？</h2><dl class="definition-list"><div><dt>持续维护</dt><dd>项目仍接受维护、存在可核验的开发或发布活动。该标签不承诺更新频率。</dd></div><div><dt>已归档</dt><dd>仓库明确设为只读归档。是否提供历史包取决于原始资产是否仍可核验。</dd></div><div><dt>已停更</dt><dd>根据维护者公告或可核验的项目停止信息说明，不仅依靠最后提交时间判断。</dd></div><div><dt>状态待确认</dt><dd>存在迁移、删除或缺少明确维护信息等情况，条目说明已确认的事实。</dd></div></dl></section><section class="content-section"><h2>来源与原创内容</h2><p>维护状态与下载资料优先引用项目仓库、官方发布页和项目文档。本站教程为独立编写；参考网站仅用于了解信息需求，不复制页面内容、视觉素材或评测数据。未做实际测试的功能不标为“实测”。软件图标取自各项目官方资料，仅用于识别项目，相关权利归各自作者所有。</p><p>本批条目核验于 ${date}。每个软件与教程页面均列出相关来源。若上游发生变化，请以维护者最新说明为准并协助反馈。</p></section><section class="content-section"><h2>纠错与补充</h2><p>欢迎提交项目遗漏、维护状态变化、资产失效或教程步骤差异。请附项目地址、相关公告或发布信息，便于复核。</p>${external(`${site.repository}/issues/new`, '前往 GitHub 提交资料更正', 'button primary')}</section></div>` });
 
-await page('/privacy/', { title: '隐私说明', description: 'Clash 图鉴的浏览器本地存储、第三方下载加速、外部项目链接及 GitHub Pages 托管隐私说明。', body: `${intro('PRIVACY', '尽量简单的隐私说明。', '本网站是静态资料站，不要求注册账号，也不收集你的订阅链接。', [['隐私说明']])}<div class="wrap narrow-content"><section class="content-section"><h2>浏览器本地存储</h2><p>软件对比选择和自定义加速前缀保存在当前浏览器的 localStorage 中，不上传至本站服务器。你可清空浏览器站点数据，或使用页面上的清空与恢复默认功能删除这些偏好。</p></section><section class="content-section"><h2>托管与外部服务</h2><p>本站通过 GitHub Pages 托管。托管服务可能依其隐私政策处理访问日志。点击下载按钮会请求第三方 GitHub 加速服务，该服务可看到请求的文件地址及网络连接信息；外部项目网站和商店链接适用各自隐私政策。</p></section><section class="content-section"><h2>本站未接入行为分析</h2><p>当前版本不加载广告、第三方统计脚本或跟踪像素。搜索与筛选在浏览器本地完成，关键词不发送至外部搜索服务。</p></section><section class="content-section"><h2>相关政策</h2>${sourceList([{ label: 'GitHub 隐私声明', url: 'https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement' }])}</section></div>` });
+await page('/privacy/', { title: '隐私说明', description: 'Clash 图鉴的浏览器本地存储、第三方下载加速、外部项目链接及 GitHub Pages 托管隐私说明。', body: `${intro('PRIVACY', '尽量简单的隐私说明。', '本网站是静态资料站，不要求注册账号，也不收集你的订阅链接。', [['隐私说明']])}<div class="wrap narrow-content"><section class="content-section"><h2>浏览器本地存储</h2><p>软件对比选择、明暗主题和自定义加速前缀保存在当前浏览器的 localStorage 中，不上传至本站服务器。你可清空浏览器站点数据，或使用页面上的清空与恢复默认功能删除这些偏好。</p></section><section class="content-section"><h2>托管与外部服务</h2><p>本站通过 GitHub Pages 托管。托管服务可能依其隐私政策处理访问日志。点击下载按钮会请求第三方 GitHub 加速服务，该服务可看到请求的文件地址及网络连接信息；外部项目网站和商店链接适用各自隐私政策。</p></section><section class="content-section"><h2>本站未接入行为分析</h2><p>当前版本不加载广告、第三方统计脚本或跟踪像素。搜索与筛选在浏览器本地完成，关键词不发送至外部搜索服务。</p></section><section class="content-section"><h2>相关政策</h2>${sourceList([{ label: 'GitHub 隐私声明', url: 'https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement' }])}</section></div>` });
 
 await page('/404.html', { title: '页面未找到', description: '此页面不存在。返回 Clash 图鉴软件目录或查看使用教程。', noindex: true, body: `<section class="wrap not-found"><span class="eyebrow">404 / UNMAPPED TERRITORY</span><h1>这条路线暂时没有收录。</h1><p>可以回到软件目录，或者从一篇上手教程重新出发。</p><div><a class="button primary" href="/apps/">浏览软件目录 ${icon('right')}</a><a class="button secondary" href="/guides/">查看教程</a></div></section>` });
 
-await writeFile(path.join(out, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${pages.filter(p => !p.noindex).map(p => `<url><loc>${h(absolute(p.route))}</loc><lastmod>${site.checkedAt}</lastmod></url>`).join('')}</urlset>\n`);
-await writeFile(path.join(out, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${absolute('/sitemap.xml')}\n`);
-await writeFile(path.join(out, '.nojekyll'), '');
-await writeFile(path.join(out, 'catalog.json'), JSON.stringify({ checkedAt: site.checkedAt, apps }, null, 2));
-await writeFile(path.join(out, 'build-info.json'), JSON.stringify({ pages: pages.length, apps: apps.length, guides: guides.length, checkedAt: site.checkedAt }));
-console.log(`Built ${pages.length} HTML pages · ${apps.length} projects · ${guides.length} guides → dist/`);
+
+export {
+  site, apps, guides, platforms, states, categories, pages,
+  h, text, json, absolute, icon, icons, appCard, guideCard,
+  sortApps, isOld, isPlatform, activeClients, oldApps, date,
+  external, badge, mark, breadcrumbs, catalogue, downloads,
+  intro, sectionHead, sourceList, guideForApp,
+};

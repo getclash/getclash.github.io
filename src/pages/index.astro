@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import AppLogo from '../components/AppLogo.astro';
+import { site, apps, guides, platforms, states, sortApps, isOld } from '../lib/content.mjs';
+
+const preferred = ['clash-verge-rev', 'flclash', 'clash-party', 'clash-mi', 'clash-nyanpasu', 'clash-meta-android'];
+const featured = preferred.map(slug => apps.find(app => app.slug === slug)).filter(Boolean);
+const spotlight = featured.slice(0, 3);
+const legacy = apps.filter(isOld);
+const page = { route: '/', title: 'Clash 图鉴 - 全平台客户端下载、软件对比与使用教程', description: site.description, schema: [{ '@type': 'CollectionPage', name: 'Clash 与 Mihomo 生态软件图鉴', url: `${site.url}/`, description: site.description }] };
+const typeLinks = [
+  { key: 'client', title: '图形客户端', text: '选择节点、管理订阅，日常使用从这里开始。', icon: 'windows' },
+  { key: 'core', title: '代理内核', text: '了解 Clash、Mihomo 与 ClashRS 的不同。', icon: 'terminal' },
+  { key: 'router', title: '路由器工具', text: '在 OpenWrt 或网关上管理分流。', icon: 'router' },
+  { key: 'dashboard', title: '控制面板', text: '连接内核，查看规则、连接与实时流量。', icon: 'layers' },
+];
+---
+<BaseLayout page={page}>
+  <section class="home-hero wrap">
+    <div class="hero-copy">
+      <a class="hero-pill" href="/apps/"><span class="pulse-dot"></span> Clash / Mihomo 生态导航 <span aria-hidden="true">↗</span></a>
+      <h1>你的 Clash 世界，<br /><span>从这里开始。</span></h1>
+      <p>找到合适的客户端，读懂每一个设置。<br />全平台软件、维护状态与使用教程，一站整理。</p>
+      <div class="hero-actions"><a class="button primary" href="/apps/">探索软件目录 <Icon name="right" /></a><a class="button secondary" href="/guides/clients-choice/"><Icon name="book" /> 新手入门指南</a></div>
+      <div class="hero-facts"><span><strong>{apps.length}</strong> 个生态项目</span><span><strong>{guides.length}</strong> 篇原创教程</span><span><Icon name="check" /> GitHub 加速下载</span></div>
+    </div>
+    <div class="hero-showcase">
+      <div class="showcase-orbit orbit-one"></div><div class="showcase-orbit orbit-two"></div>
+      <div class="software-window">
+        <div class="window-top"><div class="window-dots"><i></i><i></i><i></i></div><span>发现你的下一款客户端</span><Icon name="layers" /></div>
+        <div class="window-body"><div class="window-heading"><span>精选推荐</span><span class="window-live"><i></i> 持续维护</span></div>
+          {spotlight.map(app => <a class="showcase-app" href={`/apps/${app.slug}/`}><AppLogo app={app} /><div><strong>{app.name}</strong><span>{app.platforms.join(' · ')}</span></div><span class="showcase-arrow"><Icon name="arrow" /></span></a>)}
+          <a class="window-more" href="/apps/">查看全部软件 <Icon name="right" /></a>
+        </div>
+      </div>
+      <div class="floating-compatibility"><span class="compat-icon"><Icon name="shield" /></span><div><strong>来源清楚，状态明确</strong><span>每一款软件都有据可查</span></div><span class="compat-tick"><Icon name="check" /></span></div>
+      <span class="showcase-caption">ONE ECOSYSTEM. MORE POSSIBILITIES.</span>
+    </div>
+  </section>
+
+  <section class="platform-strip wrap" aria-label="按设备选择软件"><div class="platform-strip-heading"><strong>你的设备，<br />你的选择。</strong><span>从平台开始探索</span></div><div class="platform-links">{platforms.map(platform => <a href={`/platforms/${platform.slug}/`}><Icon name={platform.icon} /><span>{platform.name}</span></a>)}</div></section>
+
+  <section class="home-section wrap">
+    <div class="section-head"><div><span class="eyebrow">FIND YOUR NEXT CLIENT</span><h2>好用的客户端，不止一种。</h2><p>这些持续维护的项目，是了解新一代 Clash 生态的好起点。</p></div><a class="text-link" href="/apps/">全部 {apps.length} 个项目 <Icon name="right" /></a></div>
+    <div class="featured-grid">{featured.map(app => <article class="featured-card"><div class="featured-card-top"><AppLogo app={app} /><span class="status status-active"><i></i>{states[app.status]}</span></div><h3><a href={`/apps/${app.slug}/`}>{app.name}<Icon name="arrow" /></a></h3><p>{app.tagline}</p><div class="app-platforms">{app.platforms.map(platform => <span>{platform}</span>)}</div><div class="featured-card-bottom"><span>{app.core.split(' / ')[0]}</span><a href={`/apps/${app.slug}/#downloads`}>下载与详情 <Icon name="right" /></a></div></article>)}</div>
+  </section>
+
+  <section class="home-section wrap">
+    <div class="section-head"><div><span class="eyebrow">MORE THAN A DOWNLOAD</span><h2>先认识生态，再选你的工具。</h2></div><a class="text-link" href="/guides/clients-choice/">看看它们有什么不同 <Icon name="right" /></a></div>
+    <div class="type-grid">{typeLinks.map(type => <a class="type-card" href={`/apps/?category=${type.key}`}><span class="type-icon"><Icon name={type.icon} /></span><h3>{type.title}<Icon name="arrow" /></h3><p>{type.text}</p></a>)}</div>
+  </section>
+
+  <section class="home-section wrap learning-section">
+    <div class="section-head"><div><span class="eyebrow">A LITTLE GUIDANCE GOES A LONG WAY</span><h2>从第一次连接，到真正用明白。</h2><p>一篇解决一个问题，让每一步都有方向。</p></div><a class="text-link" href="/guides/">所有教程 <Icon name="right" /></a></div>
+    <div class="home-learning-grid"><a class="start-guide" href="/guides/clients-choice/"><span class="start-guide-icon"><Icon name="book" /></span><span class="start-guide-label">第一次使用 Clash？</span><h3>跟着这条路线，<br />轻松完成第一次连接。</h3><p>选客户端 → 安装与导入 → 开启代理 → 验证连接</p><span class="start-guide-button">开始阅读 <Icon name="right" /></span><span class="start-guide-decoration" aria-hidden="true">↗</span></a><div class="home-guide-list">{guides.filter(guide => ['windows-start', 'macos-start', 'android-start', 'system-proxy-vs-tun'].includes(guide.slug)).map((guide, index) => <a href={`/guides/${guide.slug}/`}><span class="guide-list-index">0{index + 1}</span><div><span>{guide.category} · {guide.minutes} 分钟</span><h3>{guide.title}</h3></div><Icon name="arrow" /></a>)}</div></div>
+  </section>
+
+  <section class="home-archive wrap"><div class="archive-symbol"><Icon name="clock" /></div><div><span class="eyebrow">THE CLASSICS, REMEMBERED</span><h2>经典项目，也有自己的档案。</h2><p>Clash for Windows、ClashX、原版 Clash Verge……<br class="desktop-only" />保留历史，标明现状，找到下一步的迁移方向。</p></div><a class="button secondary" href="/archive/">浏览 {legacy.length} 个历史项目 <Icon name="right" /></a></section>
+</BaseLayout>
