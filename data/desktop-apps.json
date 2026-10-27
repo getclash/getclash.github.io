@@ -1,0 +1,900 @@
+[
+  {
+    "slug": "clash-verge-rev",
+    "name": "Clash Verge Rev",
+    "tagline": "成熟的三平台桌面入口",
+    "description": "原版 Clash Verge 的社区延续，使用 Tauri 2 构建桌面界面。集成 Mihomo 内核，适合需要订阅管理、规则分流与 TUN 模式的 Windows、macOS 和 Linux 用户。",
+    "status": "active",
+    "statusNote": "截至 2026-10-27，官方仓库未归档，并有近期代码或版本发布。",
+    "category": "client",
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+    ],
+    "core": "Mihomo",
+    "repo": "https://github.com/clash-verge-rev/clash-verge-rev",
+    "website": "https://www.clashverge.dev",
+    "featured": true,
+    "version": "2.5.8",
+    "releaseDate": "2026-10-09",
+    "features": [
+      "Tauri 2 桌面界面",
+      "系统代理与 TUN 模式",
+      "Merge / Script 配置增强",
+      "WebDAV 备份与同步"
+    ],
+    "notes": "Rev 与已归档的原版 Clash Verge 是不同维护项目。普通电脑优先选择 x64；Apple Silicon 与 Windows on ARM 选择 ARM64。",
+    "sources": [
+      {
+        "label": "官方项目仓库",
+        "url": "https://github.com/clash-verge-rev/clash-verge-rev"
+      },
+      {
+        "label": "本次收录版本发布记录",
+        "url": "https://github.com/clash-verge-rev/clash-verge-rev/releases/tag/v2.5.8"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "Windows x64 安装版 · 2.5.8",
+        "platform": "Windows",
+        "arch": "x64",
+        "url": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.8/Clash.Verge_2.5.8_x64-setup.exe",
+        "kind": "github"
+      },
+      {
+        "label": "Windows ARM64 安装版 · 2.5.8",
+        "platform": "Windows",
+        "arch": "ARM64",
+        "url": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.8/Clash.Verge_2.5.8_arm64-setup.exe",
+        "kind": "github"
+      },
+      {
+        "label": "macOS Apple Silicon · 2.5.8",
+        "platform": "macOS",
+        "arch": "Apple Silicon",
+        "url": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.8/Clash.Verge_2.5.8_aarch64.dmg",
+        "kind": "github"
+      },
+      {
+        "label": "macOS Intel · 2.5.8",
+        "platform": "macOS",
+        "arch": "Intel x64",
+        "url": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.8/Clash.Verge_2.5.8_x64.dmg",
+        "kind": "github"
+      },
+      {
+        "label": "Linux x64 DEB · 2.5.8",
+        "platform": "Linux",
+        "arch": "x64",
+        "url": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.8/Clash.Verge_2.5.8_amd64.deb",
+        "kind": "github"
+      },
+      {
+        "label": "Linux ARM64 DEB · 2.5.8",
+        "platform": "Linux",
+        "arch": "ARM64",
+        "url": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.8/Clash.Verge_2.5.8_arm64.deb",
+        "kind": "github"
+      },
+      {
+        "label": "Linux x64 RPM · 2.5.8",
+        "platform": "Linux",
+        "arch": "x64",
+        "url": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.8/Clash.Verge-2.5.8-1.x86_64.rpm",
+        "kind": "github"
+      },
+      {
+        "label": "Linux ARM64 RPM · 2.5.8",
+        "platform": "Linux",
+        "arch": "ARM64",
+        "url": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.8/Clash.Verge-2.5.8-1.aarch64.rpm",
+        "kind": "github"
+      }
+    ]
+  },
+  {
+    "slug": "clash-nyanpasu",
+    "name": "Clash Nyanpasu",
+    "tagline": "让配置编辑更有表现力",
+    "description": "基于 Tauri 的 Clash 图形客户端，以 Material You 风格、配置增强和多内核支持见长。适合希望通过 YAML、JavaScript 或 Lua 组织分流配置的桌面用户。",
+    "status": "active",
+    "statusNote": "项目仍在维护；2026-10-27 已发布 2.0.0 标签，本页保留可核验的 1.6.1 稳定版安装包。",
+    "category": "client",
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+    ],
+    "core": "Mihomo / Clash Premium / clash-rs / Meow",
+    "repo": "https://github.com/libnyanpasu/clash-nyanpasu",
+    "website": "https://nyanpasu.org",
+    "featured": true,
+    "version": "1.6.1",
+    "releaseDate": "2024-09-07",
+    "features": [
+      "Material You 风格界面",
+      "多内核管理",
+      "YAML / JavaScript / Lua 配置增强",
+      "订阅与 Provider 管理"
+    ],
+    "notes": "本页下载固定为仍有完整安装资产的 1.6.1 稳定版（2024-09-07）。核验时官方已发布 2.0.0 标签，但 GitHub API 尚未列出该版本安装资产；需要新版请检查官方发布记录，勿把旧包当作 2.0.0。",
+    "sources": [
+      {
+        "label": "官方项目仓库",
+        "url": "https://github.com/libnyanpasu/clash-nyanpasu"
+      },
+      {
+        "label": "1.6.1 稳定版发布记录",
+        "url": "https://github.com/libnyanpasu/clash-nyanpasu/releases/tag/v1.6.1"
+      },
+      {
+        "label": "最新版本发布记录",
+        "url": "https://github.com/libnyanpasu/clash-nyanpasu/releases"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "Windows x64 安装版 · 1.6.1",
+        "platform": "Windows",
+        "arch": "x64",
+        "url": "https://github.com/libnyanpasu/clash-nyanpasu/releases/download/v1.6.1/Clash.Nyanpasu_1.6.1_x64-setup.exe",
+        "kind": "github"
+      },
+      {
+        "label": "macOS Apple Silicon · 1.6.1",
+        "platform": "macOS",
+        "arch": "Apple Silicon",
+        "url": "https://github.com/libnyanpasu/clash-nyanpasu/releases/download/v1.6.1/Clash.Nyanpasu_1.6.1_aarch64.dmg",
+        "kind": "github"
+      },
+      {
+        "label": "macOS Intel · 1.6.1",
+        "platform": "macOS",
+        "arch": "Intel x64",
+        "url": "https://github.com/libnyanpasu/clash-nyanpasu/releases/download/v1.6.1/Clash.Nyanpasu_1.6.1_x64.dmg",
+        "kind": "github"
+      },
+      {
+        "label": "Linux x64 DEB · 1.6.1",
+        "platform": "Linux",
+        "arch": "x64",
+        "url": "https://github.com/libnyanpasu/clash-nyanpasu/releases/download/v1.6.1/clash-nyanpasu_1.6.1_amd64.deb",
+        "kind": "github"
+      },
+      {
+        "label": "Linux x64 AppImage · 1.6.1",
+        "platform": "Linux",
+        "arch": "x64",
+        "url": "https://github.com/libnyanpasu/clash-nyanpasu/releases/download/v1.6.1/clash-nyanpasu_1.6.1_amd64.AppImage",
+        "kind": "github"
+      },
+      {
+        "label": "Linux x64 RPM · 1.6.1",
+        "platform": "Linux",
+        "arch": "x64",
+        "url": "https://github.com/libnyanpasu/clash-nyanpasu/releases/download/v1.6.1/clash-nyanpasu-1.6.1-1.x86_64.rpm",
+        "kind": "github"
+      }
+    ]
+  },
+  {
+    "slug": "clash-party",
+    "name": "Clash Party",
+    "tagline": "Mihomo Party 的现行名称",
+    "description": "原名 Mihomo Party 的桌面客户端，现以 Clash Party 名称继续发布。提供配置覆写、WebDAV 备份和 Sub-Store 集成，适合希望在同一界面完成订阅整理与日常分流的用户。",
+    "status": "active",
+    "statusNote": "截至 2026-10-27，官方仓库未归档，并有近期代码或版本发布。",
+    "category": "client",
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+    ],
+    "core": "Mihomo / Smart",
+    "repo": "https://github.com/mihomo-party-org/clash-party",
+    "website": "https://clashparty.org",
+    "featured": true,
+    "version": "2.0.4",
+    "releaseDate": "2026-10-18",
+    "features": [
+      "Mihomo 与 Smart 内核选项",
+      "TUN 模式",
+      "Sub-Store 订阅管理",
+      "WebDAV 备份与配置覆写"
+    ],
+    "notes": "Mihomo Party 与 Clash Party 不应被当成两个独立的在维护项目重复推荐。本页采用原组织 mihomo-party-org 的 clash-party 仓库发布资产；默认 macOS 包适用于 macOS 11+，旧系统包请查阅发布说明。",
+    "sources": [
+      {
+        "label": "官方项目仓库",
+        "url": "https://github.com/mihomo-party-org/clash-party"
+      },
+      {
+        "label": "本次收录版本发布记录",
+        "url": "https://github.com/mihomo-party-org/clash-party/releases/tag/v2.0.4"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "Windows x64 安装版 · 2.0.4",
+        "platform": "Windows",
+        "arch": "x64",
+        "url": "https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.4/clash-party-windows-2.0.4-x64-setup.exe",
+        "kind": "github"
+      },
+      {
+        "label": "Windows ARM64 安装版 · 2.0.4",
+        "platform": "Windows",
+        "arch": "ARM64",
+        "url": "https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.4/clash-party-windows-2.0.4-arm64-setup.exe",
+        "kind": "github"
+      },
+      {
+        "label": "Windows x86 安装版 · 2.0.4",
+        "platform": "Windows",
+        "arch": "x86",
+        "url": "https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.4/clash-party-windows-2.0.4-ia32-setup.exe",
+        "kind": "github"
+      },
+      {
+        "label": "macOS Apple Silicon PKG · 2.0.4",
+        "platform": "macOS",
+        "arch": "Apple Silicon",
+        "url": "https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.4/clash-party-macos-2.0.4-arm64.pkg",
+        "kind": "github"
+      },
+      {
+        "label": "macOS Intel PKG · 2.0.4",
+        "platform": "macOS",
+        "arch": "Intel x64",
+        "url": "https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.4/clash-party-macos-2.0.4-x64.pkg",
+        "kind": "github"
+      },
+      {
+        "label": "Linux x64 DEB · 2.0.4",
+        "platform": "Linux",
+        "arch": "x64",
+        "url": "https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.4/clash-party-linux-2.0.4-amd64.deb",
+        "kind": "github"
+      },
+      {
+        "label": "Linux ARM64 DEB · 2.0.4",
+        "platform": "Linux",
+        "arch": "ARM64",
+        "url": "https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.4/clash-party-linux-2.0.4-arm64.deb",
+        "kind": "github"
+      },
+      {
+        "label": "Linux x64 RPM · 2.0.4",
+        "platform": "Linux",
+        "arch": "x64",
+        "url": "https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.4/clash-party-linux-2.0.4-x86_64.rpm",
+        "kind": "github"
+      },
+      {
+        "label": "Linux ARM64 RPM · 2.0.4",
+        "platform": "Linux",
+        "arch": "ARM64",
+        "url": "https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.4/clash-party-linux-2.0.4-aarch64.rpm",
+        "kind": "github"
+      }
+    ]
+  },
+  {
+    "slug": "flclash",
+    "name": "FlClash",
+    "tagline": "从手机到桌面的一套习惯",
+    "description": "使用 Flutter 构建的跨平台 Mihomo 客户端，同时覆盖 Android、Windows、macOS 与 Linux。界面会适应不同屏幕，提供深色模式、订阅导入与 WebDAV 同步，方便在手机和电脑间保持相近的使用方式。",
+    "status": "active",
+    "statusNote": "截至 2026-10-27，官方仓库未归档，并有近期代码或版本发布。",
+    "category": "client",
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Android"
+    ],
+    "core": "Mihomo",
+    "repo": "https://github.com/chen08209/FlClash",
+    "website": "https://chen08209.github.io/FlClash",
+    "featured": true,
+    "version": "0.9.2",
+    "releaseDate": "2026-10-24",
+    "features": [
+      "Android 与三大桌面平台",
+      "响应式 Material You 界面",
+      "WebDAV 数据同步",
+      "订阅导入与深色模式"
+    ],
+    "notes": "FlClash 与 FlClashX 为不同维护者的项目；跨项目迁移前先备份配置。Linux 使用前请检查项目文档中的托盘依赖。",
+    "sources": [
+      {
+        "label": "官方项目仓库",
+        "url": "https://github.com/chen08209/FlClash"
+      },
+      {
+        "label": "本次收录版本发布记录",
+        "url": "https://github.com/chen08209/FlClash/releases/tag/v0.9.2"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "Windows x64 安装版 · 0.9.2",
+        "platform": "Windows",
+        "arch": "x64",
+        "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.2/FlClash-0.9.2-windows-amd64-setup.exe",
+        "kind": "github"
+      },
+      {
+        "label": "Windows ARM64 安装版 · 0.9.2",
+        "platform": "Windows",
+        "arch": "ARM64",
+        "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.2/FlClash-0.9.2-windows-arm64-setup.exe",
+        "kind": "github"
+      },
+      {
+        "label": "macOS Apple Silicon · 0.9.2",
+        "platform": "macOS",
+        "arch": "Apple Silicon",
+        "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.2/FlClash-0.9.2-macos-arm64.dmg",
+        "kind": "github"
+      },
+      {
+        "label": "macOS Intel · 0.9.2",
+        "platform": "macOS",
+        "arch": "Intel x64",
+        "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.2/FlClash-0.9.2-macos-amd64.dmg",
+        "kind": "github"
+      },
+      {
+        "label": "Linux x64 DEB · 0.9.2",
+        "platform": "Linux",
+        "arch": "x64",
+        "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.2/FlClash-0.9.2-linux-amd64.deb",
+        "kind": "github"
+      },
+      {
+        "label": "Linux ARM64 DEB · 0.9.2",
+        "platform": "Linux",
+        "arch": "ARM64",
+        "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.2/FlClash-0.9.2-linux-arm64.deb",
+        "kind": "github"
+      },
+      {
+        "label": "Linux x64 AppImage · 0.9.2",
+        "platform": "Linux",
+        "arch": "x64",
+        "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.2/FlClash-0.9.2-linux-amd64.AppImage",
+        "kind": "github"
+      },
+      {
+        "label": "Linux ARM64 AppImage · 0.9.2",
+        "platform": "Linux",
+        "arch": "ARM64",
+        "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.2/FlClash-0.9.2-linux-arm64.AppImage",
+        "kind": "github"
+      },
+      {
+        "label": "Android ARM64 APK · 0.9.2",
+        "platform": "Android",
+        "arch": "arm64-v8a",
+        "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.2/FlClash-0.9.2-android-arm64-v8a.apk",
+        "kind": "github"
+      },
+      {
+        "label": "Android ARMv7 APK · 0.9.2",
+        "platform": "Android",
+        "arch": "armeabi-v7a",
+        "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.2/FlClash-0.9.2-android-armeabi-v7a.apk",
+        "kind": "github"
+      },
+      {
+        "label": "Android x86_64 APK · 0.9.2",
+        "platform": "Android",
+        "arch": "x86_64",
+        "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.2/FlClash-0.9.2-android-x86_64.apk",
+        "kind": "github"
+      }
+    ]
+  },
+  {
+    "slug": "flclashx",
+    "name": "FlClashX",
+    "tagline": "面向更多场景的 FlClash 分支",
+    "description": "由 pluralplay 维护的 FlClash 分支，沿用 Mihomo 内核，并扩展 Android TV 操作、订阅信息展示与 macOS 菜单栏体验。适合需要这些特定功能、愿意了解分支差异的用户。",
+    "status": "active",
+    "statusNote": "截至 2026-10-27，原维护者 pluralplay 仓库仍在发布；稳定版为 0.4.2，另有 0.5.0 预发布分支。",
+    "category": "client",
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Android"
+    ],
+    "core": "Mihomo",
+    "repo": "https://github.com/pluralplay/FlClashX",
+    "website": null,
+    "featured": false,
+    "version": "0.4.2",
+    "releaseDate": "2026-07-18",
+    "features": [
+      "Android TV 操作优化",
+      "macOS 原生菜单栏入口",
+      "订阅流量与到期信息展示",
+      "可定制的主页组件"
+    ],
+    "notes": "FlClashX 存在多个同名再分支。本页只链接 pluralplay/FlClashX 发布资产；不把 qann1st、clash-version 等另一个维护者的包混入同一条目。",
+    "sources": [
+      {
+        "label": "分支维护者仓库",
+        "url": "https://github.com/pluralplay/FlClashX"
+      },
+      {
+        "label": "0.4.2 稳定版发布记录",
+        "url": "https://github.com/pluralplay/FlClashX/releases/tag/v0.4.2"
+      },
+      {
+        "label": "预发布与其他版本",
+        "url": "https://github.com/pluralplay/FlClashX/releases"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "Windows x64 安装版 · 0.4.2",
+        "platform": "Windows",
+        "arch": "x64",
+        "url": "https://github.com/pluralplay/FlClashX/releases/download/v0.4.2/FlClashX-windows-amd64-setup.exe",
+        "kind": "github"
+      },
+      {
+        "label": "Windows ARM64 安装版 · 0.4.2",
+        "platform": "Windows",
+        "arch": "ARM64",
+        "url": "https://github.com/pluralplay/FlClashX/releases/download/v0.4.2/FlClashX-windows-arm64-setup.exe",
+        "kind": "github"
+      },
+      {
+        "label": "macOS Apple Silicon · 0.4.2",
+        "platform": "macOS",
+        "arch": "Apple Silicon",
+        "url": "https://github.com/pluralplay/FlClashX/releases/download/v0.4.2/FlClashX-macos-arm64.dmg",
+        "kind": "github"
+      },
+      {
+        "label": "macOS Intel · 0.4.2",
+        "platform": "macOS",
+        "arch": "Intel x64",
+        "url": "https://github.com/pluralplay/FlClashX/releases/download/v0.4.2/FlClashX-macos-amd64.dmg",
+        "kind": "github"
+      },
+      {
+        "label": "Linux x64 DEB · 0.4.2",
+        "platform": "Linux",
+        "arch": "x64",
+        "url": "https://github.com/pluralplay/FlClashX/releases/download/v0.4.2/FlClashX-linux-amd64.deb",
+        "kind": "github"
+      },
+      {
+        "label": "Linux ARM64 DEB · 0.4.2",
+        "platform": "Linux",
+        "arch": "ARM64",
+        "url": "https://github.com/pluralplay/FlClashX/releases/download/v0.4.2/FlClashX-linux-arm64.deb",
+        "kind": "github"
+      },
+      {
+        "label": "Linux x64 AppImage · 0.4.2",
+        "platform": "Linux",
+        "arch": "x64",
+        "url": "https://github.com/pluralplay/FlClashX/releases/download/v0.4.2/FlClashX-linux-amd64.AppImage",
+        "kind": "github"
+      },
+      {
+        "label": "Android ARM64 APK · 0.4.2",
+        "platform": "Android",
+        "arch": "arm64-v8a",
+        "url": "https://github.com/pluralplay/FlClashX/releases/download/v0.4.2/FlClashX-android-arm64-v8a.apk",
+        "kind": "github"
+      },
+      {
+        "label": "Android 通用 APK · 0.4.2",
+        "platform": "Android",
+        "arch": "通用",
+        "url": "https://github.com/pluralplay/FlClashX/releases/download/v0.4.2/FlClashX-android-universal.apk",
+        "kind": "github"
+      }
+    ]
+  },
+  {
+    "slug": "clashx-meta",
+    "name": "ClashX Meta",
+    "tagline": "保留菜单栏习惯的 Mihomo 客户端",
+    "description": "MetaCubeX 维护的 ClashX 系 macOS 客户端，保留菜单栏切换配置与节点的轻量操作方式，并使用 Mihomo 内核。适合偏好原生 Mac 菜单栏交互、希望继续使用 ClashX 风格工作流的用户。",
+    "status": "active",
+    "statusNote": "截至 2026-10-27，官方仓库未归档，并有近期代码或版本发布。",
+    "category": "client",
+    "platforms": [
+      "macOS"
+    ],
+    "core": "Mihomo",
+    "repo": "https://github.com/MetaCubeX/ClashX.Meta",
+    "website": null,
+    "featured": true,
+    "version": "1.4.47",
+    "releaseDate": "2026-10-21",
+    "features": [
+      "macOS 菜单栏操作",
+      "Mihomo 内核",
+      "托管配置与节点切换",
+      "规则分流与本地 YAML 配置"
+    ],
+    "notes": "它与已移除原仓库的 ClashX、历史 ClashX Pro 是不同项目。官方发布资产只有一个 ClashX.Meta.zip，安装前请核对系统兼容性。",
+    "sources": [
+      {
+        "label": "官方项目仓库",
+        "url": "https://github.com/MetaCubeX/ClashX.Meta"
+      },
+      {
+        "label": "本次收录版本发布记录",
+        "url": "https://github.com/MetaCubeX/ClashX.Meta/releases/tag/v1.4.47"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "macOS ZIP · 1.4.47",
+        "platform": "macOS",
+        "arch": "见发布说明",
+        "url": "https://github.com/MetaCubeX/ClashX.Meta/releases/download/v1.4.47/ClashX.Meta.zip",
+        "kind": "github"
+      }
+    ]
+  },
+  {
+    "slug": "gui-for-clash",
+    "name": "GUI.for.Clash",
+    "tagline": "以配置组织和插件扩展为中心",
+    "description": "GUI.for.Cores 团队开发的 Mihomo 配置与管理界面，使用 Wails、Go 与 Vue 构建。围绕配置、订阅和代理组组织工作流，并提供插件与计划任务，适合希望灵活组合工具的桌面用户。",
+    "status": "active",
+    "statusNote": "截至 2026-10-27，官方仓库未归档，并有近期代码或版本发布。",
+    "category": "client",
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+    ],
+    "core": "Mihomo",
+    "repo": "https://github.com/GUI-for-Cores/GUI.for.Clash",
+    "website": "https://gui-for-cores.github.io/",
+    "featured": false,
+    "version": "1.28.1",
+    "releaseDate": "2026-10-21",
+    "features": [
+      "配置、订阅与代理组管理",
+      "插件系统",
+      "计划任务",
+      "Mixin 与脚本增强"
+    ],
+    "notes": "界面应用与代理内核是不同组件，首次使用请按官方文档安装和设置内核。本页仅使用官方 GitHub Releases 中的原始发布资产。",
+    "sources": [
+      {
+        "label": "官方项目仓库",
+        "url": "https://github.com/GUI-for-Cores/GUI.for.Clash"
+      },
+      {
+        "label": "本次收录版本发布记录",
+        "url": "https://github.com/GUI-for-Cores/GUI.for.Clash/releases/tag/v1.28.1"
+      },
+      {
+        "label": "官方使用文档",
+        "url": "https://gui-for-cores.github.io/zh/guide/"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "Windows x64 ZIP · 1.28.1",
+        "platform": "Windows",
+        "arch": "x64",
+        "url": "https://github.com/GUI-for-Cores/GUI.for.Clash/releases/download/v1.28.1/GUI.for.Clash-windows-amd64.zip",
+        "kind": "github"
+      },
+      {
+        "label": "Windows ARM64 ZIP · 1.28.1",
+        "platform": "Windows",
+        "arch": "ARM64",
+        "url": "https://github.com/GUI-for-Cores/GUI.for.Clash/releases/download/v1.28.1/GUI.for.Clash-windows-arm64.zip",
+        "kind": "github"
+      },
+      {
+        "label": "Windows x86 ZIP · 1.28.1",
+        "platform": "Windows",
+        "arch": "x86",
+        "url": "https://github.com/GUI-for-Cores/GUI.for.Clash/releases/download/v1.28.1/GUI.for.Clash-windows-386.zip",
+        "kind": "github"
+      },
+      {
+        "label": "macOS Apple Silicon ZIP · 1.28.1",
+        "platform": "macOS",
+        "arch": "Apple Silicon",
+        "url": "https://github.com/GUI-for-Cores/GUI.for.Clash/releases/download/v1.28.1/GUI.for.Clash-darwin-arm64.zip",
+        "kind": "github"
+      },
+      {
+        "label": "macOS Intel ZIP · 1.28.1",
+        "platform": "macOS",
+        "arch": "Intel x64",
+        "url": "https://github.com/GUI-for-Cores/GUI.for.Clash/releases/download/v1.28.1/GUI.for.Clash-darwin-amd64.zip",
+        "kind": "github"
+      },
+      {
+        "label": "Linux x64 ZIP · 1.28.1",
+        "platform": "Linux",
+        "arch": "x64",
+        "url": "https://github.com/GUI-for-Cores/GUI.for.Clash/releases/download/v1.28.1/GUI.for.Clash-linux-amd64.zip",
+        "kind": "github"
+      },
+      {
+        "label": "Linux ARM64 ZIP · 1.28.1",
+        "platform": "Linux",
+        "arch": "ARM64",
+        "url": "https://github.com/GUI-for-Cores/GUI.for.Clash/releases/download/v1.28.1/GUI.for.Clash-linux-arm64.zip",
+        "kind": "github"
+      }
+    ]
+  },
+  {
+    "slug": "clash-verge",
+    "name": "Clash Verge",
+    "tagline": "已归档的原版，理解分支的起点",
+    "description": "zzzgydi 开发的原版 Tauri 桌面客户端，曾支持 Windows、macOS 与 Linux。官方仓库在 2023 年归档，是 Clash Verge Rev 和 Clash Nyanpasu 等后续项目的重要来源，现作为历史软件收录。",
+    "status": "archived",
+    "statusNote": "原作者已于 2023-11-03 将仓库归档，仓库首页显示只读。",
+    "category": "client",
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+    ],
+    "core": "Clash / Clash Premium / Clash.Meta（历史）",
+    "repo": "https://github.com/zzzgydi/clash-verge",
+    "website": null,
+    "featured": false,
+    "version": "1.3.8",
+    "releaseDate": "2023-10-30",
+    "features": [
+      "早期 Tauri 桌面客户端",
+      "三平台支持",
+      "订阅与配置管理",
+      "后续社区分支的项目来源"
+    ],
+    "notes": "这里保留的 1.3.8 安装包来自原作者官方 Releases。归档版本不再获得该项目的后续维护；新安装可先比较现行的 Verge Rev 或 Nyanpasu。",
+    "sources": [
+      {
+        "label": "官方项目仓库",
+        "url": "https://github.com/zzzgydi/clash-verge"
+      },
+      {
+        "label": "本次收录版本发布记录",
+        "url": "https://github.com/zzzgydi/clash-verge/releases/tag/v1.3.8"
+      },
+      {
+        "label": "v1.3.8 官方内核支持说明",
+        "url": "https://github.com/zzzgydi/clash-verge/blob/v1.3.8/README.md"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "Windows x64 · 历史版 1.3.8",
+        "platform": "Windows",
+        "arch": "x64",
+        "url": "https://github.com/zzzgydi/clash-verge/releases/download/v1.3.8/Clash.Verge_1.3.8_x64-setup.exe",
+        "kind": "github"
+      },
+      {
+        "label": "macOS Apple Silicon · 历史版 1.3.8",
+        "platform": "macOS",
+        "arch": "Apple Silicon",
+        "url": "https://github.com/zzzgydi/clash-verge/releases/download/v1.3.8/Clash.Verge_1.3.8_aarch64.dmg",
+        "kind": "github"
+      },
+      {
+        "label": "macOS Intel · 历史版 1.3.8",
+        "platform": "macOS",
+        "arch": "Intel x64",
+        "url": "https://github.com/zzzgydi/clash-verge/releases/download/v1.3.8/Clash.Verge_1.3.8_x64.dmg",
+        "kind": "github"
+      },
+      {
+        "label": "Linux x64 DEB · 历史版 1.3.8",
+        "platform": "Linux",
+        "arch": "x64",
+        "url": "https://github.com/zzzgydi/clash-verge/releases/download/v1.3.8/clash-verge_1.3.8_amd64.deb",
+        "kind": "github"
+      },
+      {
+        "label": "Linux x64 AppImage · 历史版 1.3.8",
+        "platform": "Linux",
+        "arch": "x64",
+        "url": "https://github.com/zzzgydi/clash-verge/releases/download/v1.3.8/clash-verge_1.3.8_amd64.AppImage",
+        "kind": "github"
+      }
+    ]
+  },
+  {
+    "slug": "clashn",
+    "name": "clashN",
+    "tagline": "功能迁入 v2rayN 的 Windows 分支",
+    "description": "2dust 开发的 Windows Mihomo 图形客户端，使用 .NET 桌面环境，提供订阅与分流配置管理。项目 README 已声明功能将合并到 v2rayN，因此本页将独立客户端作为历史项目整理。",
+    "status": "discontinued",
+    "statusNote": "官方 README 声明本项目功能将合并到 v2rayN；独立客户端作为历史项目收录。",
+    "category": "client",
+    "platforms": [
+      "Windows"
+    ],
+    "core": "Mihomo",
+    "repo": "https://github.com/2dust/clashN",
+    "website": "https://github.com/2dust/clashN",
+    "featured": false,
+    "version": "2.22",
+    "releaseDate": "2024-04-28",
+    "features": [
+      "Windows .NET 客户端",
+      "Mihomo 内核管理",
+      "支持订阅转换",
+      "解压式分发"
+    ],
+    "notes": "官方要求 .NET 8 Desktop Runtime 与 Mihomo 内核。仓库未被 GitHub 归档，但维护方向已转向 v2rayN，不能把“未归档”等同于仍在积极开发。",
+    "sources": [
+      {
+        "label": "官方项目仓库",
+        "url": "https://github.com/2dust/clashN"
+      },
+      {
+        "label": "本次收录版本发布记录",
+        "url": "https://github.com/2dust/clashN/releases/tag/2.22"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "Windows ZIP · 历史版 2.22",
+        "platform": "Windows",
+        "arch": "见发布说明",
+        "url": "https://github.com/2dust/clashN/releases/download/2.22/clashN.zip",
+        "kind": "github"
+      }
+    ]
+  },
+  {
+    "slug": "clash-for-windows",
+    "name": "Clash for Windows",
+    "tagline": "经典 CFW，保留历史检索入口",
+    "description": "由 Fndroid 开发的经典 Clash 桌面图形客户端，通常简称 CFW。尽管名字含 Windows，也曾提供 macOS 与 Linux 版本。原官方发布仓库已无法访问，本页保留其历史定位和迁移线索。",
+    "status": "discontinued",
+    "statusNote": "原官方仓库或历史分发渠道已不可用；作为历史软件收录，未找到原作者继续发布的可核验安装包。",
+    "category": "client",
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+    ],
+    "core": "Clash / Clash Premium（历史）",
+    "repo": "https://github.com/Fndroid/clash_for_windows_pkg",
+    "website": null,
+    "featured": false,
+    "version": null,
+    "releaseDate": null,
+    "features": [
+      "经典桌面图形界面",
+      "订阅与策略组管理",
+      "系统代理工作流",
+      "Windows / macOS / Linux 历史版本"
+    ],
+    "notes": "截至核验日，原官方仓库返回 404。未提供无法从原发布渠道核验的重打包或汉化包；需要新安装时，可比较仍在发布的 Mihomo 客户端。",
+    "sources": [
+      {
+        "label": "原官方仓库（现不可用）",
+        "url": "https://github.com/Fndroid/clash_for_windows_pkg"
+      },
+      {
+        "label": "现行项目中的原作者来源记录",
+        "url": "https://github.com/clash-verge-rev/clash-verge-rev#acknowledgement"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "暂无可核验的官方安装包",
+        "platform": "Windows",
+        "arch": "—",
+        "url": null,
+        "kind": "unavailable"
+      }
+    ]
+  },
+  {
+    "slug": "clashx",
+    "name": "ClashX",
+    "tagline": "原版 macOS 菜单栏客户端",
+    "description": "由 yichengchen 开发的原版 ClashX，以 macOS 菜单栏控制和本地 YAML 配置形成了熟悉的使用方式。原仓库现已不可访问；本页将原版与 ClashX Meta、其他同名后续分支分别整理。",
+    "status": "discontinued",
+    "statusNote": "原官方仓库或历史分发渠道已不可用；作为历史软件收录，未找到原作者继续发布的可核验安装包。",
+    "category": "client",
+    "platforms": [
+      "macOS"
+    ],
+    "core": "Clash（历史）",
+    "repo": "https://github.com/yichengchen/clashX",
+    "website": null,
+    "featured": false,
+    "version": null,
+    "releaseDate": null,
+    "features": [
+      "macOS 原生菜单栏",
+      "规则分流",
+      "托管配置切换",
+      "本地 YAML 配置"
+    ],
+    "notes": "原版仓库已不可访问，无法核验官方安装包。名称相近的网站或新仓库不自动代表原作者恢复维护。",
+    "sources": [
+      {
+        "label": "原官方仓库（现不可用）",
+        "url": "https://github.com/yichengchen/clashX"
+      },
+      {
+        "label": "MetaCubeX 保留的原项目说明",
+        "url": "https://github.com/MetaCubeX/ClashX.Meta/blob/master/README.md"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "暂无可核验的官方安装包",
+        "platform": "macOS",
+        "arch": "—",
+        "url": null,
+        "kind": "unavailable"
+      }
+    ]
+  },
+  {
+    "slug": "clashx-pro",
+    "name": "ClashX Pro",
+    "tagline": "带增强模式的历史 ClashX 版本",
+    "description": "历史 ClashX Pro 是原 ClashX 系列的增强版本，曾通过 App Center 独立分发，提供增强模式与原生 Apple Silicon 支持。它并非名为 ClashX-Pro 的新 GitHub 组织所发布软件的自动同义词。",
+    "status": "discontinued",
+    "statusNote": "原官方仓库或历史分发渠道已不可用；作为历史软件收录，未找到原作者继续发布的可核验安装包。",
+    "category": "client",
+    "platforms": [
+      "macOS"
+    ],
+    "core": "Clash Premium（历史）",
+    "repo": "https://github.com/yichengchen/clashX",
+    "website": null,
+    "featured": false,
+    "version": null,
+    "releaseDate": null,
+    "features": [
+      "macOS 菜单栏操作",
+      "增强模式",
+      "原生 Apple Silicon 支持",
+      "独立于标准版的历史分发"
+    ],
+    "notes": "未找到可从原发布渠道继续核验的 GitHub 安装资产，因此不提供来源不清的转载包。ClashX Pro、ClashX Meta 和后来的 ClashFX Pro 需要分别辨认。",
+    "sources": [
+      {
+        "label": "原项目分发说明的保留记录",
+        "url": "https://github.com/MetaCubeX/ClashX.Meta/blob/master/README.md"
+      },
+      {
+        "label": "历史 App Center 分发入口（仅作来源记录）",
+        "url": "https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "暂无可核验的官方安装包",
+        "platform": "macOS",
+        "arch": "—",
+        "url": null,
+        "kind": "unavailable"
+      }
+    ]
+  }
+]

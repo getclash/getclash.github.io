@@ -1,0 +1,14 @@
+{
+  "name": "clash-atlas",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Clash 图鉴：Clash 与 Mihomo 生态软件目录和原创教程。",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/dev.mjs",
+    "check": "node scripts/check.mjs",
+    "refresh": "node scripts/refresh-releases.mjs"
+  }
+}

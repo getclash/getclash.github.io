@@ -1,0 +1,995 @@
+[
+  {
+    "slug": "clients-choice",
+    "title": "Clash 客户端怎么选：先看平台，再看维护状态",
+    "description": "按系统、CPU 架构、配置兼容性和维护状态选择 Clash 客户端，区分 Mihomo 内核、图形界面与历史项目。",
+    "category": "选型指南",
+    "level": "入门",
+    "minutes": 6,
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Android"
+    ],
+    "updated": "2026-10-27",
+    "lead": "同样叫 Clash，下载到的可能是代理内核、桌面客户端，也可能是已停止维护的历史项目。先确认你需要什么，再比较功能，可以减少选错安装包和重复迁移。本站是独立资料目录，不是任一项目的官方网站。",
+    "sections": [
+      {
+        "id": "core-and-client",
+        "title": "先分清内核、客户端和配置",
+        "paragraphs": [
+          "Mihomo 是负责读取配置、匹配规则和建立代理连接的内核。Clash Verge Rev、FlClash 等客户端提供配置管理、开关和日志界面。对刚入门的桌面用户而言，带图形界面的客户端通常比单独运行内核更容易操作。",
+          "安装客户端不等于获得代理服务。你还需要自己管理的服务器配置，或由你信任的服务提供者提供的有效订阅。订阅链接往往包含访问凭据，不能当作普通网址公开分享。"
+        ],
+        "steps": [],
+        "bullets": []
+      },
+      {
+        "id": "choose-platform",
+        "title": "按设备筛选，再检查架构",
+        "paragraphs": [
+          "先用目录中的平台筛选缩小范围，再到项目发布页确认最低系统版本与处理器要求。Windows 的 x64 与 ARM64、Mac 的 Intel 与 Apple Silicon、Android 的不同 ABI 都不是同一个安装包。"
+        ],
+        "steps": [],
+        "bullets": [
+          "Windows、macOS、Linux：可以比较 Clash Verge Rev 与 FlClash 的界面、配置覆盖和日志功能。",
+          "Android：比较 FlClash 与 Clash Meta for Android，并检查当前发行说明中的系统要求。",
+          "路由器或无桌面服务器：应查看对应部署项目及内核文档，不能直接套用桌面安装教程。"
+        ]
+      },
+      {
+        "id": "maintenance",
+        "title": "维护状态比名字熟悉更重要",
+        "paragraphs": [
+          "查看仓库是否被归档、最近正式发行说明是否仍更新、问题区是否有维护者回应。单独一次提交或星标数量不能证明项目长期维护；本站状态标签用于帮助筛选，最终以原仓库公告为准。",
+          "Clash for Windows、早期 ClashX 等历史名称可以作为迁移资料保留。新安装时优先审视仍在维护的替代项目；遇到只有转载安装包、原始来源已失效的历史版本，应先确认来源再决定是否继续使用。"
+        ],
+        "steps": [],
+        "bullets": []
+      },
+      {
+        "id": "compatibility",
+        "title": "用现有配置验证兼容性",
+        "paragraphs": [
+          "先确认订阅声明支持的内核与协议，再选客户端。文件扩展名都是 YAML，也不代表不同代内核认识所有字段。某些客户端还会在运行前合并自己的 DNS、端口和 TUN 设置，因此导入成功只是第一步。"
+        ],
+        "steps": [
+          "保留原配置备份，向新客户端导入副本，先不开启开机启动。",
+          "确认配置可以激活、策略组存在，选择一个你有权使用的节点。",
+          "先测试系统代理，再按需要启用 TUN；查看连接记录是否符合预期。",
+          "完成日常网站、局域网和退出恢复检查后，再替换原来的启动项。"
+        ],
+        "bullets": []
+      },
+      {
+        "id": "download-source",
+        "title": "下载时保留一条可追溯的来源链",
+        "paragraphs": [
+          "本站的 GitHub 加速入口只负责转发项目发布附件。下载前核对原仓库、版本标签、系统和文件名；下载后如上游提供 SHA-256 或签名，再从上游公布的位置取得校验信息。加速域名不是软件作者，也不代表项目背书。",
+          "比较的重点应是你的设备能否稳定使用、配置是否兼容、升级是否容易恢复。不要为了功能表上的一个开关，同时运行多个会改写系统代理的客户端。"
+        ],
+        "steps": [],
+        "bullets": []
+      }
+    ],
+    "faq": [
+      {
+        "question": "新手需要单独下载 Mihomo 吗？",
+        "answer": "使用已内置内核的图形客户端时，通常不需要另外下载。只有手动部署、替换内核或排查特定版本问题时，才需要查阅该客户端的说明。"
+      },
+      {
+        "question": "维护中的客户端一定支持我的旧订阅吗？",
+        "answer": "不一定。应确认订阅格式和协议兼容性，再用配置副本实际导入验证；不要直接覆盖唯一备份。"
+      }
+    ],
+    "relatedApps": [
+      "clash-verge-rev",
+      "flclash",
+      "clash-meta-android",
+      "mihomo"
+    ],
+    "relatedGuides": [
+      "windows-start",
+      "macos-start",
+      "android-start",
+      "migrate-from-legacy"
+    ],
+    "sources": [
+      {
+        "label": "Mihomo 文档：客户端",
+        "url": "https://wiki.metacubex.one/startup/client/"
+      },
+      {
+        "label": "Clash Verge Rev 项目仓库",
+        "url": "https://github.com/clash-verge-rev/clash-verge-rev"
+      },
+      {
+        "label": "FlClash 项目仓库",
+        "url": "https://github.com/chen08209/FlClash"
+      }
+    ]
+  },
+  {
+    "slug": "windows-start",
+    "title": "Windows Clash 入门：从安装包到第一次连接",
+    "description": "使用 Clash Verge Rev 完成 Windows 安装、订阅导入、规则模式与系统代理检查，并处理架构或 WebView2 问题。",
+    "category": "平台入门",
+    "level": "入门",
+    "minutes": 8,
+    "platforms": [
+      "Windows"
+    ],
+    "updated": "2026-10-27",
+    "lead": "本教程以 Clash Verge Rev 的通用流程为例。不同版本的按钮名称可能变化，请以安装版本的官方说明为准。开始前准备有效配置，确认 Windows 系统类型，并暂时退出其他正在修改系统代理的客户端。",
+    "sections": [
+      {
+        "id": "windows-package",
+        "title": "下载与系统匹配的安装包",
+        "paragraphs": [
+          "在 Windows“设置 → 系统 → 系统信息”中查看系统类型，再选择 x64 或 ARM64。不要仅凭电脑品牌判断。到客户端原始发布页核对版本，本站加速入口中的源文件应对应同一条 GitHub Release 附件。",
+          "当前 Clash Verge Rev 官方安装文档说明已不支持 Windows 7。旧系统不能靠改文件名解决兼容问题；应先确认项目系统要求，再决定升级系统或采用适合该环境的方案。安装前保存其他工作。"
+        ],
+        "steps": [],
+        "bullets": []
+      },
+      {
+        "id": "windows-runtime",
+        "title": "界面打不开，先判断运行环境",
+        "paragraphs": [
+          "若进程存在但窗口空白、只显示托盘图标，先查看官方 Windows 常见问题。Clash Verge Rev 的界面依赖 WebView2；缺失或被禁用时，面板可能无法显示。不要从不明资源站拼装 DLL 文件。"
+        ],
+        "steps": [
+          "确认下载架构正确，安装器未被解压或改动。",
+          "检查 WebView2 是否可用；需要补装时从 Microsoft 官方来源获取。",
+          "只有官方说明适用时，才选择发布页提供的带 WebView2 安装包。",
+          "仍无法启动时记录客户端版本、Windows 版本和具体错误，再查对应问题。"
+        ],
+        "bullets": []
+      },
+      {
+        "id": "windows-profile",
+        "title": "导入配置，先确认内核已运行",
+        "paragraphs": [
+          "在订阅或配置页粘贴完整订阅地址，或导入已有的 YAML 文件。给配置取一个能区分来源和用途的名称，保存后将它设为当前配置。不要只看列表中是否出现一张卡片，还要确认激活没有报错。",
+          "进入代理页面，选择规则模式与一个可用策略组。首次测试先使用客户端默认端口，暂时不加入脚本、覆盖配置和额外规则。这样发生错误时，可以区分是基础配置失败还是自定义内容造成。"
+        ],
+        "steps": [],
+        "bullets": []
+      },
+      {
+        "id": "windows-proxy",
+        "title": "开启系统代理并完成闭环检查",
+        "paragraphs": [
+          "先开启系统代理，用遵循系统代理的浏览器访问你有权访问的测试页面，再在连接记录中核对目标域名、命中规则和出口。延迟测试的数字只能说明该测试请求的结果，不能替代真实网页加载。"
+        ],
+        "steps": [
+          "确认普通网站和局域网服务仍能使用。",
+          "若只有某个程序不走代理，查看它是否支持系统代理；需要时再了解 TUN。",
+          "关闭系统代理并正常退出客户端，确认网络可恢复。",
+          "最后再设置开机启动，保留安装包版本和配置备份。"
+        ],
+        "bullets": []
+      },
+      {
+        "id": "windows-recovery",
+        "title": "退出后断网，检查残留代理",
+        "paragraphs": [
+          "如果客户端被强制结束，Windows 的手动代理可能仍指向本机端口，而监听该端口的进程已经停止。先重新打开客户端并关闭系统代理；也可以在 Windows 的代理设置中核对手动代理状态。不要把重置整个网络作为第一步。",
+          "TUN 报错则先关闭 TUN，回到已验证的系统代理流程。提交排障信息时只提供必要日志，删除订阅地址、令牌和服务器密码。"
+        ],
+        "steps": [],
+        "bullets": []
+      }
+    ],
+    "faq": [
+      {
+        "question": "安装后为什么还没有节点？",
+        "answer": "客户端本身不提供节点。需要导入你自己持有的有效订阅或配置，并将其激活。"
+      },
+      {
+        "question": "需要一直用管理员身份运行吗？",
+        "answer": "普通系统代理与需要权限的服务或 TUN 操作应分别判断。按客户端官方指引安装服务，仅在确有需要时授权，不要通过关闭系统安全功能排查所有问题。"
+      }
+    ],
+    "relatedApps": [
+      "clash-verge-rev",
+      "flclash"
+    ],
+    "relatedGuides": [
+      "import-profile",
+      "system-proxy-vs-tun",
+      "dns-troubleshooting"
+    ],
+    "sources": [
+      {
+        "label": "Clash Verge Rev：下载与安装",
+        "url": "https://www.clashverge.dev/install.html"
+      },
+      {
+        "label": "Clash Verge Rev：Windows 常见问题",
+        "url": "https://www.clashverge.dev/faq/windows.html"
+      },
+      {
+        "label": "Clash Verge Rev：快速入门",
+        "url": "https://www.clashverge.dev/guide/quickstart.html"
+      }
+    ]
+  },
+  {
+    "slug": "macos-start",
+    "title": "macOS Clash 入门：选对芯片、导入配置与代理设置",
+    "description": "了解 Mac 的 Intel 与 Apple Silicon 安装包，完成 Clash 客户端首次配置，并检查门禁提醒、代理权限和退出恢复。",
+    "category": "平台入门",
+    "level": "入门",
+    "minutes": 8,
+    "platforms": [
+      "macOS"
+    ],
+    "updated": "2026-10-27",
+    "lead": "Mac 上的安装失败、代理无效和配置错误是三类问题。按“确认芯片 → 安装与来源核对 → 激活配置 → 开启代理”的顺序处理，能避免一开始就改动 DNS 或系统安全设置。",
+    "sections": [
+      {
+        "id": "mac-package",
+        "title": "先查看芯片与最低系统要求",
+        "paragraphs": [
+          "在 Apple 菜单的“关于本机”查看芯片或处理器名称。Apple Silicon 通常对应 arm64 或 aarch64，Intel 对应 x64 或 x86_64；Universal 包是否可用，以项目发布说明为准。下载前也要核对最低 macOS 版本。",
+          "若使用 DMG，按安装窗口提示放入“应用程序”，然后从应用程序目录启动。升级前正常退出旧进程。不要一边运行旧版，一边反复覆盖同名应用；保留配置备份后再进行升级。"
+        ],
+        "steps": [],
+        "bullets": []
+      },
+      {
+        "id": "mac-gatekeeper",
+        "title": "把来源核验放在安全提醒之前",
+        "paragraphs": [
+          "macOS 的门禁会检查外部应用的签名、公证等信息。出现“无法验证开发者”与“将损坏电脑”不应被当作同一种提示。先回到原始 Release 核对下载来源，并查看该版本是否有已知安装问题。",
+          "只有你确认应用来源可信且未被篡改时，才按 Apple 官方说明，在尝试打开后查看“系统设置 → 隐私与安全性”中的“仍要打开”。不要为了安装一个客户端永久关闭门禁，也不要直接复制来源不明的去除隔离脚本。"
+        ],
+        "steps": [],
+        "bullets": []
+      },
+      {
+        "id": "mac-profile",
+        "title": "激活配置后再开启代理",
+        "paragraphs": [
+          "打开订阅或配置管理页面，导入远程订阅或本地 YAML 文件。确保当前配置可以加载，代理组中能选择你有权使用的节点，然后先选规则模式。尚未运行内核时打开系统代理，会让应用把请求发送到不存在的本机服务。"
+        ],
+        "steps": [
+          "退出其他正在改写系统代理的工具，避免开关互相覆盖。",
+          "先用系统代理测试浏览器，检查连接记录是否出现对应请求。",
+          "测试常用局域网地址、同步工具和开发环境。",
+          "需要覆盖不遵循系统代理的应用时，再安装项目要求的辅助服务并测试 TUN。"
+        ],
+        "bullets": []
+      },
+      {
+        "id": "mac-permission",
+        "title": "开关显示已开，不代表系统已应用",
+        "paragraphs": [
+          "如果客户端开关变化，但浏览器连接记录没有请求，核对当前网络服务的代理设置是否真的改变。权限限制、受管理设备策略或其他网络工具都可能影响写入；不要假设“按钮亮起”就是成功。",
+          "管理员授权请求应与自己刚执行的安装服务、开启 TUN 等动作对应。公司或学校管理的 Mac 如限制网络扩展或服务安装，应联系设备管理员，而不是删除管理配置。"
+        ],
+        "steps": [],
+        "bullets": []
+      },
+      {
+        "id": "mac-restore",
+        "title": "完成 DNS 与退出恢复检查",
+        "paragraphs": [
+          "TUN 可能影响路由和 DNS，客户端也可能为适配系统而临时调整网络设置。变更前记录当前 Wi-Fi 或以太网的 DNS 与代理设置，关闭 TUN 后再检查是否恢复。每个版本行为应以其官方文档为准。",
+          "出现断网先关闭 TUN、关闭系统代理并正常退出。若曾强制退出，重新启动客户端完成关闭流程，再检查系统代理是否残留。最后才启用开机启动，确认重启后仍能连接并正常退出。"
+        ],
+        "steps": [],
+        "bullets": []
+      }
+    ],
+    "faq": [
+      {
+        "question": "M 系列 Mac 应该下载 Intel 包吗？",
+        "answer": "优先选择项目提供的 Apple Silicon 或 arm64 包。Intel 包是否可通过转译运行取决于应用与系统，不应作为默认选择。"
+      },
+      {
+        "question": "看到“已损坏”就可以直接去除隔离属性吗？",
+        "answer": "不应直接这样处理。先核对来源、重新下载并检查项目发布说明；Apple 提示可能涉及损坏、修改或恶意内容，应根据具体提醒处理。"
+      }
+    ],
+    "relatedApps": [
+      "clash-verge-rev",
+      "flclash",
+      "clashx"
+    ],
+    "relatedGuides": [
+      "import-profile",
+      "system-proxy-vs-tun",
+      "migrate-from-legacy"
+    ],
+    "sources": [
+      {
+        "label": "Clash Verge Rev：macOS 常见问题",
+        "url": "https://www.clashverge.dev/faq/macos.html"
+      },
+      {
+        "label": "Apple：在 Mac 上安全地打开 App",
+        "url": "https://support.apple.com/zh-cn/102445"
+      },
+      {
+        "label": "Clash Verge Rev：下载与安装",
+        "url": "https://www.clashverge.dev/install.html"
+      }
+    ]
+  },
+  {
+    "slug": "android-start",
+    "title": "Android Clash 入门：APK、订阅与 VPN 授权",
+    "description": "从 APK 选择开始，完成 Android Clash 客户端配置，理解 VPN 权限、按应用分流、后台中断和网络切换检查。",
+    "category": "平台入门",
+    "level": "入门",
+    "minutes": 7,
+    "platforms": [
+      "Android"
+    ],
+    "updated": "2026-10-27",
+    "lead": "Android 客户端通常通过系统 VPN 接口接管流量。状态栏出现钥匙图标，代表系统 VPN 服务已连接，不代表订阅中的节点、DNS 和规则全部正确。第一次设置时，先把最基本的连接流程验证清楚。",
+    "sections": [
+      {
+        "id": "android-apk",
+        "title": "选择适配设备的 APK",
+        "paragraphs": [
+          "在软件目录中选择明确支持 Android 的项目，再核对官方仓库和 Release 说明。常见 APK 名称中的 arm64-v8a、armeabi-v7a、x86_64 表示不同架构；如项目提供 universal 包，可查看说明后使用，但不能仅凭文件大小判断适配性。",
+          "如需允许浏览器安装应用，只为这次下载使用的可信来源开启授权，安装后可关闭该权限。升级提示签名冲突时先查明是否更换了发行渠道或分支，备份配置后再处理，避免贸然卸载导致本地配置丢失。"
+        ],
+        "steps": [],
+        "bullets": []
+      },
+      {
+        "id": "android-import",
+        "title": "导入并启用有效配置",
+        "paragraphs": [
+          "FlClash 与 Clash Meta for Android 的界面不同，通用顺序都是添加配置、完成下载或解析、选择当前配置，再启动连接。可使用你持有的订阅地址或本地配置文件；客户端安装成功不会自动生成代理节点。"
+        ],
+        "steps": [
+          "在配置页面添加 URL 或文件，并取一个可辨认名称。",
+          "检查导入没有格式错误，更新成功后将其设为当前配置。",
+          "打开代理或策略组页面，选择可用出口，首次测试保留默认分流设置。",
+          "不要把订阅 URL 粘贴到公共评论、在线转换站或问题截图中。"
+        ],
+        "bullets": []
+      },
+      {
+        "id": "android-vpn",
+        "title": "理解系统的 VPN 连接请求",
+        "paragraphs": [
+          "首次启动时，Android 会请求你信任该 VPN 应用并允许连接。只有当你主动启动已核验来源的客户端时才接受。一个 Android 用户或工作资料通常只能有一个活动 VPN 服务，开启另一个 VPN 会使现有服务停止。",
+          "本地代理客户端、企业 VPN 和基于 VPN 的广告过滤工具可能争用同一接口。遇到启动后立刻断开，先检查是否有其他此类服务正在接管网络，而不是反复添加相同订阅。"
+        ],
+        "steps": [],
+        "bullets": []
+      },
+      {
+        "id": "android-test",
+        "title": "分别检查规则、应用与网络切换",
+        "paragraphs": [
+          "连接后访问普通网站和预期走代理的网站，检查客户端连接记录。若启用了按应用分流，确认测试浏览器位于正确列表；“排除应用”和“仅代理选中应用”含义相反，具体以客户端说明为准。"
+        ],
+        "steps": [],
+        "bullets": [
+          "只有某个 App 异常：先检查按应用规则及该 App 自身网络设置。",
+          "从 Wi-Fi 切换移动数据后异常：等待服务重连，必要时停止再启动连接。",
+          "手机能连但局域网设备不能用：Android VPN 连接本身不等于自动向其他设备共享代理。"
+        ]
+      },
+      {
+        "id": "android-background",
+        "title": "锁屏后断开，先留证再改设置",
+        "paragraphs": [
+          "先确认是服务真的停止，还是目标站点暂时失败。记录发生时间、网络类型和客户端日志，再检查系统是否对应用施加了后台或电池限制。不同厂商设置路径不同，按设备说明调整所需权限即可。",
+          "不要一开始开启“始终开启 VPN”和“阻止未使用 VPN 的连接”。先确认连接与恢复流程可靠，再按需求设置；否则配置失效时可能出现所有应用都无法联网的现象。停用服务后也应确认正常网络恢复。"
+        ],
+        "steps": [],
+        "bullets": []
+      }
+    ],
+    "faq": [
+      {
+        "question": "钥匙图标出现，为什么还是打不开网页？",
+        "answer": "钥匙只说明系统 VPN 接口处于活动状态。还要检查当前配置、策略组选择、节点连通性和 DNS；从客户端日志与连接记录逐步定位。"
+      },
+      {
+        "question": "能和其他 VPN 同时开启吗？",
+        "answer": "同一 Android 用户或资料通常只有一个活动 VPN 服务。需要企业 VPN 或其他本地 VPN 工具时，应先了解冲突并选择适合的工作流程。"
+      }
+    ],
+    "relatedApps": [
+      "flclash",
+      "clash-meta-android",
+      "clash-for-android"
+    ],
+    "relatedGuides": [
+      "import-profile",
+      "dns-troubleshooting",
+      "clients-choice"
+    ],
+    "sources": [
+      {
+        "label": "Clash Meta for Android 项目仓库",
+        "url": "https://github.com/MetaCubeX/ClashMetaForAndroid"
+      },
+      {
+        "label": "FlClash 项目仓库",
+        "url": "https://github.com/chen08209/FlClash"
+      },
+      {
+        "label": "Android Developers：VPN 与连接授权",
+        "url": "https://developer.android.com/develop/connectivity/vpn"
+      }
+    ]
+  },
+  {
+    "slug": "import-profile",
+    "title": "Clash 订阅怎么导入：URL、本地 YAML 与更新排错",
+    "description": "区分订阅链接和节点链接，按顺序完成 Clash 配置导入、激活与更新，并保护订阅中的访问凭据。",
+    "category": "配置管理",
+    "level": "入门",
+    "minutes": 6,
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Android"
+    ],
+    "updated": "2026-10-27",
+    "lead": "“导入成功”和“可以使用”之间还差两步：激活配置、选择有效出口。先分清手中的资料是什么，再判断错误发生在下载、解析还是连接阶段，比不停点击更新更有效。",
+    "sections": [
+      {
+        "id": "profile-types",
+        "title": "先确认是订阅、节点链接还是网页",
+        "paragraphs": [
+          "订阅 URL 通常返回一份配置或可转换的数据；单个节点链接描述一个服务器；登录页、使用说明页和营销页面都不是配置文件。浏览器里能打开某个页面，也不能证明它是客户端可读取的 Clash 订阅。",
+          "向配置提供者确认支持 Clash 或 Mihomo 的格式，以及当前客户端要求。不能只把其他格式文件改名为 `.yaml`。如果节点列表存在，但缺少客户端需要的策略组或规则，仍可能无法按预期加载。"
+        ],
+        "steps": [],
+        "bullets": []
+      },
+      {
+        "id": "remote-profile",
+        "title": "导入远程订阅的稳妥顺序",
+        "paragraphs": [
+          "菜单名称可能叫“订阅”“配置”或“Profiles”。在 URL 输入处粘贴完整地址，注意去掉首尾空格，保留查询参数。含令牌的长链接不是公开下载链接，本站 GitHub 安装包加速前缀不应套到订阅地址上。"
+        ],
+        "steps": [
+          "创建远程配置并命名，执行下载或更新，等待明确结果。",
+          "确认未提示解析错误，再将其设为当前配置。",
+          "打开策略组，选一个可用节点或自动选择组。",
+          "开启所需代理方式，用真实访问和连接记录验证结果。"
+        ],
+        "bullets": []
+      },
+      {
+        "id": "local-profile",
+        "title": "本地 YAML 要注意副本和覆盖",
+        "paragraphs": [
+          "从文件导入时先保留原始配置备份。部分客户端会把文件复制到内部配置目录，之后编辑下载目录里的原文件，不一定会改变正在运行的配置。修改前先确认编辑的是哪一份。",
+          "远程订阅更新可能覆盖本地直接改写的内容。需要自定义规则时，优先使用客户端文档支持的覆盖、合并或扩展配置方式，并先在副本上验证。缩进、引号和字段层级都可能造成 YAML 解析失败。"
+        ],
+        "steps": [],
+        "bullets": []
+      },
+      {
+        "id": "profile-errors",
+        "title": "按错误阶段定位问题",
+        "paragraphs": [
+          "下载失败时，检查地址有效性、证书、时间与当前网络；如果收到的是登录 HTML 页面，应解决鉴权或链接问题。解析失败时，检查格式与内核兼容性。激活成功但不能访问，才继续检查节点、规则、DNS 与接管方式。"
+        ],
+        "steps": [],
+        "bullets": [
+          "HTTP 401 或 403：可能涉及授权、令牌或访问策略，应向配置提供者确认。",
+          "超时：区分配置服务器不可达与代理节点不可达，二者不是同一个测试。",
+          "证书错误：先检查系统时间和证书链，不把跳过验证当作默认修复。",
+          "URL Scheme 一键导入失败：可退回手动 URL 或本地文件方式，避免重复跳转。"
+        ]
+      },
+      {
+        "id": "profile-secrets",
+        "title": "更新、备份和分享时保护凭据",
+        "paragraphs": [
+          "将更新周期设为实际需要的频率，失败时保留上一份可用配置。备份应放在你信任的位置，并考虑它可能包含密码、令牌和服务器信息；不要上传到公开 GitHub 仓库。",
+          "求助前删除订阅 URL 中的密钥、节点认证字段和账户信息，保留错误文本与相关字段结构即可。若完整链接已经公开，应在原服务端重置令牌，仅删除帖子并不一定能消除已经泄露的访问权限。"
+        ],
+        "steps": [],
+        "bullets": []
+      }
+    ],
+    "faq": [
+      {
+        "question": "可以把订阅交给任意在线转换网站吗？",
+        "answer": "不建议。转换服务可能接触完整订阅和服务器凭据。优先使用配置提供者直接支持的格式，确需转换时选择自己信任并了解其数据处理方式的工具。"
+      },
+      {
+        "question": "刷新订阅后自定义规则为什么消失？",
+        "answer": "远程内容可能覆盖了直接编辑的配置。恢复备份后，按客户端文档使用覆盖或合并功能保存个性化设置。"
+      }
+    ],
+    "relatedApps": [
+      "clash-verge-rev",
+      "flclash",
+      "clash-meta-android"
+    ],
+    "relatedGuides": [
+      "windows-start",
+      "macos-start",
+      "android-start",
+      "dns-troubleshooting"
+    ],
+    "sources": [
+      {
+        "label": "Clash Verge Rev：订阅导入",
+        "url": "https://www.clashverge.dev/guide/profile.html"
+      },
+      {
+        "label": "Mihomo 文档：语法",
+        "url": "https://wiki.metacubex.one/handbook/syntax/"
+      },
+      {
+        "label": "Mihomo 文档：代理集合",
+        "url": "https://wiki.metacubex.one/config/proxy-providers/"
+      }
+    ]
+  },
+  {
+    "slug": "system-proxy-vs-tun",
+    "title": "系统代理和 TUN 有什么区别：从流量入口理解",
+    "description": "用流量入口、权限、DNS 和规则四个角度比较系统代理与 TUN，找到浏览器能用而某个应用不能用的原因。",
+    "category": "原理与排错",
+    "level": "进阶",
+    "minutes": 7,
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Android"
+    ],
+    "updated": "2026-10-27",
+    "lead": "系统代理和 TUN 解决的是“流量怎样进入内核”。规则模式和全局模式解决的是“进入后走哪个出口”。把这两层分开理解，才能解释为什么开启 TUN 后，部分流量仍然按规则直连。",
+    "sections": [
+      {
+        "id": "system-entry",
+        "title": "系统代理：让遵循设置的应用主动转发",
+        "paragraphs": [
+          "桌面客户端打开系统代理时，会修改操作系统的代理设置，指向本地监听端口。遵循该设置的应用将请求交给内核；自行实现网络栈、使用独立代理配置或忽略系统设置的程序，可能不会经过这个入口。",
+          "浏览器可以使用而命令行工具不行，不能直接判断订阅失效。先查看工具的代理选项与环境变量支持，并在客户端连接记录里确认请求是否出现。具体端口以当前客户端显示为准，不要照搬网上的固定数值。"
+        ],
+        "steps": [],
+        "bullets": []
+      },
+      {
+        "id": "tun-entry",
+        "title": "TUN：在网络层接管一部分或更多流量",
+        "paragraphs": [
+          "TUN 使用虚拟网络接口与路由把数据交给内核，适合需要处理不遵循系统代理的应用。桌面系统通常需要相应权限或辅助服务。能接管哪些地址与协议，还受路由、排除列表、协议栈和平台实现影响。",
+          "因此“TUN 已开启”不能等同于“全部网络都走远端节点”。局域网、排除应用和直连规则仍可能存在。Android 的客户端常借助系统 VPN 接口实现接管，设置方式也不应直接照搬 Windows。"
+        ],
+        "steps": [],
+        "bullets": []
+      },
+      {
+        "id": "mode-routing",
+        "title": "规则与全局是另一层选择",
+        "paragraphs": [
+          "请求进入内核后，规则模式按照配置中的规则决定出口；全局模式使用指定的全局策略。即使叫“全局”，也不意味着忽略该软件的接管边界，或让一个从未进入内核的应用自动受控。"
+        ],
+        "steps": [],
+        "bullets": [
+          "浏览器使用正常、某应用无记录：优先排查流量入口。",
+          "连接有记录但走错出口：优先检查命中规则与策略组选择。",
+          "所有请求都连接失败：检查节点本身、认证、DNS 与网络。",
+          "只有局域网服务异常：检查路由、直连规则和 TUN 排除设置。"
+        ]
+      },
+      {
+        "id": "tun-dns",
+        "title": "DNS 与其他 VPN 是常见变量",
+        "paragraphs": [
+          "TUN 配置可能包含 DNS 接管，但不是所有 DNS 流量都会自动交给内核。应用自带的加密 DNS、特定路由和平台限制，都会改变请求路径。先查看内核 DNS 日志，再决定是否需要调整设置。",
+          "同时开启多个 VPN、虚拟网卡和自动改写代理的工具，会使路由与代理状态难以判断。先只保留一个接管工具复现问题，记录原设置；不要一次修改 MTU、IPv6、DNS 和全部路由。"
+        ],
+        "steps": [],
+        "bullets": []
+      },
+      {
+        "id": "choose-entry",
+        "title": "用最小变更确定适合的方式",
+        "paragraphs": [
+          "主要使用遵循系统代理的桌面应用时，可以先从系统代理开始。确实需要其他应用、特定 UDP 流量或统一路由时，再阅读项目的 TUN 文档。以可观察的连接结果判断，而不是把 TUN 当作提速按钮。"
+        ],
+        "steps": [
+          "保存当前设置，先验证系统代理下的基础连接。",
+          "关闭其他接管工具，按官方指引启用 TUN。",
+          "检查目标应用、局域网和 DNS，再与原结果比较。",
+          "关闭 TUN 并退出，确认网络恢复；不符合需求时回到上一状态。"
+        ],
+        "bullets": []
+      }
+    ],
+    "faq": [
+      {
+        "question": "TUN 一定比系统代理快吗？",
+        "answer": "不一定。它改变流量入口和接管范围，不直接改善服务器线路。性能还受内核、协议、网络和设备负载影响。"
+      },
+      {
+        "question": "开启 TUN 后还需要开系统代理吗？",
+        "answer": "取决于客户端实现和你的应用需求。先按项目官方建议使用一种已验证方式，不必为了“更全面”盲目同时开启所有开关。"
+      }
+    ],
+    "relatedApps": [
+      "mihomo",
+      "clash-verge-rev",
+      "flclash"
+    ],
+    "relatedGuides": [
+      "dns-troubleshooting",
+      "windows-start",
+      "macos-start"
+    ],
+    "sources": [
+      {
+        "label": "Mihomo 文档：入站配置",
+        "url": "https://wiki.metacubex.one/config/inbound/"
+      },
+      {
+        "label": "Mihomo 文档：TUN",
+        "url": "https://wiki.metacubex.one/config/inbound/tun/"
+      },
+      {
+        "label": "Mihomo 文档：全局配置与运行模式",
+        "url": "https://wiki.metacubex.one/config/general/"
+      },
+      {
+        "label": "Clash Verge Rev：快速入门",
+        "url": "https://www.clashverge.dev/guide/quickstart.html"
+      }
+    ]
+  },
+  {
+    "slug": "dns-troubleshooting",
+    "title": "Clash DNS 排查：从域名解析到连接记录",
+    "description": "按解析、入口、节点域名和分流四个阶段定位 Clash 与 Mihomo DNS 问题，理解 fake-ip，避免一次改动整份配置。",
+    "category": "故障排查",
+    "level": "进阶",
+    "minutes": 9,
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Android"
+    ],
+    "updated": "2026-10-27",
+    "lead": "网站打不开可能发生在解析、路由、握手或应用层。先保留一条可复现的错误，再判断是不是 DNS。随意替换一组公共 DNS 可能掩盖问题，也可能让局域网域名和节点解析更复杂。",
+    "sections": [
+      {
+        "id": "dns-baseline",
+        "title": "先建立可比较的测试条件",
+        "paragraphs": [
+          "记录目标域名、发生时间、网络类型、客户端和内核版本，以及是否启用 TUN。选择一个稳定可访问的普通网站作对照，在同一网络下分别检查客户端开启和关闭时的结果。不要同时更新订阅或替换节点。",
+          "打开日志，区分“无法解析域名”“连接服务器超时”“TLS 握手失败”等错误。只凭浏览器一张错误页，通常不足以确定 DNS。原始日志可能包含私人域名和服务器信息，分享时先做必要脱敏。"
+        ],
+        "steps": [],
+        "bullets": []
+      },
+      {
+        "id": "dns-path",
+        "title": "确认到底由谁解析",
+        "paragraphs": [
+          "操作系统 DNS、浏览器安全 DNS、应用自己的解析器和 Mihomo 内置 DNS 可以同时存在。系统代理下某些域名可能交由代理端处理；TUN 下也要看 DNS 接管和路由是否生效。普通 `nslookup` 的结果不一定代表浏览器实际路径。",
+          "先看目标请求是否进入连接记录，再看内核是否记录相应域名解析。若应用完全无记录，优先排查接管方式；若只有某个浏览器异常，临时检查该浏览器的独立 DNS 设置并记录原值，测试后恢复。"
+        ],
+        "steps": [],
+        "bullets": []
+      },
+      {
+        "id": "fake-ip",
+        "title": "看到 fake-ip，不要直接当成错误地址",
+        "paragraphs": [
+          "在 fake-ip 模式中，内核可以为域名返回用于映射的地址，随后把实际连接关联回域名。这类地址的出现不自动意味着 DNS 污染。是否正常，应结合内核模式、映射和最终连接日志判断。",
+          "局域网主机、打印机或某些特殊应用可能需要真实解析结果。遇到此类兼容问题，先确认具体域名，再了解 `fake-ip-filter` 和 `nameserver-policy` 的用途；不要一遇到异常就把所有域名加入排除。"
+        ],
+        "steps": [],
+        "bullets": []
+      },
+      {
+        "id": "node-resolution",
+        "title": "别把节点解析和目标网站解析混为一谈",
+        "paragraphs": [
+          "即使目标网站可以解析，代理节点的服务器域名无法解析也会导致连接失败。Mihomo 的 `proxy-server-nameserver` 专门影响节点域名的解析；这与普通 `nameserver`、直连解析和按域名指定解析服务器是不同环节。",
+          "如果 DNS 查询本身需要经过尚未建立的代理，可能出现先有连接还是先有解析的依赖问题。按官方文档检查解析链，保留可直接工作的基础解析路径，不应通过关闭 TLS 证书验证来掩盖解析或连接错误。"
+        ],
+        "steps": [],
+        "bullets": []
+      },
+      {
+        "id": "dns-steps",
+        "title": "每次只改一项，并保留回退",
+        "paragraphs": [
+          "先备份生效配置，确认客户端是否会覆盖 DNS 字段，再测试最小修改。Wi-Fi、移动网络和公司内网的 DNS 条件不同，一套配置不能仅凭一次测试就称为通用最优。"
+        ],
+        "steps": [
+          "确认当前配置可激活，目标请求进入内核。",
+          "检查节点服务器域名能否解析，再检查目标域名解析日志。",
+          "按实际场景核对 DNS 上游、策略和 fake-ip 例外，逐项修改。",
+          "必要时通过客户端提供的方式清理相关缓存，避免把旧结果当新结果。",
+          "测试普通网站、目标站点和局域网服务；无改善就恢复原设置并保留对照记录。"
+        ],
+        "bullets": []
+      }
+    ],
+    "faq": [
+      {
+        "question": "换成加密 DNS 就一定能解决问题吗？",
+        "answer": "不一定。加密 DNS 改变查询传输方式，仍需保证解析服务器可达、节点域名有正确的解析路径，并与路由策略配合。"
+      },
+      {
+        "question": "fake-ip 地址说明网站真实 IP 被改了吗？",
+        "answer": "不一定。fake-ip 是内核用于关联域名与连接的机制；应查看当前 DNS 模式和实际连接记录，不能只看解析结果判断故障。"
+      }
+    ],
+    "relatedApps": [
+      "mihomo",
+      "clash-verge-rev",
+      "flclash"
+    ],
+    "relatedGuides": [
+      "system-proxy-vs-tun",
+      "import-profile",
+      "android-start"
+    ],
+    "sources": [
+      {
+        "label": "Mihomo 文档：DNS 配置",
+        "url": "https://wiki.metacubex.one/config/dns/"
+      },
+      {
+        "label": "Mihomo 文档：DNS 解析流程",
+        "url": "https://wiki.metacubex.one/config/dns/diagram/"
+      },
+      {
+        "label": "Mihomo 文档：DNS 类型",
+        "url": "https://wiki.metacubex.one/config/dns/type/"
+      },
+      {
+        "label": "Mihomo 文档：TUN",
+        "url": "https://wiki.metacubex.one/config/inbound/tun/"
+      }
+    ]
+  },
+  {
+    "slug": "migrate-from-legacy",
+    "title": "旧 Clash 客户端迁移：保留配置，分阶段替换",
+    "description": "为 Clash for Windows、早期 ClashX 等旧客户端制定迁移顺序，备份订阅与规则，验证 Mihomo 兼容性并清理残留代理。",
+    "category": "迁移指南",
+    "level": "进阶",
+    "minutes": 8,
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Android"
+    ],
+    "updated": "2026-10-27",
+    "lead": "迁移的重点不是把旧目录全部复制过去，而是保留可恢复的资料、确认配置兼容，再切换系统接管。历史客户端可以留作资料参考，但不要因为名字熟悉，就假设新的系统和协议仍与它兼容。",
+    "sections": [
+      {
+        "id": "migration-inventory",
+        "title": "先列出需要保留的内容",
+        "paragraphs": [
+          "记录旧客户端版本、正在使用的订阅、策略组选择、局域网例外、自定义规则和端口。区分“配置提供者下发的原始内容”与“旧客户端生成或覆盖的内容”，迁移时往往只需要前者加上必要的个性化设置。",
+          "使用客户端自己的导出方式备份可用配置，另存重要自定义内容。备份可能含有密码和订阅令牌，应保存在私人位置。确认备份能读取后，再考虑卸载；不要把整个数据目录传到公共仓库求助。"
+        ],
+        "steps": [],
+        "bullets": []
+      },
+      {
+        "id": "migration-target",
+        "title": "按功能需求选择目标项目",
+        "paragraphs": [
+          "先看目标客户端的平台、系统要求和维护状态，再核对订阅使用的协议与字段。Mihomo 与历史 Clash 内核有继承关系，但这不代表所有脚本、界面偏好、旧版私有字段都可以无修改迁移。",
+          "桌面可以比较 Clash Verge Rev、FlClash；Android 可以根据设备和配置需求比较相应客户端。旧客户端停更、仓库失效和原发布附件不可用是不同状态，阅读原项目公告比依赖转载站的“最新版”标签更可靠。"
+        ],
+        "steps": [],
+        "bullets": []
+      },
+      {
+        "id": "migration-parallel",
+        "title": "先并存验证，避免同时接管",
+        "paragraphs": [
+          "安装新客户端时，暂时保留旧版作为回退。两个应用可以先同时存在于磁盘，但验证网络时只允许一个修改系统代理或启用 TUN。否则出现连接异常，很难确定是哪一个应用的路由和监听端口正在生效。"
+        ],
+        "steps": [
+          "在旧客户端关闭系统代理、TUN 和开机启动，再正常退出。",
+          "新客户端先导入原始订阅或配置副本，不迁入全部旧缓存。",
+          "确认配置可加载、策略组和节点存在，先验证基础系统代理。",
+          "逐项迁移自定义规则，每改一项就用连接记录检查实际结果。"
+        ],
+        "bullets": []
+      },
+      {
+        "id": "migration-compare",
+        "title": "按使用场景验收，而不是只测延迟",
+        "paragraphs": [
+          "列出日常真正依赖的场景：浏览器、命令行、公司内网、家庭 NAS、音视频和必要的 UDP 应用。逐项检查是否进入内核、命中哪条规则、是否选择预期出口，再判断是否需要 TUN。",
+          "只要延迟数字看起来正常就卸载旧版，可能漏掉局域网与退出恢复问题。新客户端能够正常关闭、重启后没有重复启动项、代理设置可以恢复，同样属于迁移完成的条件。"
+        ],
+        "steps": [],
+        "bullets": []
+      },
+      {
+        "id": "migration-cleanup",
+        "title": "确认可回退后再清理旧环境",
+        "paragraphs": [
+          "持续使用并确认关键场景正常后，再按原项目说明卸载旧客户端与专属辅助服务。不要手动删除所有虚拟网卡或不认识的系统服务，它们可能属于别的软件。保留一份必要配置和版本记录即可。",
+          "若迁移失败，先关闭新客户端的代理与 TUN，再恢复旧客户端原设置；不要让两者争用同一端口。根据错误阶段查配置兼容、服务权限或 DNS，必要时使用脱敏日志向目标项目反馈。"
+        ],
+        "steps": [],
+        "bullets": []
+      }
+    ],
+    "faq": [
+      {
+        "question": "可以直接复制旧客户端整个配置目录吗？",
+        "answer": "不建议作为首选。目录可能包含旧内核、缓存、绝对路径和应用专属设置。优先导出配置与自定义规则，再按新客户端文档迁移。"
+      },
+      {
+        "question": "迁移后需要重新购买订阅吗？",
+        "answer": "更换客户端本身通常不等于更换服务。先确认现有订阅是否提供目标内核兼容格式及所需协议；本站不提供或销售订阅。"
+      }
+    ],
+    "relatedApps": [
+      "clash-for-windows",
+      "clashx",
+      "clash-for-android",
+      "clash-verge-rev",
+      "flclash"
+    ],
+    "relatedGuides": [
+      "clients-choice",
+      "import-profile",
+      "system-proxy-vs-tun",
+      "dns-troubleshooting"
+    ],
+    "sources": [
+      {
+        "label": "Clash Verge Rev 项目仓库",
+        "url": "https://github.com/clash-verge-rev/clash-verge-rev"
+      },
+      {
+        "label": "Clash Verge Rev：订阅导入",
+        "url": "https://www.clashverge.dev/guide/profile.html"
+      },
+      {
+        "label": "FlClash 项目仓库",
+        "url": "https://github.com/chen08209/FlClash"
+      },
+      {
+        "label": "Mihomo 文档：全局配置",
+        "url": "https://wiki.metacubex.one/config/general/"
+      }
+    ]
+  },
+  {
+    "slug": "verify-download",
+    "title": "Clash 安装包 SHA-256 校验：Windows、macOS 与 Linux",
+    "description": "使用 PowerShell Get-FileHash、shasum 和 sha256sum 核对 Clash 安装包，与上游可信校验值比较，并理解哈希一致的实际含义。",
+    "category": "下载与校验",
+    "level": "入门",
+    "minutes": 6,
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+    ],
+    "updated": "2026-10-27",
+    "lead": "下载完成后，先计算安装包的 SHA-256，再与上游发布者公布的参考值比较。校验应在安装或解压之前进行。以下命令只读取文件，不会运行安装程序；示例文件名需要替换为实际下载的文件名。",
+    "sections": [
+      {
+        "id": "trusted-checksum",
+        "title": "先取得可信的参考校验值",
+        "paragraphs": [
+          "回到原项目的 GitHub Release 或官方校验清单，确认版本、系统、架构和文件名完全对应。加速服务转发的是附件，不应把同一陌生镜像提供的哈希当作独立来源。",
+          "有些项目不提供校验值。此时自己计算出的哈希只能用来记录或比较两次下载是否一致，不能据此宣称“已通过官方校验”。签名验证如有提供，应另按上游说明完成。"
+        ],
+        "steps": [],
+        "bullets": []
+      },
+      {
+        "id": "hash-windows",
+        "title": "Windows：使用 PowerShell Get-FileHash",
+        "paragraphs": [
+          "在实际下载文件夹中打开 PowerShell，将下方文件名换成对应安装包。`-LiteralPath` 按字面读取路径，`-Algorithm SHA256` 明确指定算法。查看输出的 `Hash`，不要把文件路径当成校验结果。"
+        ],
+        "steps": [],
+        "bullets": [],
+        "code": "Get-FileHash -LiteralPath '.\\clash-client.exe' -Algorithm SHA256"
+      },
+      {
+        "id": "hash-macos",
+        "title": "macOS：使用 shasum -a 256",
+        "paragraphs": [
+          "打开终端并进入实际下载文件夹，针对下载的 DMG、ZIP 或 PKG 原文件运行命令。也可以输入 `shasum -a 256 ` 后，把文件从 Finder 拖到终端补全路径。输出第一列是摘要。"
+        ],
+        "steps": [],
+        "bullets": [],
+        "code": "shasum -a 256 './clash-client.dmg'"
+      },
+      {
+        "id": "hash-linux",
+        "title": "Linux：使用 sha256sum",
+        "paragraphs": [
+          "在下载文件夹中对 AppImage、DEB、RPM 或压缩包本身计算摘要，路径含空格时保留引号。若上游提供符合工具格式的校验清单，可按其说明使用 `sha256sum -c`；不要对来历不明的清单盲目执行。"
+        ],
+        "steps": [],
+        "bullets": [],
+        "code": "sha256sum './clash-client.AppImage'"
+      },
+      {
+        "id": "compare-checksum",
+        "title": "比较全部字符，再决定下一步",
+        "paragraphs": [
+          "SHA-256 通常显示为 64 位十六进制字符，比较时核对全部字符，不只看开头结尾；大小写表示不影响数值。压缩包与解压后的程序是不同文件，摘要不能交叉比较。"
+        ],
+        "steps": [
+          "确认本地文件与参考值使用同一算法，且对应同一发布附件。",
+          "一致时记录版本、文件名、参考来源与结果，再继续安装。",
+          "不一致时先停止安装，检查是否选错架构、文件是否未下载完整，重新从可信来源获取。"
+        ],
+        "bullets": []
+      },
+      {
+        "id": "hash-limits",
+        "title": "哈希一致不等于软件安全保证",
+        "paragraphs": [
+          "一致表明文件内容与该参考摘要相符，不能证明程序没有漏洞、恶意行为或已经过完整安全审计。若发布源和参考值同时被篡改，单纯比较哈希也无法解决来源问题。仍要核对仓库身份、发布说明与系统签名提醒。"
+        ],
+        "steps": [],
+        "bullets": []
+      }
+    ],
+    "faq": [
+      {
+        "question": "下载加速后的文件与 GitHub 原文件应有相同哈希吗？",
+        "answer": "若确实是同一发布附件，转发没有改变文件字节，SHA-256 应相同。发现不一致时先停止安装，核对版本、架构、完整性与来源。"
+      },
+      {
+        "question": "没有官方 SHA-256，还能校验吗？",
+        "answer": "可以计算本地哈希作记录或比较，但缺少可信参考值就不能确认它与发布者原件一致。优先检查上游是否提供签名或其他验证方式，不要编造参考值。"
+      }
+    ],
+    "relatedApps": [
+      "clash-verge-rev",
+      "flclash",
+      "mihomo"
+    ],
+    "relatedGuides": [
+      "clients-choice",
+      "windows-start",
+      "macos-start",
+      "migrate-from-legacy"
+    ],
+    "sources": [
+      {
+        "label": "Microsoft Learn：Get-FileHash",
+        "url": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-7.5"
+      },
+      {
+        "label": "Apple：生成软件包 SHA-256 摘要",
+        "url": "https://support.apple.com/guide/business/create-a-package-axm8e397e77d/web"
+      },
+      {
+        "label": "Ubuntu 官方手册：sha256sum",
+        "url": "https://manpages.ubuntu.com/manpages/noble/man1/sha256sum.1.html"
+      },
+      {
+        "label": "Ubuntu 官方手册：shasum",
+        "url": "https://manpages.ubuntu.com/manpages/jammy/man1/shasum.1.html"
+      }
+    ]
+  }
+]
