@@ -35,6 +35,46 @@
   let searchIndex = [];
   try { searchIndex = JSON.parse(one('#site-search-index')?.textContent || '[]'); } catch {}
   const normalize = value => String(value).normalize('NFKC').toLocaleLowerCase();
+  let revealFaqHash = () => {};
+  const faqHub = one('[data-faq-hub]');
+  if (faqHub) {
+    const search = one('[data-faq-search]', faqHub);
+    const items = all('[data-faq-item]', faqHub);
+    const categories = all('[data-faq-category]', faqHub);
+    let openBeforeFilter = new Set();
+    let wasFiltering = false;
+    const filterQuestions = () => {
+      const words = normalize(search.value.trim()).split(/\s+/).filter(Boolean);
+      if (words.length && !wasFiltering) openBeforeFilter = new Set(items.filter(item => item.open));
+      let count = 0;
+      items.forEach(item => {
+        const matches = words.every(word => normalize(item.dataset.faqText).includes(word));
+        item.hidden = !matches;
+        if (words.length) item.open = matches;
+        else if (wasFiltering) item.open = openBeforeFilter.has(item);
+        if (matches) count++;
+      });
+      categories.forEach(category => { category.hidden = !all('[data-faq-item]', category).some(item => !item.hidden); });
+      one('[data-faq-count]', faqHub).textContent = words.length ? `找到 ${count} / ${items.length} 个问题` : `共 ${items.length} 个问题，答案可直接展开阅读`;
+      one('[data-faq-empty]', faqHub).hidden = count !== 0;
+      wasFiltering = words.length > 0;
+    };
+    const revealHash = () => {
+      let id;
+      try { id = decodeURIComponent(location.hash.slice(1)); } catch { return; }
+      const target = document.getElementById(id);
+      if (!target || !faqHub.contains(target)) return;
+      if (target.closest('[hidden]')) { search.value = ''; filterQuestions(); }
+      if (target.matches('[data-faq-item]')) target.open = true;
+      target.scrollIntoView({ block: 'start' });
+    };
+    revealFaqHash = revealHash;
+    search.addEventListener('input', filterQuestions);
+    one('[data-faq-reset]', faqHub)?.addEventListener('click', () => { search.value = ''; filterQuestions(); search.focus(); });
+    all('.faq-navigation a[href^="#"]').forEach(link => link.addEventListener('click', () => { search.value = ''; filterQuestions(); }));
+    window.addEventListener('hashchange', revealHash);
+    revealHash();
+  }
   const renderSearch = () => {
     if (!globalSearch || !globalResults) return;
     const query = normalize(globalSearch.value.trim());
@@ -52,6 +92,15 @@
     globalSearch.focus();
   };
   all('[data-open-search]').forEach(button => button.addEventListener('click', openSearch));
+  globalResults?.addEventListener('click', event => {
+    const link = event.target.closest('a');
+    if (!link) return;
+    const destination = new URL(link.href);
+    if (destination.origin === location.origin && destination.pathname === location.pathname && destination.hash) {
+      searchDialog.close();
+      if (destination.hash === location.hash) revealFaqHash();
+    }
+  });
   one('[data-close-search]')?.addEventListener('click', () => searchDialog.close());
   searchDialog?.addEventListener('click', event => {
     const bounds = searchDialog.getBoundingClientRect();

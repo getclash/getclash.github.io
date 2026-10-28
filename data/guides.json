@@ -12,8 +12,8 @@
       "Linux",
       "Android"
     ],
-    "updated": "2026-10-27",
-    "lead": "同样叫 Clash，下载到的可能是代理内核、桌面客户端，也可能是已停止维护的历史项目。先确认你需要什么，再比较功能，可以减少选错安装包和重复迁移。本站是独立资料目录，不是任一项目的官方网站。",
+    "updated": "2026-10-28",
+    "lead": "选 Clash 客户端时，先确认设备和处理器架构，再比较维护状态与配置兼容性。客户端提供操作界面，Mihomo 等内核负责处理连接；两者的选择需要一起看。",
     "sections": [
       {
         "id": "core-and-client",
@@ -108,6 +108,17 @@
         "label": "FlClash 项目仓库",
         "url": "https://github.com/chen08209/FlClash"
       }
+    ],
+    "published": "2026-10-27",
+    "takeaways": [
+      "先按 Windows、macOS、Android 等平台筛选，再核对系统版本和处理器架构。",
+      "新安装优先比较持续维护的项目；历史客户端适合查阅和迁移，不宜只凭熟悉的名称下载。",
+      "客户端不自带代理服务。导入现有配置时，先确认内核和协议兼容，并保留备份。"
+    ],
+    "relatedFaq": [
+      "clash-and-mihomo",
+      "choose-client",
+      "archived-client"
     ]
   },
   {
@@ -120,8 +131,8 @@
     "platforms": [
       "Windows"
     ],
-    "updated": "2026-10-27",
-    "lead": "本教程以 Clash Verge Rev 的通用流程为例。不同版本的按钮名称可能变化，请以安装版本的官方说明为准。开始前准备有效配置，确认 Windows 系统类型，并暂时退出其他正在修改系统代理的客户端。",
+    "updated": "2026-10-28",
+    "lead": "本文以 Clash Verge Rev 为例，说明 Windows 上从选择安装包、导入配置到检查系统代理的完整过程。不同版本的界面名称可能不同；遇到差异时，以项目说明为准。",
     "sections": [
       {
         "id": "windows-package",
@@ -214,6 +225,17 @@
         "label": "Clash Verge Rev：快速入门",
         "url": "https://www.clashverge.dev/guide/quickstart.html"
       }
+    ],
+    "published": "2026-10-27",
+    "takeaways": [
+      "在系统信息中确认 x64 或 ARM64，下载对应架构的安装包。",
+      "导入后要激活配置、选择策略组，再开启系统代理测试浏览器。",
+      "强制退出后如果断网，先检查 Windows 是否还指向已关闭的本地代理端口。"
+    ],
+    "relatedFaq": [
+      "package-architecture",
+      "proxy-not-working",
+      "offline-after-exit"
     ]
   },
   {
@@ -226,8 +248,8 @@
     "platforms": [
       "macOS"
     ],
-    "updated": "2026-10-27",
-    "lead": "Mac 上的安装失败、代理无效和配置错误是三类问题。按“确认芯片 → 安装与来源核对 → 激活配置 → 开启代理”的顺序处理，能避免一开始就改动 DNS 或系统安全设置。",
+    "updated": "2026-10-28",
+    "lead": "先确认 Mac 使用 Intel 还是 Apple Silicon 芯片，再安装匹配的客户端。导入配置后，从系统代理开始测试；确实需要接管更多应用时，再考虑 TUN。",
     "sections": [
       {
         "id": "mac-package",
@@ -317,6 +339,17 @@
         "label": "Clash Verge Rev：下载与安装",
         "url": "https://www.clashverge.dev/install.html"
       }
+    ],
+    "published": "2026-10-27",
+    "takeaways": [
+      "Apple Silicon 一般选 arm64，Intel 一般选 x64；同时检查项目要求的 macOS 版本。",
+      "安装提示异常时，先核对来源、文件完整性和项目说明，区分不同的安全提醒。",
+      "测试完成后关闭代理并检查网络恢复，再考虑开机启动。"
+    ],
+    "relatedFaq": [
+      "package-architecture",
+      "install-blocked",
+      "tun-disconnected"
     ]
   },
   {
@@ -329,8 +362,8 @@
     "platforms": [
       "Android"
     ],
-    "updated": "2026-10-27",
-    "lead": "Android 客户端通常通过系统 VPN 接口接管流量。状态栏出现钥匙图标，代表系统 VPN 服务已连接，不代表订阅中的节点、DNS 和规则全部正确。第一次设置时，先把最基本的连接流程验证清楚。",
+    "updated": "2026-10-28",
+    "lead": "Android 上的 Clash 客户端通常通过系统 VPN 接口接管流量。本文从选择 APK、导入配置讲到首次连接，也会解释锁屏断连和 VPN 冲突的排查方法。",
     "sections": [
       {
         "id": "android-apk",
@@ -423,6 +456,17 @@
         "label": "Android Developers：VPN 与连接授权",
         "url": "https://developer.android.com/develop/connectivity/vpn"
       }
+    ],
+    "published": "2026-10-27",
+    "takeaways": [
+      "按设备架构下载项目发布的 APK，并先备份需要保留的配置。",
+      "导入并激活配置、选择策略组之后，再启动 VPN 连接。",
+      "状态栏出现 VPN 图标只表示服务已连接，仍需检查节点、规则和 DNS。"
+    ],
+    "relatedFaq": [
+      "choose-client",
+      "subscription-failed",
+      "connection-timeout"
     ]
   },
   {
@@ -438,8 +482,8 @@
       "Linux",
       "Android"
     ],
-    "updated": "2026-10-27",
-    "lead": "“导入成功”和“可以使用”之间还差两步：激活配置、选择有效出口。先分清手中的资料是什么，再判断错误发生在下载、解析还是连接阶段，比不停点击更新更有效。",
+    "updated": "2026-10-28",
+    "lead": "导入订阅后，还要激活配置并选好策略组，才能测试连接。本文分别介绍 URL 和本地 YAML 的导入方法，并按下载、解析、连接三个阶段排查错误。",
     "sections": [
       {
         "id": "profile-types",
@@ -534,12 +578,23 @@
         "label": "Mihomo 文档：代理集合",
         "url": "https://wiki.metacubex.one/config/proxy-providers/"
       }
+    ],
+    "published": "2026-10-27",
+    "takeaways": [
+      "先确认手中的是可供当前内核读取的订阅或配置，单个节点链接和网页地址可能不是同一种格式。",
+      "导入远程配置后，检查更新结果、激活配置，再选择策略组。",
+      "订阅链接可能包含访问凭据；反馈问题时遮盖令牌和节点密码。"
+    ],
+    "relatedFaq": [
+      "subscription-failed",
+      "yaml-error",
+      "no-nodes"
     ]
   },
   {
     "slug": "system-proxy-vs-tun",
-    "title": "系统代理和 TUN 有什么区别：从流量入口理解",
-    "description": "用流量入口、权限、DNS 和规则四个角度比较系统代理与 TUN，找到浏览器能用而某个应用不能用的原因。",
+    "title": "Clash 系统代理与 TUN 模式有什么区别？",
+    "description": "比较 Clash 系统代理与 TUN 的流量入口、权限和适用场景，排查应用不走代理、DNS 异常与退出后断网。",
     "category": "原理与排错",
     "level": "进阶",
     "minutes": 7,
@@ -549,8 +604,8 @@
       "Linux",
       "Android"
     ],
-    "updated": "2026-10-27",
-    "lead": "系统代理和 TUN 解决的是“流量怎样进入内核”。规则模式和全局模式解决的是“进入后走哪个出口”。把这两层分开理解，才能解释为什么开启 TUN 后，部分流量仍然按规则直连。",
+    "updated": "2026-10-28",
+    "lead": "系统代理和 TUN 决定流量怎样进入客户端；规则模式和全局模式决定进入后的去向。弄清这两层，才能判断应用没有走代理时该从哪里查起。",
     "sections": [
       {
         "id": "system-entry",
@@ -648,6 +703,17 @@
         "label": "Clash Verge Rev：快速入门",
         "url": "https://www.clashverge.dev/guide/quickstart.html"
       }
+    ],
+    "published": "2026-10-27",
+    "takeaways": [
+      "系统代理适合遵循系统代理设置的应用；TUN 通过虚拟网卡和路由接管更多流量。",
+      "请求没有出现在连接记录中，先查入口；请求已进入但走错出口，再查规则和策略组。",
+      "TUN 的接管范围取决于平台、路由和排除设置，开启后应检查局域网与退出恢复。"
+    ],
+    "relatedFaq": [
+      "proxy-not-working",
+      "rule-global-direct",
+      "tun-disconnected"
     ]
   },
   {
@@ -663,8 +729,8 @@
       "Linux",
       "Android"
     ],
-    "updated": "2026-10-27",
-    "lead": "网站打不开可能发生在解析、路由、握手或应用层。先保留一条可复现的错误，再判断是不是 DNS。随意替换一组公共 DNS 可能掩盖问题，也可能让局域网域名和节点解析更复杂。",
+    "updated": "2026-10-28",
+    "lead": "部分网站打不开，不一定是 DNS 问题。先保留一条可复现的错误，确认请求是否进入内核，再区分域名解析、节点连接和 TLS 握手这几个环节。",
     "sections": [
       {
         "id": "dns-baseline",
@@ -759,6 +825,17 @@
         "label": "Mihomo 文档：TUN",
         "url": "https://wiki.metacubex.one/config/inbound/tun/"
       }
+    ],
+    "published": "2026-10-27",
+    "takeaways": [
+      "记录目标域名、客户端与内核版本、网络类型和第一条错误。",
+      "先确认是谁在解析：系统、浏览器或内核，普通 nslookup 结果不一定代表应用的实际路径。",
+      "fake-ip 是一种域名映射机制；需要结合最终连接结果判断，不能只看返回地址。"
+    ],
+    "relatedFaq": [
+      "dns-partial-sites",
+      "connection-timeout",
+      "tun-disconnected"
     ]
   },
   {
@@ -774,8 +851,8 @@
       "Linux",
       "Android"
     ],
-    "updated": "2026-10-27",
-    "lead": "迁移的重点不是把旧目录全部复制过去，而是保留可恢复的资料、确认配置兼容，再切换系统接管。历史客户端可以留作资料参考，但不要因为名字熟悉，就假设新的系统和协议仍与它兼容。",
+    "updated": "2026-10-28",
+    "lead": "从 Clash for Windows、ClashX 等旧客户端迁移时，先备份配置，再用新客户端验证兼容性。两个程序可以保留在磁盘上，但测试时只让一个接管网络。",
     "sections": [
       {
         "id": "migration-inventory",
@@ -872,6 +949,17 @@
         "label": "Mihomo 文档：全局配置",
         "url": "https://wiki.metacubex.one/config/general/"
       }
+    ],
+    "published": "2026-10-27",
+    "takeaways": [
+      "备份订阅、必要的本地规则和端口设置，确认备份可以读取。",
+      "新客户端先导入配置副本，检查策略组、节点和日常应用，再逐项迁移自定义规则。",
+      "新旧客户端不要同时启用系统代理或 TUN；确认可以回退后再清理旧环境。"
+    ],
+    "relatedFaq": [
+      "archived-client",
+      "offline-after-exit",
+      "no-nodes"
     ]
   },
   {
@@ -886,8 +974,8 @@
       "macOS",
       "Linux"
     ],
-    "updated": "2026-10-27",
-    "lead": "下载完成后，先计算安装包的 SHA-256，再与上游发布者公布的参考值比较。校验应在安装或解压之前进行。以下命令只读取文件，不会运行安装程序；示例文件名需要替换为实际下载的文件名。",
+    "updated": "2026-10-28",
+    "lead": "计算下载文件的 SHA-256，并与项目发布者提供的对应校验值逐字比较。校验发生在安装之前；参考值和安装文件必须对应同一版本、平台和架构。",
     "sections": [
       {
         "id": "trusted-checksum",
@@ -990,6 +1078,17 @@
         "label": "Ubuntu 官方手册：shasum",
         "url": "https://manpages.ubuntu.com/manpages/jammy/man1/shasum.1.html"
       }
+    ],
+    "published": "2026-10-27",
+    "takeaways": [
+      "Windows 使用 PowerShell 的 Get-FileHash；macOS 使用 shasum；Linux 使用 sha256sum。",
+      "比较完整的 64 位摘要。不同文件、不同架构和压缩前后的内容不能交叉比较。",
+      "没有可信参考值时，本地哈希只能作记录或比较，不能证明与发布者原件一致。"
+    ],
+    "relatedFaq": [
+      "accelerated-download",
+      "install-blocked",
+      "package-architecture"
     ]
   }
 ]

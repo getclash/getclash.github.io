@@ -4,7 +4,7 @@ import { pages } from '../lib/content.mjs';
 
 export function getStaticPaths() {
   return pages
-    .filter(page => page.route !== '/' && page.route !== '/404.html')
+    .filter(page => page.route !== '/' && page.route !== '/404.html' && page.route !== '/faq/')
     .map(page => ({
       params: { slug: page.route.replace(/^\/|\/$/g, '') },
       props: { page },

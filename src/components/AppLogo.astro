@@ -1,5 +1,5 @@
 ---
 import { mark } from '../lib/content.mjs';
-const { app } = Astro.props;
+const { app, eager = false } = Astro.props;
 ---
-<Fragment set:html={mark(app)} />
+<Fragment set:html={mark(app, { eager })} />
