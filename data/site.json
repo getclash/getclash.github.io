@@ -1,8 +1,8 @@
 {
-  "name": "Clash 图鉴",
-  "englishName": "CLASH ATLAS",
+  "name": "Clash 下载指南",
+  "englishName": "Clash Download Guide",
   "url": "https://getclash.github.io",
-  "description": "独立整理 Clash 与 Mihomo 生态客户端、内核、面板及路由器工具，提供维护状态、GitHub 加速下载与原创上手教程。",
+  "description": "比较 Clash 与 Mihomo 客户端、内核和工具的系统支持与维护状态，提供 GitHub 加速下载、使用教程和常见问题排查。",
   "repository": "https://github.com/getclash/getclash.github.io",
   "checkedAt": "2026-10-27",
   "downloadProxy": "https://gh-proxy.com/",

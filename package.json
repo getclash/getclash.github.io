@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Clash 图鉴：Clash 与 Mihomo 生态软件目录和原创教程。",
+  "description": "Clash 下载指南：Clash 与 Mihomo 生态软件目录和原创教程。",
   "engines": {
     "node": ">=22.23.4"
   },

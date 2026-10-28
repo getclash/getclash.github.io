@@ -3,7 +3,7 @@
   "files": [
     ".nojekyll",
     "404.html",
-    "_astro/BaseLayout.BF8kxwv6.css",
+    "_astro/BaseLayout.I-NG6aSj.css",
     "about/index.html",
     "apps/clash-core/index.html",
     "apps/clash-dash/index.html",
@@ -58,6 +58,7 @@
     "catalog.json",
     "compare/index.html",
     "downloads/index.html",
+    "faq/index.html",
     "guides/android-start/index.html",
     "guides/clients-choice/index.html",
     "guides/dns-troubleshooting/index.html",

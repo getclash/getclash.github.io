@@ -64,6 +64,16 @@ async function main() {
   const dataFiles = (await readdir(path.join(root, 'data'))).filter(name => name.endsWith('-apps.json'));
   const apps = (await Promise.all(dataFiles.map(json))).flat();
   const guides = await json('guides.json');
+  const faq = await json('faq.json');
+  const faqIds = new Set();
+  const faqCategories = new Set(faq.categories.map(category => category.id));
+  assert(faqCategories.size === faq.categories.length, 'FAQ：分类 ID 重复。');
+  for (const item of faq.questions) {
+    assert(slugPattern.test(item.id) && !faqIds.has(item.id), `FAQ：问题 ID 无效或重复 ${item.id}`);
+    faqIds.add(item.id);
+    assert(faqCategories.has(item.category), `FAQ：问题分类不存在 ${item.id}`);
+    assert(item.question && item.answer && item.steps?.length && item.links?.length, `FAQ：问题缺少正文或后续入口 ${item.id}`);
+  }
   const appSlugs = new Set();
   const guideSlugs = new Set();
   const sources = new Set();
@@ -96,6 +106,8 @@ async function main() {
     for (const slug of guide.relatedApps || []) assert(appSlugs.has(slug), `教程 ${guide.slug} 引用了不存在的软件：${slug}`);
     for (const slug of guide.relatedGuides || []) assert(guideSlugs.has(slug), `教程 ${guide.slug} 引用了不存在的教程：${slug}`);
     assert(Array.isArray(guide.sections) && guide.sections.length > 0, `教程 ${guide.slug} 缺少正文。`);
+    assert(Array.isArray(guide.takeaways) && guide.takeaways.length > 0, `教程 ${guide.slug} 缺少阅读要点。`);
+    for (const id of guide.relatedFaq || []) assert(faqIds.has(id), `教程 ${guide.slug} 引用了不存在的 FAQ：${id}`);
   }
 
   let allFiles;
@@ -211,13 +223,26 @@ async function main() {
   for (const location of indexablePages) assert(listed.has(location), `sitemap：遗漏网页 ${location}`);
   const robots = await readFile(path.join(output, 'robots.txt'), 'utf8');
   assert(robots.includes(`Sitemap: ${base}/sitemap.xml`), 'robots.txt：缺少正确的网站地图地址。');
+  const faqHtml = await readFile(path.join(output, 'faq', 'index.html'), 'utf8');
+  const faqVisible = normalize(faqHtml.replace(/<script\b[^>]*>[\s\S]*?<\/script\s*>/gi, '').replace(/<[^>]+>/g, ' '));
+  const faqSchemas = [...faqHtml.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script\s*>/gi)]
+    .filter(match => attributes(match[1]).type === 'application/ld+json')
+    .flatMap(match => { try { return JSON.parse(match[2]); } catch { return []; } });
+  const faqSchema = faqSchemas.find(schema => schema['@type'] === 'FAQPage');
+  assert(faqSchema?.mainEntity?.length === faq.questions.length, 'FAQ：结构化问答数量与正文不一致。');
+  for (const item of faq.questions) {
+    const entity = faqSchema?.mainEntity?.find(question => question.name === item.question);
+    assert(entity?.acceptedAnswer?.text === [item.answer, ...item.steps].join(' '), `FAQ：结构化答案与数据不一致 ${item.id}`);
+    for (const text of [item.question, item.answer, ...item.steps]) assert(faqVisible.includes(normalize(text)), `FAQ：结构化内容未出现在正文 ${item.id}`);
+    assert(documents.get(path.join(output, 'faq', 'index.html'))?.ids.has(item.id), `FAQ：缺少可分享的问题锚点 ${item.id}`);
+  }
   if (errors.length) {
     console.error(`校验失败：${errors.length} 项。`);
     for (const error of errors.slice(0, 35)) console.error(`- ${error}`);
     if (errors.length > 35) console.error(`另有 ${errors.length - 35} 项，请修复上述问题后重试。`);
     process.exitCode = 1;
   } else {
-    console.log(`校验通过：${htmlFiles.length} 个页面 · ${apps.length} 个项目 · ${guides.length} 篇教程 · ${acceleratedCount} 个加速下载 · ${internalCount} 处站内引用。`);
+    console.log(`校验通过：${htmlFiles.length} 个页面 · ${apps.length} 个项目 · ${guides.length} 篇教程 · ${faq.questions.length} 个问答 · ${acceleratedCount} 个加速下载 · ${internalCount} 处站内引用。`);
   }
 }
 

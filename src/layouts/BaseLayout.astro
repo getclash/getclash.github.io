@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Icon from '../components/Icon.astro';
+import { faq } from '../lib/faq.mjs';
 import { site, apps, guides, absolute, json } from '../lib/content.mjs';
 
 const { page } = Astro.props;
@@ -9,17 +10,25 @@ const canonical = absolute(route);
 const isHome = route === '/';
 const isArticle = route.startsWith('/guides/') && route !== '/guides/';
 const title = isHome ? page.title : `${page.title} - ${site.name}`;
+const parent = route.startsWith('/apps/') && route !== '/apps/' ? ['软件目录', '/apps/']
+  : isArticle ? ['上手教程', '/guides/']
+  : route.startsWith('/platforms/') ? ['软件目录', '/apps/'] : null;
+const appSlug = route.startsWith('/apps/') ? route.split('/')[2] : '';
+const platformSlug = route.startsWith('/platforms/') ? route.split('/')[2] : '';
+const breadcrumbName = route === '/faq/' ? '常见问题'
+  : appSlug ? apps.find(app => app.slug === appSlug)?.name || page.title
+  : platformSlug ? ({ windows: 'Windows', macos: 'macOS', android: 'Android', linux: 'Linux', ios: 'iOS', openwrt: 'OpenWrt' }[platformSlug] || page.title)
+  : page.title;
+const breadcrumbItems = [['首页', '/'], ...(parent ? [parent] : []), [breadcrumbName, route]];
 const structured = [
   { '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${site.url}/#website`, name: site.name, alternateName: site.englishName, url: `${site.url}/`, inLanguage: 'zh-CN' },
-  ...(!isHome ? [{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
-    { '@type': 'ListItem', position: 1, name: '首页', item: absolute('/') },
-    { '@type': 'ListItem', position: 2, name: page.title, item: canonical },
-  ] }] : []),
+  ...(!isHome ? [{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: breadcrumbItems.map(([name, url], index) => ({ '@type': 'ListItem', position: index + 1, name, item: absolute(url) })) }] : []),
   ...(page.schema || []).map(schema => ({ '@context': 'https://schema.org', ...schema })),
 ];
 const links = [
   { href: '/apps/', label: '软件目录', key: 'apps' },
   { href: '/guides/', label: '使用教程', key: 'guides' },
+  { href: '/faq/', label: '常见问题', key: 'faq' },
   { href: '/archive/', label: '历史档案', key: 'archive' },
   { href: '/compare/', label: '软件对比', key: 'compare' },
 ];
@@ -31,6 +40,7 @@ const guideNavigation = [
 const searchIndex = [
   ...apps.map(app => ({ title: app.name, description: app.tagline, url: `/apps/${app.slug}/`, type: '软件', keywords: `${app.core} ${app.platforms.join(' ')}` })),
   ...guides.map(guide => ({ title: guide.title, description: guide.description, url: `/guides/${guide.slug}/`, type: '教程', keywords: guide.category })),
+  ...faq.questions.map(item => ({ title: item.question, description: item.answer, url: `/faq/#${item.id}`, type: '问答', keywords: item.steps.join(' ') })),
 ];
 ---
 <!doctype html>
@@ -54,6 +64,8 @@ const searchIndex = [
     <meta property="og:image" content={absolute('/assets/og.png')} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Clash 下载指南：全平台软件、维护状态与原创教程" />
+    {isArticle && <meta property="article:modified_time" content={page.modified} />}
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
     <script is:inline>
@@ -71,16 +83,16 @@ const searchIndex = [
     <a class="skip-link" href="#main">跳到正文</a>
     <header class="header">
       <div class="wrap header-inner">
-        <a class="brand" href="/" aria-label="Clash 图鉴首页">
+        <a class="brand" href="/" aria-label="Clash 下载指南首页">
           <img src="/assets/favicon.svg" width="35" height="35" alt="" />
-          <span>Clash<span class="brand-zh">图鉴</span><small>ATLAS</small></span>
+          <span>Clash<span class="brand-zh">下载指南</span><small>GUIDE</small></span>
         </a>
         <nav id="main-nav" class="main-nav" aria-label="主导航">
           {links.map(link => <a href={link.href} aria-current={page.nav === link.key ? 'page' : undefined}>{link.label}</a>)}
         </nav>
         <div class="header-tools">
-          <button class="header-search" type="button" data-open-search aria-label="搜索软件和教程" aria-haspopup="dialog" aria-controls="site-search-dialog">
-            <Icon name="search" /><span>搜索软件、教程…</span><kbd>⌘ K</kbd>
+          <button class="header-search" type="button" data-open-search aria-label="搜索软件、教程和问题" aria-haspopup="dialog" aria-controls="site-search-dialog">
+            <Icon name="search" /><span>搜索软件、教程和问题…</span><kbd>⌘ K</kbd>
           </button>
           <a class="icon-button github-link" href={site.repository} target="_blank" rel="noopener noreferrer" aria-label="GitHub 仓库"><Icon name="github" /></a>
           <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="切换主题">
@@ -96,6 +108,7 @@ const searchIndex = [
       <div class="wrap docs-frame">
         <aside class="docs-navigation" aria-label="教程导航">
           <a class="docs-back" href="/guides/">← 全部教程</a>
+          <a class="docs-back" href="/faq/">常见问题与快速排查 →</a>
           {guideNavigation.map(group => <div class="docs-nav-group"><strong>{group.title}</strong>{group.items.map(([slug, label]) => <a href={`/guides/${slug}/`} aria-current={route === `/guides/${slug}/` ? 'page' : undefined}>{label}</a>)}</div>)}
           <a class="sidebar-callout" href="/apps/"><Icon name="layers" /><strong>还没选好客户端？</strong><span>浏览全部 {apps.length} 个项目 <span aria-hidden="true">↗</span></span></a>
         </aside>
@@ -105,19 +118,19 @@ const searchIndex = [
 
     <footer class="footer">
       <div class="wrap footer-main">
-        <div class="footer-about"><a class="brand" href="/"><img src="/assets/favicon.svg" width="32" height="32" alt="" /><span>Clash<span class="brand-zh">图鉴</span></span></a><p>读懂生态，找到适合你的工具。<br />独立整理的 Clash / Mihomo 软件与教程。</p></div>
+        <div class="footer-about"><a class="brand" href="/"><img src="/assets/favicon.svg" width="32" height="32" alt="" /><span>Clash<span class="brand-zh">下载指南</span></span></a><p>读懂生态，找到适合你的工具。<br />独立整理 Clash / Mihomo 下载、对比与教程。</p></div>
         <div><strong>发现软件</strong><a href="/apps/">软件目录</a><a href="/archive/">停更与历史项目</a><a href="/compare/">软件对比</a></div>
-        <div><strong>学习与使用</strong><a href="/guides/">上手教程</a><a href="/downloads/">下载与加速说明</a><a href="/guides/verify-download/">安装包校验</a></div>
-        <div><strong>关于图鉴</strong><a href="/about/">收录与编辑规范</a><a href={`${site.repository}/issues/new`} target="_blank" rel="noopener noreferrer">反馈与补充 ↗</a><a href="/privacy/">隐私说明</a></div>
+        <div><strong>学习与使用</strong><a href="/guides/">上手教程</a><a href="/faq/">常见问题与排查</a><a href="/downloads/">下载与加速说明</a><a href="/guides/verify-download/">安装包校验</a></div>
+        <div><strong>关于本站</strong><a href="/about/">收录与编辑规范</a><a href={`${site.repository}/issues/new`} target="_blank" rel="noopener noreferrer">反馈与补充 ↗</a><a href="/privacy/">隐私说明</a></div>
       </div>
-      <div class="wrap footer-bottom"><span>© 2026 Clash 图鉴 · 独立维护，与所列项目无隶属关系。</span><span>资料核验 {site.checkedAt} <span aria-hidden="true">·</span> 不提供代理节点或订阅</span></div>
+      <div class="wrap footer-bottom"><span>© 2026 Clash 下载指南 · 独立维护，与所列项目无隶属关系。</span><span>资料核验 {site.checkedAt} <span aria-hidden="true">·</span> 不提供代理节点或订阅</span></div>
     </footer>
 
     <dialog id="site-search-dialog" class="search-dialog" data-search-dialog aria-labelledby="site-search-title">
-      <div class="search-dialog-head"><Icon name="search" /><label id="site-search-title" class="sr-only" for="global-search-input">搜索软件和教程</label><input id="global-search-input" type="search" placeholder="搜索软件、平台或教程…" autocomplete="off" /><button class="search-close" type="button" data-close-search aria-label="关闭搜索">Esc</button></div>
+      <div class="search-dialog-head"><Icon name="search" /><label id="site-search-title" class="sr-only" for="global-search-input">搜索软件、教程和问题</label><input id="global-search-input" type="search" placeholder="搜索软件、平台、教程或问题…" autocomplete="off" /><button class="search-close" type="button" data-close-search aria-label="关闭搜索">Esc</button></div>
       <div class="search-results-meta" aria-live="polite" data-global-result-count>常用入口</div>
       <div class="global-search-results" data-global-results></div>
-      <div class="search-dialog-foot"><span>在 {apps.length} 款软件和 {guides.length} 篇教程中搜索</span><span><kbd>↵</kbd> 打开 <kbd>esc</kbd> 关闭</span></div>
+      <div class="search-dialog-foot"><span>{apps.length} 款软件 · {guides.length} 篇教程 · {faq.questions.length} 个问答</span><span><kbd>↵</kbd> 打开 <kbd>esc</kbd> 关闭</span></div>
     </dialog>
     <script type="application/json" id="site-search-index" is:inline set:html={json(searchIndex)} />
     <div class="toast" role="status" aria-live="polite"></div>

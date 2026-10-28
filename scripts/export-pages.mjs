@@ -9,7 +9,7 @@ const checkOnly = process.argv.includes('--check');
 // Astro emits bundled styles and scripts into _astro; public assets retain their
 // original paths. Keep both directories owned by the export manifest so a new
 // build can also remove obsolete, hashed assets without touching source files.
-const generatedDirectories = new Set(['_astro', 'assets', 'apps', 'platforms', 'guides', 'archive', 'compare', 'downloads', 'about', 'privacy']);
+const generatedDirectories = new Set(['_astro', 'assets', 'apps', 'platforms', 'guides', 'faq', 'archive', 'compare', 'downloads', 'about', 'privacy']);
 const generatedFiles = new Set(['index.html', '404.html', 'robots.txt', 'sitemap.xml', 'catalog.json', 'build-info.json', '.nojekyll']);
 
 function validate(relative) {

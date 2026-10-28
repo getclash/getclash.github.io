@@ -1,4 +1,4 @@
-# Clash 图鉴
+# Clash 下载指南
 
 独立整理 Clash / Mihomo 生态软件、维护状态、GitHub 加速下载和原创使用教程的 Astro 静态网站。正式地址为 **[https://getclash.github.io/](https://getclash.github.io/)**，对应仓库为 `getclash/getclash.github.io`。本站与所列项目没有隶属关系，不提供代理节点或订阅。
 
@@ -38,7 +38,8 @@ npm run check
 | `data/site.json` | 站点网址、仓库、描述、核验日期、下载前缀和 Bing 验证码 |
 | `data/desktop-apps.json` | 桌面及跨平台客户端，包含历史项目 |
 | `data/ecosystem-apps.json` | 移动端、内核、面板与路由器等生态项目 |
-| `data/guides.json` | 原创教程正文、参考来源、相关软件与教程 |
+| `data/guides.json` | 教程正文、阅读要点、参考来源与相关文章 |
+| `data/faq.json` | 常见问题分类、答案、排查步骤与相关阅读 |
 | `src/pages/` | Astro 页面及静态路由 |
 | `src/layouts/` | 共享页面外壳、导航和 SEO 标签 |
 | `src/lib/content.mjs` | 软件与教程数据整合、页面内容和辅助方法 |
