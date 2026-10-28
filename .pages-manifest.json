@@ -3,7 +3,7 @@
   "files": [
     ".nojekyll",
     "404.html",
-    "_astro/BaseLayout.Bqi_fUVE.css",
+    "_astro/BaseLayout.DkgZ51-f.css",
     "about/index.html",
     "apps/clash-core/index.html",
     "apps/clash-dash/index.html",
@@ -64,6 +64,7 @@
     "guides/dns-troubleshooting/index.html",
     "guides/import-profile/index.html",
     "guides/index.html",
+    "guides/macos-app-trash-warning/index.html",
     "guides/macos-start/index.html",
     "guides/migrate-from-legacy/index.html",
     "guides/system-proxy-vs-tun/index.html",

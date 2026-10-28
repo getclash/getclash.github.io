@@ -5,7 +5,7 @@
       "slug": "clash-verge-rev",
       "name": "Clash Verge Rev",
       "tagline": "成熟的三平台桌面入口",
-      "description": "原版 Clash Verge 的社区延续，使用 Tauri 2 构建桌面界面。集成 Mihomo 内核，适合需要订阅管理、规则分流与 TUN 模式的 Windows、macOS 和 Linux 用户。",
+      "description": "原版 Clash Verge 的社区延续，使用 Tauri 2 构建桌面界面。集成 Mihomo 内核，适合需要订阅管理、规则分流与 TUN 模式的 Windows、macOS 和 Linux 用户。 与已归档的原版 Clash Verge 是不同项目，查看下载时请留意完整名称。",
       "status": "active",
       "statusNote": "截至 2026-10-27，官方仓库未归档，并有近期代码或版本发布。",
       "category": "client",
@@ -769,7 +769,7 @@
       "slug": "clash-for-windows",
       "name": "Clash for Windows",
       "tagline": "经典 CFW，保留历史检索入口",
-      "description": "由 Fndroid 开发的经典 Clash 桌面图形客户端，通常简称 CFW。尽管名字含 Windows，也曾提供 macOS 与 Linux 版本。原官方发布仓库已无法访问，本页保留其历史定位和迁移线索。",
+      "description": "由 Fndroid 开发的经典 Clash 桌面图形客户端，通常简称 CFW。尽管名字含 Windows，也曾提供 macOS 与 Linux 版本。原官方发布仓库已无法访问，本页保留其历史定位和迁移线索。 有些人搜索 clash of windows，但这个历史项目的名称是 Clash for Windows。",
       "status": "discontinued",
       "statusNote": "原官方仓库或历史分发渠道已不可用；作为历史软件收录，未找到原作者继续发布的可核验安装包。",
       "category": "client",
@@ -809,13 +809,16 @@
           "url": null,
           "kind": "unavailable"
         }
+      ],
+      "alternateNames": [
+        "CFW"
       ]
     },
     {
       "slug": "clashx",
       "name": "ClashX",
       "tagline": "原版 macOS 菜单栏客户端",
-      "description": "由 yichengchen 开发的原版 ClashX，以 macOS 菜单栏控制和本地 YAML 配置形成了熟悉的使用方式。原仓库现已不可访问；本页将原版与 ClashX Meta、其他同名后续分支分别整理。",
+      "description": "由 yichengchen 开发的原版 ClashX，以 macOS 菜单栏控制和本地 YAML 配置形成了熟悉的使用方式。原仓库现已不可访问；本页将原版与 ClashX Meta、其他同名后续分支分别整理。 ClashX 也常写作 Clash X；它是 macOS 客户端，搜索 clashx windows 的用户可以查看 Windows 平台上的其他项目。",
       "status": "discontinued",
       "statusNote": "原官方仓库或历史分发渠道已不可用；作为历史软件收录，未找到原作者继续发布的可核验安装包。",
       "category": "client",
@@ -853,6 +856,9 @@
           "url": null,
           "kind": "unavailable"
         }
+      ],
+      "alternateNames": [
+        "Clash X"
       ]
     },
     {
@@ -969,7 +975,7 @@
       "slug": "clash-for-android",
       "name": "Clash for Android",
       "tagline": "Android 上经典 Clash 客户端的历史原点。",
-      "description": "Clash for Android（CFA）是 Clash 生态早期重要的 Android 图形客户端。今天搜索这个名字，常会同时遇到原版、历史备份和不同维护者的 fork；这些发行来源需要分别辨认。本站保留这一条目用于版本识别与迁移参考。",
+      "description": "Clash for Android（CFA）是 Clash 生态早期重要的 Android 图形客户端。今天搜索这个名字，常会同时遇到原版、历史备份和不同维护者的 fork；这些发行来源需要分别辨认。本站保留这一条目用于版本识别与迁移参考。 项目名称也常连写为 ClashForAndroid。",
       "status": "discontinued",
       "statusNote": "原 Kr328/ClashForAndroid 上游目前不可访问，原版按停更历史项目整理。",
       "category": "client",
@@ -1012,13 +1018,17 @@
       ],
       "version": null,
       "releaseDate": null,
-      "verifiedAt": "2026-10-27"
+      "verifiedAt": "2026-10-27",
+      "alternateNames": [
+        "ClashForAndroid",
+        "CFA"
+      ]
     },
     {
       "slug": "clash-mi",
       "name": "Clash Mi",
       "tagline": "从手机到桌面，用同一套配置习惯。",
-      "description": "Clash Mi 是使用 Flutter 构建的 Mihomo 图形客户端，覆盖 Windows、macOS、Linux、Android，以及通过 App Store 发行的 iPhone 和 iPad 版本。它围绕 YAML 配置、覆写与内置 Zashboard 面板组织功能，适合在多个平台间保持相近的操作方式。",
+      "description": "Clash Mi 是使用 Flutter 构建的 Mihomo 图形客户端，覆盖 Windows、macOS、Linux、Android，以及通过 App Store 发行的 iPhone 和 iPad 版本。它围绕 YAML 配置、覆写与内置 Zashboard 面板组织功能，适合在多个平台间保持相近的操作方式。 项目仓库使用 clashmi 作为名称。",
       "status": "active",
       "statusNote": "公开仓库持续更新；GitHub 稳定版为 v1.0.31.1703。",
       "category": "client",
@@ -1115,13 +1125,16 @@
       ],
       "version": "v1.0.31.1703",
       "releaseDate": "2026-10-09",
-      "verifiedAt": "2026-10-27"
+      "verifiedAt": "2026-10-27",
+      "alternateNames": [
+        "clashmi"
+      ]
     },
     {
       "slug": "mihomo",
       "name": "Mihomo / Clash.Meta",
       "tagline": "驱动众多新一代客户端的规则代理内核。",
-      "description": "Mihomo 是原 Clash.Meta 内核项目，提供规则路由、DNS、代理集合、TUN 和控制 API 等基础能力。Clash Verge Rev、Clash Meta for Android 等图形客户端会在内核之上提供操作界面；直接下载这里的文件，更适合自行配置服务或管理现有部署。",
+      "description": "Mihomo 是原 Clash.Meta 内核项目，提供规则路由、DNS、代理集合、TUN 和控制 API 等基础能力。Clash Verge Rev、Clash Meta for Android 等图形客户端会在内核之上提供操作界面；直接下载这里的文件，更适合自行配置服务或管理现有部署。 它也曾以 Clash.Meta（ClashMeta）为人所知；内核与图形客户端并不是同一个软件。",
       "status": "active",
       "statusNote": "官方发布页提供 v1.19.33，发布于 2026-10-21。",
       "category": "core",
@@ -1202,7 +1215,11 @@
       ],
       "version": "v1.19.33",
       "releaseDate": "2026-10-21",
-      "verifiedAt": "2026-10-27"
+      "verifiedAt": "2026-10-27",
+      "alternateNames": [
+        "Clash.Meta",
+        "ClashMeta"
+      ]
     },
     {
       "slug": "clash-core",

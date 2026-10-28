@@ -136,6 +136,12 @@ async function main() {
     assert(metas.length === 1 && description.length > 0, `${name}：需要一个非空 description。`);
     assert(!descriptions.has(description), `${name}：description 与 ${descriptions.get(description)} 重复。`);
     descriptions.set(description, name);
+    const app = apps.find(item => route === `/apps/${item.slug}/`);
+    if (app) {
+      const available = (app.downloads || []).filter(download => download.url && download.kind !== 'unavailable');
+      assert(available.some(download => download.kind === 'github') === description.includes('GitHub 加速下载'), `${name}：下载摘要与 GitHub 安装包状态不一致。`);
+      assert(available.length > 0 || description.includes('暂无已核验安装包'), `${name}：缺少安装包时，摘要应明确说明。`);
+    }
     const canonicalLinks = tags.filter(node => node.tag === 'link' && node.attrs.rel?.toLowerCase().split(/\s+/).includes('canonical'));
     assert(canonicalLinks.length === 1 && canonicalLinks[0].attrs.href === canonical, `${name}：canonical 必须自引用 ${canonical}`);
     assert(tags.find(node => node.tag === 'html')?.attrs.lang === 'zh-CN', `${name}：html lang 必须为 zh-CN。`);

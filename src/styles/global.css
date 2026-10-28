@@ -1147,3 +1147,14 @@ html[data-theme="dark"] .moon-icon { display: none; }
   .global-sponsor-copy .global-sponsor-detail { display: none; }
 }
 @media print { .global-sponsor { display: none; } }
+
+/* Keep the article easy to reach on small screens while retaining its directory. */
+.mobile-toc { display: none; }
+@media (max-width: 760px) {
+  .article-aside .sticky-panel { display: none; }
+  .mobile-toc { display: block; border: 1px solid var(--line); border-radius: 8px; background: var(--canvas); }
+  .mobile-toc summary { display: flex; justify-content: space-between; align-items: center; min-height: 48px; padding: 10px 16px; color: var(--ink); font-size: 1rem; font-weight: 600; cursor: pointer; }
+  .mobile-toc summary::-webkit-details-marker { display: none; }
+  .mobile-toc[open] summary span { transform: rotate(180deg); }
+  .mobile-toc .toc { padding: 0 16px 16px; }
+}
