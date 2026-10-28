@@ -8,6 +8,7 @@ import guideContent from '../../data/guides.json' with { type: 'json' };
 const site = { ...siteConfig };
 site.url = (process.env.SITE_URL || site.url).replace(/\/$/, '');
 site.bingVerification = process.env.BING_VERIFICATION || site.bingVerification;
+site.googleVerification = process.env.GOOGLE_VERIFICATION || site.googleVerification;
 const apps = [...desktopApps, ...ecosystemApps];
 const guides = guideContent;
 const states = { active: '持续维护', archived: '已归档', discontinued: '已停更', unknown: '状态待确认' };
