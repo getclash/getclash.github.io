@@ -104,6 +104,8 @@ const searchIndex = [
       </div>
     </header>
 
+    {site.sponsor?.url && !isHome && route !== '/guides/import-profile/' && <aside class="global-sponsor" aria-label={`广告：${site.sponsor.name}`}><div class="wrap global-sponsor-inner"><span class="sponsor-label">广告</span><div class="global-sponsor-copy"><strong>{site.sponsor.name}</strong><span>机场订阅</span><span class="global-sponsor-detail">套餐详情以服务商网站为准</span></div><a href={site.sponsor.url} target="_blank" rel="sponsored nofollow noopener noreferrer">查看订阅 <Icon name="arrow" /></a></div></aside>}
+
     {isArticle ? (
       <div class="wrap docs-frame">
         <aside class="docs-navigation" aria-label="教程导航">
