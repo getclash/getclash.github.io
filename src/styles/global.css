@@ -1098,3 +1098,23 @@ html[data-theme="dark"] .moon-icon { display: none; }
   .brand > span { font-size: 1.125rem; }
   .brand-zh { font-size: 1rem; }
 }
+
+/* Third-party promotion */
+.sponsor-banner { display: flex; align-items: center; gap: 20px; margin-bottom: 24px; padding: 22px 26px; border: 1px solid var(--line); border-radius: 12px; background: var(--canvas); }
+.sponsor-symbol { display: flex; align-items: center; justify-content: center; flex: 0 0 52px; width: 52px; height: 52px; border-radius: 14px; color: var(--accent); background: var(--accent-soft); }
+.sponsor-symbol .icon { width: 25px; height: 25px; }
+.sponsor-copy { min-width: 0; flex: 1; }
+.sponsor-heading { display: flex; align-items: center; gap: 9px; margin-bottom: 5px; }
+.sponsor-label { padding: 2px 7px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--muted); font-size: .75rem; line-height: 1.5; }
+.sponsor-category { color: var(--muted); font-size: .875rem; }
+.sponsor-copy h2 { font-size: 1.25rem; font-weight: 600; letter-spacing: 0; }
+.sponsor-copy p { margin-top: 3px; font-size: .9375rem; line-height: 1.7; }
+.sponsor-button { flex: 0 0 auto; }
+@media (max-width: 520px) {
+  .sponsor-banner { gap: 13px; padding: 19px; flex-wrap: wrap; }
+  .sponsor-symbol { width: 43px; height: 43px; flex-basis: 43px; align-self: flex-start; }
+  .sponsor-symbol .icon { width: 21px; height: 21px; }
+  .sponsor-copy { flex: 1 1 calc(100% - 56px); }
+  .sponsor-button { margin-left: 56px; min-height: 43px; }
+}
+@media (min-width: 761px) and (max-width: 1020px) { .hero-showcase::before { right: 0; } }
