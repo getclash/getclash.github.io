@@ -40,6 +40,8 @@ const typeLinks = [
     </div>
   </section>
 
+  {site.sponsor?.url && <section class="sponsor-banner wrap" aria-label={`广告：${site.sponsor.name}`}><span class="sponsor-symbol" aria-hidden="true"><Icon name="globe" /></span><div class="sponsor-copy"><div class="sponsor-heading"><span class="sponsor-label">广告</span><span class="sponsor-category">机场订阅</span></div><h2>{site.sponsor.name}</h2><p>第三方订阅服务，注册与套餐详情请前往服务商网站查看。</p></div><a class="button primary sponsor-button" href={site.sponsor.url} target="_blank" rel="sponsored nofollow noopener noreferrer">查看订阅 <Icon name="arrow" /></a></section>}
+
   <section class="platform-strip wrap" aria-label="按设备选择软件"><div class="platform-strip-heading"><strong>你的设备，<br />你的选择。</strong><span>从平台开始探索</span></div><div class="platform-links">{platforms.map(platform => <a href={`/platforms/${platform.slug}/`}><Icon name={platform.icon} /><span>{platform.name}</span></a>)}</div></section>
 
   <section class="home-section wrap">

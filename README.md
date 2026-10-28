@@ -35,7 +35,7 @@ npm run check
 
 | 文件 | 内容 |
 | --- | --- |
-| `data/site.json` | 站点网址、仓库、描述、核验日期、下载前缀和 Bing 验证码 |
+| `data/site.json` | 站点网址、仓库、描述、核验日期、下载前缀、Bing 验证码和广告链接 |
 | `data/desktop-apps.json` | 桌面及跨平台客户端，包含历史项目 |
 | `data/ecosystem-apps.json` | 移动端、内核、面板与路由器等生态项目 |
 | `data/guides.json` | 教程正文、阅读要点、参考来源与相关文章 |
