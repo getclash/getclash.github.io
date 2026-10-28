@@ -347,9 +347,10 @@
       "测试完成后关闭代理并检查网络恢复，再考虑开机启动。"
     ],
     "relatedFaq": [
-      "package-architecture",
-      "install-blocked",
-      "tun-disconnected"
+      "mac-unverified-trash",
+      "mac-damaged-trash",
+      "mac-crash-after-update",
+      "mac-proxy-not-applied"
     ]
   },
   {
