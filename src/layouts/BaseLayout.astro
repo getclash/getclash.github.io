@@ -53,6 +53,7 @@ const searchIndex = [
     <link rel="canonical" href={canonical} />
     <meta name="robots" content={page.noindex ? 'noindex,follow' : 'index,follow,max-image-preview:large'} />
     {site.bingVerification && <meta name="msvalidate.01" content={site.bingVerification} />}
+    {site.googleVerification && <meta name="google-site-verification" content={site.googleVerification} />}
     <meta name="download-proxy" content={site.downloadProxy} />
     <meta name="theme-color" content="#2563eb" />
     <meta property="og:type" content={isArticle ? 'article' : 'website'} />
