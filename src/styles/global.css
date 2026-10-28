@@ -1118,3 +1118,13 @@ html[data-theme="dark"] .moon-icon { display: none; }
   .sponsor-button { margin-left: 56px; min-height: 43px; }
 }
 @media (min-width: 761px) and (max-width: 1020px) { .hero-showcase::before { right: 0; } }
+
+/* Advertisement within the subscription guide */
+.article-sponsor { display: flex; align-items: center; gap: 17px; margin-block: 30px; padding: 21px; border: 1px solid var(--line); border-radius: 12px; background: var(--canvas); }
+.article-sponsor .sponsor-copy strong { display: block; color: var(--ink); font-size: 1.125rem; line-height: 1.5; }
+.prose .article-sponsor .sponsor-copy p { margin: 4px 0 0; font-size: .9375rem; line-height: 1.7; }
+.article-sponsor .sponsor-button { white-space: nowrap; font-size: .9375rem; }
+@media (max-width: 520px) {
+  .article-sponsor { gap: 13px; padding: 18px; flex-wrap: wrap; }
+  .article-sponsor .sponsor-button { margin-left: 56px; }
+}
