@@ -1128,3 +1128,22 @@ html[data-theme="dark"] .moon-icon { display: none; }
   .article-sponsor { gap: 13px; padding: 18px; flex-wrap: wrap; }
   .article-sponsor .sponsor-button { margin-left: 56px; }
 }
+
+/* Compact promotion on pages without a dedicated advertisement. */
+.global-sponsor { border-bottom: 1px solid var(--line); background: var(--canvas); }
+.global-sponsor-inner { display: flex; align-items: center; gap: 14px; min-height: 56px; padding-block: 10px; }
+.global-sponsor-copy { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0; color: var(--muted); font-size: .875rem; line-height: 1.5; }
+.global-sponsor-copy strong { color: var(--ink); font-size: 1rem; white-space: nowrap; }
+.global-sponsor-copy > span { white-space: nowrap; }
+.global-sponsor-copy > span + span::before { content: "·"; margin-right: 12px; color: var(--subtle); }
+.global-sponsor-inner > a { display: inline-flex; align-items: center; gap: 5px; flex-shrink: 0; min-height: 38px; color: var(--accent); font-size: .9375rem; font-weight: 600; white-space: nowrap; }
+.global-sponsor-inner > a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.global-sponsor-inner > a .icon { width: 14px; height: 14px; }
+@media (max-width: 520px) {
+  .global-sponsor-inner { min-height: 52px; gap: 8px; }
+  .global-sponsor-copy { gap: 8px; }
+  .global-sponsor-copy strong, .global-sponsor-inner > a { font-size: .875rem; }
+  .global-sponsor-copy > span { font-size: .8125rem; }
+  .global-sponsor-copy .global-sponsor-detail { display: none; }
+}
+@media print { .global-sponsor { display: none; } }
